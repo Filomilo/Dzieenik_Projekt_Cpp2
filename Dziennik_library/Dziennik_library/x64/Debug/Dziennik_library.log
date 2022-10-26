@@ -1,2 +1,5 @@
-﻿  Dziennik_library.cpp
-  Dziennik_library.vcxproj -> D:\studia\sem3\Programowanie_w_języku C_2\Programowanie w języku C 2 - projekt\Projekt\Dzieenik_Projekt_Cpp2\Dziennik_library\x64\Debug\Dziennik_library.exe
+﻿  shell.c
+  sqlite3.c
+  Generating Code...
+LINK : warning LNK4067: ambiguous entry point; selected 'mainCRTStartup'
+  Dziennik_library.vcxproj -> D:\studia\sem3\C_2\Programowanie w języku C 2 - projekt\Projekt\wokringdire\Filomilo\Dzieenik_Projekt_Cpp2\Dziennik_library\x64\Debug\Dziennik_library.exe
