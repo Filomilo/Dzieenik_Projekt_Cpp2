@@ -1,5 +1,9 @@
 ﻿#include <stdio.h>
 #include <sqlite3.h>
+#include "DziennikLib.h"
+#include <string>
+
+/*
 
 int main(int argc, char* argv[]) {
     sqlite3* db;
@@ -16,4 +20,13 @@ int main(int argc, char* argv[]) {
         fprintf(stderr, "Opened database successfully\n");
     }
     sqlite3_close(db);
+}*/
+
+int main()
+{
+    DziennikLib *db = new DziennikLib;
+    char* databaseName = (char*) "dataBsse.db";
+db->createNewDataBase(databaseName);
+
+
 }
