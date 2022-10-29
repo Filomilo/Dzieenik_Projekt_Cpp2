@@ -34,4 +34,5 @@ db->insertIntoSubjects("angielski");
 db->insertIntoSubjects("poslki");
 db->insertIntoTeachers("Asdasd", "Asdasda", "sadasda", "fdsfdsf", "1");
 db->insertIntoAttendacne("25-8-205", "2", "asd", "asda", "nieobecny");
+db->login("Test", "Test");
 }

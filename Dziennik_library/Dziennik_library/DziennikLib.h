@@ -57,6 +57,7 @@ private:
 		file.open("res/BasicDataBaseTemplate.sql", std::ios_base::in);
 		std::string sqlCommand = "";
 		std::string buffer;
+		
 		while(std::getline(file, buffer))
 		{
 			if (buffer == "--END")
@@ -85,10 +86,25 @@ private:
 		return isFileExist((char *)this->DataBaseDir.c_str());
 	}
 
+	std::string encrypt(std::string text)
+	{	
+		unsigned char* txt = (unsigned char*)text.c_str();
+		unsigned char encryprtedTxt[100];
+		SHA1(txt, strlen((const char*)txt), encryprtedTxt);
+		return std::string((char *)encryprtedTxt);
 
+	}
 	
 
 public:
+
+	bool login(std::string nick, std::string password)
+	{
+		
+		std::string encryprtedPass= encrypt(password);
+		std::cout << "password: " << password << std::endl << "encrypted: " << encryprtedPass << std::endl;
+		return true;
+	}
 
 	void insertIntoStudnets(std::string pesel, std::string name, std::string surname, std::string birthday)
 	{
