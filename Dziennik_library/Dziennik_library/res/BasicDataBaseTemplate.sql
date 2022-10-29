@@ -2,10 +2,10 @@ CREATE TABLE `Attendacne`
 (
  `Attendacne_id` INTEGER NOT NULL ,
  `Date`          date NOT NULL ,
- `Lesson_num`    int NOT NULL ,
- `Teacher_id`    integer NOT NULL ,
- `Student_id`    int NOT NULL ,
- `Status`        int NOT NULL ,
+ `Lesson_num`    INTEGER NOT NULL ,
+ `Teacher_id`    text NOT NULL ,
+ `Student_id`    text NOT NULL ,
+ `Status`        INTEGER NOT NULL ,
 
 PRIMARY KEY (`Attendacne_id`)
 );
@@ -26,7 +26,7 @@ PRIMARY KEY (`Pesel`)
 
 CREATE TABLE `Grades`
 (
- `Id`         INTEGER  NOT NULL ,
+ `Grade_Id`         INTEGER  NOT NULL ,
  `Student_id` text NOT NULL ,
  `Subject_id` int NOT NULL ,
  `Grade`      int NOT NULL ,

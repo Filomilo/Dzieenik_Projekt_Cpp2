@@ -13,7 +13,7 @@ int main()
     //std::cout <<std::endl<< db->encrypt("admin");
 
 db->insertDefaultData();
-db->printGrades();
-db->updateGrade("1", "11");
-db->printGrades();
+db->printAttendacne();
+db->updateAttandance("1", "7");
+db->printAttendacne();
 }

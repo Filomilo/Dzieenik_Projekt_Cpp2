@@ -110,6 +110,8 @@ public:
 
 	enum Account_types{ADMIN, TEACHER, STUDNET};
 
+	enum Attendance_types{PRESENT, ABSENT, LATE, EXCUSED};
+
 	bool login(std::string nick, std::string password)
 	{
 		
@@ -140,10 +142,20 @@ public:
 
 	void updateGrade(std::string gradeId, std::string newGrade)
 	{
-		std::string sqlCode = "UPDATE Grades \n SET Grade = '" + newGrade + "'\n WHERE `Id` = " + gradeId + ";";
+		std::string sqlCode = "UPDATE Grades \n SET Grade_Id = " + newGrade + "\n WHERE `Id` = " + gradeId + ";";
 		std::cout <<std::endl<< sqlCode;
 		executeSqlInsert(sqlCode);
 	}
+
+	void updateAttandance(std::string attandanceId, std::string newStatus)
+	{
+		std::string sqlCode = "UPDATE Attendacne \n SET Status = " + newStatus + "\n WHERE `Attendacne_id` = " + attandanceId + ";";
+		std::cout << std::endl << sqlCode;
+		executeSqlInsert(sqlCode);
+	}
+
+
+
 
 	std::string encrypt(std::string text)
 	{

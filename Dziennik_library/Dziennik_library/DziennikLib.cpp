@@ -178,30 +178,30 @@ void DziennikLib::insertDefaultData()
 	insertIntoGrades("86121110824", "7", "5");
 	insertIntoGrades("86121110824", "2", "3");
 
-	insertIntoAttendacne("2022-08-20", "1", "98072068558", "78032008893", "spóŸninie");
-	insertIntoAttendacne("2022-08-20", "1", "98072068558", "85043075127", "obecny");
-	insertIntoAttendacne("2022-08-20", "1", "98072068558", "97080905532", "obecny");
-	insertIntoAttendacne("2022-08-20", "1", "98072068558", "82011833851", "obecny");
-	insertIntoAttendacne("2022-08-20", "1", "98072068558", "86121110824", "spóŸninie");
+	insertIntoAttendacne("2022-08-20", "1", "98072068558", "78032008893", "2");
+	insertIntoAttendacne("2022-08-20", "1", "98072068558", "85043075127", "1");
+	insertIntoAttendacne("2022-08-20", "1", "98072068558", "97080905532", "2");
+	insertIntoAttendacne("2022-08-20", "1", "98072068558", "82011833851", "0");
+	insertIntoAttendacne("2022-08-20", "1", "98072068558", "86121110824", "1");
 
-	insertIntoAttendacne("2022-08-20", "2", "64081176966", "78032008893", "spóŸninie");
-	insertIntoAttendacne("2022-08-20", "2", "64081176966", "85043075127", "obecny");
-	insertIntoAttendacne("2022-08-20", "2", "64081176966", "97080905532", "nieobecny");
-	insertIntoAttendacne("2022-08-20", "2", "64081176966", "82011833851", "nieobecny");
-	insertIntoAttendacne("2022-08-20", "2", "64081176966", "86121110824", "nieobecny");
+	insertIntoAttendacne("2022-08-20", "2", "64081176966", "78032008893", "0");
+	insertIntoAttendacne("2022-08-20", "2", "64081176966", "85043075127", "3");
+	insertIntoAttendacne("2022-08-20", "2", "64081176966", "97080905532", "2");
+	insertIntoAttendacne("2022-08-20", "2", "64081176966", "82011833851", "1");
+	insertIntoAttendacne("2022-08-20", "2", "64081176966", "86121110824", "0");
 
 
-	insertIntoAttendacne("2022-08-20", "3", "65246524442", "78032008893", "spóŸninie");
-	insertIntoAttendacne("2022-08-20", "3", "65246524442", "85043075127", "obecny");
-	insertIntoAttendacne("2022-08-20", "3", "65246524442", "97080905532", "spóŸninie");
-	insertIntoAttendacne("2022-08-20", "3", "65246524442", "82011833851", "obecny");
-	insertIntoAttendacne("2022-08-20", "3", "65246524442", "86121110824", "nieobecny");
+	insertIntoAttendacne("2022-08-20", "3", "65246524442", "78032008893", "1");
+	insertIntoAttendacne("2022-08-20", "3", "65246524442", "85043075127", "3");
+	insertIntoAttendacne("2022-08-20", "3", "65246524442", "97080905532", "2");
+	insertIntoAttendacne("2022-08-20", "3", "65246524442", "82011833851", "1");
+	insertIntoAttendacne("2022-08-20", "3", "65246524442", "86121110824", "1");
 
-	insertIntoAttendacne("2022-08-20", "4", "78112917806", "78032008893", "nieobecny");
-	insertIntoAttendacne("2022-08-20", "4", "78112917806", "85043075127", "obecny");
-	insertIntoAttendacne("2022-08-20", "4", "78112917806", "97080905532", "spóŸninie");
-	insertIntoAttendacne("2022-08-20", "4", "78112917806", "82011833851", "nieobecny");
-	insertIntoAttendacne("2022-08-20", "4", "78112917806", "86121110824", "obecny");
+	insertIntoAttendacne("2022-08-20", "4", "78112917806", "78032008893", "0");
+	insertIntoAttendacne("2022-08-20", "4", "78112917806", "85043075127", "3");
+	insertIntoAttendacne("2022-08-20", "4", "78112917806", "97080905532", "2");
+	insertIntoAttendacne("2022-08-20", "4", "78112917806", "82011833851", "1");
+	insertIntoAttendacne("2022-08-20", "4", "78112917806", "86121110824", "0");
 
 	insertIntoUsers("admin",encrypt("admin"), "0");
 	insertIntoUsers("Marzena", encrypt("haslo"), "1" ,"98072068558");
