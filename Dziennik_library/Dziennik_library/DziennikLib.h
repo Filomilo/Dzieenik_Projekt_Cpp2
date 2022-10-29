@@ -9,8 +9,12 @@ class DziennikLib
 {
 private:
 
+
+
+
 	sqlite3* db;
 	std::string DataBaseDir;
+
 
 	bool errorHandler(const char* warrningMessage)
 	{
@@ -81,8 +85,44 @@ private:
 	}
 
 
+	
 
 public:
+
+	void insertIntoStudnets(std::string pesel, std::string name, std::string surname, std::string birthday)
+	{
+		std::string sqlCommand = "INSERT INTO Students (Pesel,Name,Surname,Birthday)\nVALUES('" + pesel + "','" + name + "','" + surname + "','" + birthday + "');";
+		std::cout << sqlCommand << std::endl;
+		executeSql(sqlCommand);
+	}
+
+	void insertIntoGrades(std::string Student_id, std::string Subject_id, std::string Grade)
+	{
+		std::string sqlCommand = "INSERT INTO Grades (Student_id,Subject_id,Grade)\nVALUES('" + Student_id + "'," + Subject_id + "," + Grade + ");";
+		std::cout << sqlCommand << std::endl;
+		executeSql(sqlCommand);
+	}
+
+	void insertIntoAttendacne(std::string Date, std::string Lesson_num, std::string Teacher_id, std::string Student_id, std::string Status)
+	{
+		std::string sqlCommand = "INSERT INTO Attendacne (Date,Lesson_num,Teacher_id,Student_id,Status)\nVALUES('" + Date + "'," + Lesson_num + + ",'" + Teacher_id + "','" + Student_id +"','"+ Status+ "');";
+		std::cout << sqlCommand << std::endl;
+		executeSql(sqlCommand);
+	}
+	
+	void insertIntoSubjects(std::string Name)
+	{
+		std::string sqlCommand = "INSERT INTO Subjects (Name)\nVALUES('" + Name +"');";
+		std::cout << sqlCommand << std::endl;
+		executeSql(sqlCommand);
+	}
+
+	void insertIntoTeachers(std::string pesel, std::string name, std::string surname, std::string birthday, std::string Subject_id)
+	{
+		std::string sqlCommand = "INSERT INTO Teachers (Pesel,Name,Surname,Birthday,Subject_id)\nVALUES('" + pesel + "','" + name + "','" + surname + "','" + birthday + "','" + Subject_id +"');";
+		std::cout << sqlCommand << std::endl;
+		executeSql(sqlCommand);
+	}
 
 	static bool isFileExist(char* fileDir)
 	{

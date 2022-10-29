@@ -27,6 +27,11 @@ int main()
     DziennikLib *db = new DziennikLib;
     char* databaseName = (char*) "dataBsse.db";
 db->createNewDataBase(databaseName);
-
-
+db->insertIntoStudnets("Asdasd", "Asdasda", "sadasda", "fdsfdsf");
+db->insertIntoGrades("hj", "5", "9");
+db->insertIntoGrades("hsadaj", "3", "2");
+db->insertIntoSubjects("angielski");
+db->insertIntoSubjects("poslki");
+db->insertIntoTeachers("Asdasd", "Asdasda", "sadasda", "fdsfdsf", "1");
+db->insertIntoAttendacne("25-8-205", "2", "asd", "asda", "nieobecny");
 }
