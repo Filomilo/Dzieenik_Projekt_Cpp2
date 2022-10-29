@@ -136,7 +136,14 @@ public:
 	void printSubjects();
 	void printDataBase();
 
+	//update
 
+	void updateGrade(std::string gradeId, std::string newGrade)
+	{
+		std::string sqlCode = "UPDATE Grades \n SET Grade = '" + newGrade + "'\n WHERE `Id` = " + gradeId + ";";
+		std::cout <<std::endl<< sqlCode;
+		executeSqlInsert(sqlCode);
+	}
 
 	std::string encrypt(std::string text)
 	{

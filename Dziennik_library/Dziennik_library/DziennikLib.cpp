@@ -51,6 +51,9 @@ void DziennikLib::insertIntoUsers(std::string nick, std::string Password, std::s
 }
 
 
+
+//update Grade
+
 //print Functioons
 
 void DziennikLib::printStudents()
