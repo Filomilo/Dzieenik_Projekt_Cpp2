@@ -89,8 +89,8 @@ private:
 	std::string encrypt(std::string text)
 	{	
 		unsigned char* txt = (unsigned char*)text.c_str();
-		unsigned char encryprtedTxt[100];
-		SHA1(txt, strlen((const char*)txt), encryprtedTxt);
+		unsigned char encryprtedTxt[SHA512_DIGEST_LENGTH];
+		SHA512(txt, strlen((const char*)txt), encryprtedTxt);
 		return std::string((char *)encryprtedTxt);
 
 	}
