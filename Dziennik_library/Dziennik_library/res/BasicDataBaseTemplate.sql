@@ -58,3 +58,17 @@ CREATE TABLE `Teachers`
 PRIMARY KEY (`Pesel`)
 );
 --END
+
+
+CREATE TABLE `Users`
+(
+ `User_Id`      INTEGER NOT NULL ,
+ `Nick`       text UNIQUE NOT NULL ,
+ `Password`    text NOT NULL ,
+ `Acccount_Type`  int NOT NULL ,
+ `Id_in_db` text DEFAULT NULL,
+
+ PRIMARY KEY (`User_Id`)
+
+);
+--END

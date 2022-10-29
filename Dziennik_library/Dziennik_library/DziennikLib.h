@@ -9,11 +9,7 @@
 class DziennikLib
 {
 private:
-
-
-
-
-	sqlite3* db;
+	sqlite3* db=NULL;
 	std::string DataBaseDir;
 
 
@@ -39,7 +35,7 @@ private:
 		std::cout << std::endl << message << std::endl;
 	}
 
-	void executeSql(std::string sqlCommand)
+	void executeSqlInsert(std::string sqlCommand)
 	{
 		char* errorMsg;
 		if (sqlite3_exec(this->db, sqlCommand.c_str(), NULL, NULL, &errorMsg) != SQLITE_OK)
@@ -49,7 +45,27 @@ private:
 		
 	}
 
+	
 
+	void executeSqlPrint(std::string sqlCommand)
+	{
+		char* errorMsg;
+
+		if (sqlite3_exec(this->db, sqlCommand.c_str(), callbackPrint, NULL, &errorMsg) != SQLITE_OK)
+		{
+			warrningHandler(errorMsg);
+		}
+
+	}
+
+	static int callbackPrint(void* data, int argc, char** argv, char** azColName) {
+		int i;
+		for (i = 0; i < argc; i++) {
+			printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
+		}
+		printf("\n");
+		return 0;
+	}
 
 	void createBasictables()
 	{
@@ -62,7 +78,7 @@ private:
 		{
 			if (buffer == "--END")
 			{
-				executeSql(sqlCommand);
+				executeSqlInsert(sqlCommand);
 				sqlCommand.clear();
 			}
 			else
@@ -86,17 +102,13 @@ private:
 		return isFileExist((char *)this->DataBaseDir.c_str());
 	}
 
-	std::string encrypt(std::string text)
-	{	
-		unsigned char* txt = (unsigned char*)text.c_str();
-		unsigned char encryprtedTxt[SHA512_DIGEST_LENGTH];
-		SHA512(txt, strlen((const char*)txt), encryprtedTxt);
-		return std::string((char *)encryprtedTxt);
 
-	}
-	
+
+
 
 public:
+
+	enum Account_types{ADMIN, TEACHER, STUDNET};
 
 	bool login(std::string nick, std::string password)
 	{
@@ -106,50 +118,36 @@ public:
 		return true;
 	}
 
-	void insertIntoStudnets(std::string pesel, std::string name, std::string surname, std::string birthday)
+	//insert to DataBase
+	void insertIntoStudnets(std::string pesel, std::string name, std::string surname, std::string birthday);
+	void insertIntoGrades(std::string Student_id, std::string Subject_id, std::string Grade);
+	void insertIntoAttendacne(std::string Date, std::string Lesson_num, std::string Teacher_id, std::string Student_id, std::string Status);
+	void insertIntoSubjects(std::string Name);
+	void insertIntoTeachers(std::string pesel, std::string name, std::string surname, std::string birthday, std::string Subject_id);
+	void insertIntoUsers(std::string nick, std::string Password, std::string Account_type, std::string Id_in_db);
+	void insertIntoUsers(std::string nick, std::string Password, std::string Account_type);
+
+	//printDataBase
+	void printStudents();
+	void printTeachers();
+	void printUsers();
+	void printGrades();
+	void printAttendacne();
+	void printSubjects();
+	void printDataBase();
+
+
+
+	std::string encrypt(std::string text)
 	{
-		std::string sqlCommand = "INSERT INTO Students (Pesel,Name,Surname,Birthday)\nVALUES('" + pesel + "','" + name + "','" + surname + "','" + birthday + "');";
-		std::cout << sqlCommand << std::endl;
-		executeSql(sqlCommand);
+		unsigned char* txt = (unsigned char*)text.c_str();
+		unsigned char encryprtedTxt[SHA256_DIGEST_LENGTH+1];
+		memset(encryprtedTxt, 0, sizeof(encryprtedTxt));
+		SHA256(txt, strlen((const char*)txt), encryprtedTxt);
+		return std::string((char*)encryprtedTxt)+"\0";
 	}
 
-	void insertIntoGrades(std::string Student_id, std::string Subject_id, std::string Grade)
-	{
-		std::string sqlCommand = "INSERT INTO Grades (Student_id,Subject_id,Grade)\nVALUES('" + Student_id + "'," + Subject_id + "," + Grade + ");";
-		std::cout << sqlCommand << std::endl;
-		executeSql(sqlCommand);
-	}
 
-	void insertIntoAttendacne(std::string Date, std::string Lesson_num, std::string Teacher_id, std::string Student_id, std::string Status)
-	{
-		std::string sqlCommand = "INSERT INTO Attendacne (Date,Lesson_num,Teacher_id,Student_id,Status)\nVALUES('" + Date + "'," + Lesson_num + + ",'" + Teacher_id + "','" + Student_id +"','"+ Status+ "');";
-		std::cout << sqlCommand << std::endl;
-		executeSql(sqlCommand);
-	}
-	
-	void insertIntoSubjects(std::string Name)
-	{
-		std::string sqlCommand = "INSERT INTO Subjects (Name)\nVALUES('" + Name +"');";
-		std::cout << sqlCommand << std::endl;
-		executeSql(sqlCommand);
-	}
-
-	void insertIntoTeachers(std::string pesel, std::string name, std::string surname, std::string birthday, std::string Subject_id)
-	{
-		std::string sqlCommand = "INSERT INTO Teachers (Pesel,Name,Surname,Birthday,Subject_id)\nVALUES('" + pesel + "','" + name + "','" + surname + "','" + birthday + "','" + Subject_id +"');";
-		std::cout << sqlCommand << std::endl;
-		executeSql(sqlCommand);
-	}
-
-	static bool isFileExist(char* fileDir)
-	{
-		std::ifstream file(fileDir);
-		if (!file.is_open()) {
-			return false;
-		}
-		file.close();
-		return true;
-	}
 
 	void createNewDataBase(char* fileDir)
 	{
@@ -175,8 +173,23 @@ public:
 		}while(0);
 		
 		createBasictables();
-
 	}
 
+
+	//testing methods
+	void insertDefaultData();
+
+
+
+	//utilities
+	static bool isFileExist(char* fileDir)
+	{
+		std::ifstream file(fileDir);
+		if (!file.is_open()) {
+			return false;
+		}
+		file.close();
+		return true;
+	}
 };
 

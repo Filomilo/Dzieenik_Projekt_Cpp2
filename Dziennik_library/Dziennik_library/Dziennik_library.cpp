@@ -2,6 +2,7 @@
 #include <sqlite3.h>
 #include "DziennikLib.h"
 #include <string>
+#include <locale>
 
 /*
 
@@ -24,15 +25,13 @@ int main(int argc, char* argv[]) {
 
 int main()
 {
+    std::setlocale(LC_ALL, "");
     DziennikLib *db = new DziennikLib;
     char* databaseName = (char*) "dataBsse.db";
 db->createNewDataBase(databaseName);
-db->insertIntoStudnets("Asdasd", "Asdasda", "sadasda", "fdsfdsf");
-db->insertIntoGrades("hj", "5", "9");
-db->insertIntoGrades("hsadaj", "3", "2");
-db->insertIntoSubjects("angielski");
-db->insertIntoSubjects("poslki");
-db->insertIntoTeachers("Asdasd", "Asdasda", "sadasda", "fdsfdsf", "1");
-db->insertIntoAttendacne("25-8-205", "2", "asd", "asda", "nieobecny");
-db->login("Test", "Test");
+//std::cout <<std::endl<< db->encrypt("admin");
+
+db->insertDefaultData();
+
+db->printDataBase();
 }
