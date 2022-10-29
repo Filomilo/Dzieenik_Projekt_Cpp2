@@ -12,6 +12,8 @@ private:
 	sqlite3* db=NULL;
 	std::string DataBaseDir;
 
+	int LoginId = -1;
+
 
 	bool errorHandler(const char* warrningMessage)
 	{
@@ -28,8 +30,6 @@ private:
 		return true;
 	}
 
-
-
 	void actionMessage(const char* message)
 	{
 		std::cout << std::endl << message << std::endl;
@@ -45,8 +45,6 @@ private:
 		
 	}
 
-	
-
 	void executeSqlPrint(std::string sqlCommand)
 	{
 		char* errorMsg;
@@ -58,6 +56,20 @@ private:
 
 	}
 
+	int executeSqlAmount(std::string sqlCommand)
+	{
+		char* errorMsg;
+		int amount;
+		if (sqlite3_exec(this->db, sqlCommand.c_str(), callbackGetAmount, (void*)( & amount), &errorMsg) != SQLITE_OK)
+		{
+			warrningHandler(errorMsg);
+		}
+		return amount;
+
+	}
+	
+	
+	//sql callbakc functions
 	static int callbackPrint(void* data, int argc, char** argv, char** azColName) {
 		int i;
 		for (i = 0; i < argc; i++) {
@@ -66,6 +78,23 @@ private:
 		printf("\n");
 		return 0;
 	}
+
+	static int callbackGetAmount(void* data, int argc, char** argv, char** azColName) {
+		
+		int* amount = (int*)data;
+		*amount = argc;
+
+		return 0;
+	}
+
+	int getAmountOfLogin(std::string nick, std::string password)
+	{
+		std::string sqlCommand= "SELECT * FROM Users WHERE Nick = '" + nick + "' AND  Password = '" + encrypt(password) + "';";
+
+		return executeSqlAmount(sqlCommand);
+	}
+	//
+
 
 	void createBasictables()
 	{
@@ -103,7 +132,15 @@ private:
 	}
 
 
-
+	//validators
+	bool validateLogin(std::string nick, std::string password)
+	{
+		if (getAmountOfLogin(nick, password)>1)
+		{
+			return true;
+		}
+		return false;
+	}
 
 
 public:
@@ -113,11 +150,8 @@ public:
 	enum Attendance_types{PRESENT, ABSENT, LATE, EXCUSED};
 
 	bool login(std::string nick, std::string password)
-	{
-		
-		std::string encryprtedPass= encrypt(password);
-		std::cout << "password: " << password << std::endl << "encrypted: " << encryprtedPass << std::endl;
-		return true;
+	{	
+		return validateLogin(nick, password);
 	}
 
 	//insert to DataBase
@@ -153,8 +187,6 @@ public:
 		std::cout << std::endl << sqlCode;
 		executeSqlInsert(sqlCode);
 	}
-
-
 
 
 	std::string encrypt(std::string text)
@@ -193,6 +225,12 @@ public:
 		
 		createBasictables();
 	}
+
+
+	//dataValidators
+
+
+
 
 
 	//testing methods
