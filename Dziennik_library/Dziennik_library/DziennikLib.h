@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include<string>
+#include <openssl/sha.h>
 
 
 class DziennikLib
@@ -69,7 +70,7 @@ private:
 		file.close();
 	}
 
-	void removeDataBase()
+	void removeDataBaseFile()
 	{
 		
 		if (std::remove(DataBaseDir.c_str()) < 0)
@@ -147,7 +148,7 @@ public:
 				break;
 			}
 			actionMessage("removing previous dataBase");
-			removeDataBase();
+			removeDataBaseFile();
 			
 		}
 		actionMessage("opening DataBase");
