@@ -6,6 +6,7 @@
 #include <openssl/sha.h>
 #include "student.h"
 #include "RecordBaseClass.h"
+#include <vector>
 
 
 class DziennikLib
@@ -69,15 +70,15 @@ private:
 		return amount;
 	}
 
-	student executeGetStudent(std::string sqlCommand)
+	std::vector<student> executeGetStudent(std::string sqlCommand)
 	{
 		char* errorMsg;
-		student studentRecord;
-		if (sqlite3_exec(this->db, sqlCommand.c_str(), callbackGetStudent, (void*)(&studentRecord), &errorMsg) != SQLITE_OK)
+		std::vector<student> studentRecords;
+		if (sqlite3_exec(this->db, sqlCommand.c_str(), callbackGetStudent, (void*)(&studentRecords), &errorMsg) != SQLITE_OK)
 		{
 			warrningHandler(errorMsg);
 		}
-		return studentRecord;
+		return studentRecords;
 	}
 
 	
@@ -101,11 +102,17 @@ private:
 	}
 
 	static int callbackGetStudent(void* data, int argc, char** argv, char** azColName) {
-		student* studentRecord = (student*)data;
-		studentRecord->setPesel(argv[0]);
-		studentRecord->setName(argv[1]);
-		studentRecord->setSurname(argv[2]);
-		studentRecord->setBirthday(argv[3]);
+		std::vector<student>* studentRecords = (std::vector<student>*)data;
+		int i;
+		for (i = 0; i < argc; i+=4) {
+			student studentRecord;
+			studentRecord.setPesel(argv[0]);
+			studentRecord.setName(argv[1]);
+			studentRecord.setSurname(argv[2]);
+			studentRecord.setBirthday(argv[3]);
+			studentRecords->push_back(studentRecord);
+		}
+		
 
 		return 0;
 	}
@@ -201,11 +208,11 @@ public:
 
 	student findStudentByPesel(std::string pesel)
 	{
-		student studentRecord;
+		std::vector<student> studentRecords;
 		std::cout << "Grades table:" << std::endl << std::endl;
 		std::string sqlCommand = "SELECT * FROM Students \n WHERE Pesel = '" + pesel + "'";
-		studentRecord=executeGetStudent(sqlCommand.c_str());
-		return studentRecord;
+		studentRecords=executeGetStudent(sqlCommand.c_str());
+		return *studentRecords.begin();
 	}
 
 
@@ -256,11 +263,20 @@ public:
 		{
 			errorHandler("could not open data base");
 		}
-		}while(0);
+	}while(0);
 		
 		createBasictables();
 	}
 
+	void loadDataBase(char* fileDir)
+	{
+		this->DataBaseDir = std::string(fileDir);
+		actionMessage("opening DataBase");
+		if (sqlite3_open(DataBaseDir.c_str(), &this->db))
+		{
+			errorHandler("could not open data base");
+		}
+	}
 
 	//dataValidators
 
