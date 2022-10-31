@@ -5,188 +5,77 @@
 #include<string>
 #include <openssl/sha.h>
 #include "student.h"
-#include "RecordBaseClass.h"
 #include <vector>
 
 
 class DziennikLib
 {
 private:
-	sqlite3* db=NULL;
-	std::string DataBaseDir;
 
+	//*********************************************************    Varaibles
+	sqlite3* db = NULL;
+	std::string DataBaseDir;
 	int LoginId = -1;
 
+	//*********************************************************    Constants
 
-	bool errorHandler(const char* warrningMessage)
-	{
-		//TODO: adjust error handler to wx widget
-
-		std::cout << "ERROR:" << std::endl << warrningMessage << std::endl << std::endl;
-		return true;
-	}
-
-	bool warrningHandler(const char* warrningMessage)
-	{
-		//TODO: adjust warring handler to wx widget
-		std::cout << "warrning:" << std::endl << warrningMessage << std::endl << std::endl;
-		return true;
-	}
-
-	void actionMessage(const char* message)
-	{
-		std::cout << std::endl << message << std::endl;
-	}
-
-	void executeSqlInsert(std::string sqlCommand)
-	{
-		char* errorMsg;
-		if (sqlite3_exec(this->db, sqlCommand.c_str(), NULL, NULL, &errorMsg) != SQLITE_OK)
-		{
-			warrningHandler(errorMsg);
-		}
-		
-	}
-
-	void executeSqlPrint(std::string sqlCommand)
-	{
-		char* errorMsg;
-
-		if (sqlite3_exec(this->db, sqlCommand.c_str(), callbackPrint, NULL, &errorMsg) != SQLITE_OK)
-		{
-			warrningHandler(errorMsg);
-		}
-
-	}
-
-	int executeSqlAmount(std::string sqlCommand)
-	{
-		char* errorMsg;
-		int amount;
-		if (sqlite3_exec(this->db, sqlCommand.c_str(), callbackGetAmount, (void*)( & amount), &errorMsg) != SQLITE_OK)
-		{
-			warrningHandler(errorMsg);
-		}
-		return amount;
-	}
-
-	std::vector<student> executeGetStudent(std::string sqlCommand)
-	{
-		char* errorMsg;
-		std::vector<student> studentRecords;
-		if (sqlite3_exec(this->db, sqlCommand.c_str(), callbackGetStudent, (void*)(&studentRecords), &errorMsg) != SQLITE_OK)
-		{
-			warrningHandler(errorMsg);
-		}
-		return studentRecords;
-	}
-
+	//*********************************************************    callbacks
+	static int callbackPrint(void* data, int argc, char** argv, char** azColName);
+	static int callbackGetAmount(void* data, int argc, char** argv, char** azColName);
+	static int callbackGetStudent(void* data, int argc, char** argv, char** azColName);
 	
+	//*********************************************************    communication
+	bool errorHandler(const char* warrningMessage);
+	bool warrningHandler(const char* warrningMessage);
+	void actionMessage(const char* message);
+
+	//*********************************************************    execute
+	void executeSqlInsert(std::string sqlCommand);
+	void executeSqlPrint(std::string sqlCommand);
+	int executeSqlAmount(std::string sqlCommand);
+	std::vector<student> executeGetStudent(std::string sqlCommand);
+
+	//*********************************************************    find
 	
-	//sql callbakc functions
-	static int callbackPrint(void* data, int argc, char** argv, char** azColName) {
-		int i;
-		for (i = 0; i < argc; i++) {
-			printf("%s = %s\n", azColName[i], argv[i] ? argv[i] : "NULL");
-		}
-		printf("\n");
-		return 0;
-	}
+	//*********************************************************    insert
+	
+	//*********************************************************    manager
+	void createBasictables();
+	void removeDataBaseFile();
+	
+	//*********************************************************    print
+	
+	//*********************************************************    testing
 
-	static int callbackGetAmount(void* data, int argc, char** argv, char** azColName) {
-		
-		int* amount = (int*)data;
-		*amount = argc;
-
-		return 0;
-	}
-
-	static int callbackGetStudent(void* data, int argc, char** argv, char** azColName) {
-		std::vector<student>* studentRecords = (std::vector<student>*)data;
-		int i;
-		for (i = 0; i < argc; i+=4) {
-			student studentRecord;
-			studentRecord.setPesel(argv[0]);
-			studentRecord.setName(argv[1]);
-			studentRecord.setSurname(argv[2]);
-			studentRecord.setBirthday(argv[3]);
-			studentRecords->push_back(studentRecord);
-		}
-		
-
-		return 0;
-	}
-
-
-
-	int getAmountOfLogin(std::string nick, std::string password)
-	{
-		std::string sqlCommand= "SELECT * FROM Users WHERE Nick = '" + nick + "' AND  Password = '" + encrypt(password) + "';";
-
-		return executeSqlAmount(sqlCommand);
-	}
-	//
-
-
-	void createBasictables()
-	{
-		std::ifstream file;
-		file.open("res/BasicDataBaseTemplate.sql", std::ios_base::in);
-		std::string sqlCommand = "";
-		std::string buffer;
-		
-		while(std::getline(file, buffer))
-		{
-			if (buffer == "--END")
-			{
-				executeSqlInsert(sqlCommand);
-				sqlCommand.clear();
-			}
-			else
-			sqlCommand += buffer + "\n";
-		}
-		file.close();
-	}
-
-	void removeDataBaseFile()
-	{
-		
-		if (std::remove(DataBaseDir.c_str()) < 0)
-		{
-			warrningHandler("could not remove prevoius dataBase");
-			perror("_unlink");
-		}
-	}
-
-	bool isDataBaseExist()
-	{
-		return isFileExist((char *)this->DataBaseDir.c_str());
-	}
-
-
-	//validators
-	bool validateLogin(std::string nick, std::string password)
-	{
-		if (getAmountOfLogin(nick, password)>1)
-		{
-			return true;
-		}
-		return false;
-	}
+	//*********************************************************    tools
+	
+	//*********************************************************    update
+	
+	//*********************************************************    validators
+	bool validateLogin(std::string nick, std::string password);
+	
+	//*********************************************************    account
+	int getAmountOfLogin(std::string nick, std::string password);
 
 
 public:
 
-	enum Account_types{ADMIN, TEACHER, STUDNET};
+	//*********************************************************    Varaibles
 
-	enum Attendance_types{PRESENT, ABSENT, LATE, EXCUSED};
+	//*********************************************************    Constants
+	enum Account_types { ADMIN, TEACHER, STUDNET };
+	enum Attendance_types { PRESENT, ABSENT, LATE, EXCUSED };
 
-	bool login(std::string nick, std::string password)
-	{	
-		return validateLogin(nick, password);
-	}
+	//*********************************************************    callbacks
 
-	//insert to DataBase
+	//*********************************************************    communication
+
+	//*********************************************************    execute
+
+	//*********************************************************    find
+	student findStudentByPesel(std::string pesel);
+
+	//*********************************************************    insert
 	void insertIntoStudnets(std::string pesel, std::string name, std::string surname, std::string birthday);
 	void insertIntoGrades(std::string Student_id, std::string Subject_id, std::string Grade);
 	void insertIntoAttendacne(std::string Date, std::string Lesson_num, std::string Teacher_id, std::string Student_id, std::string Status);
@@ -195,7 +84,12 @@ public:
 	void insertIntoUsers(std::string nick, std::string Password, std::string Account_type, std::string Id_in_db);
 	void insertIntoUsers(std::string nick, std::string Password, std::string Account_type);
 
-	//printDataBase
+	//*********************************************************    manager
+	void createNewDataBase(char* fileDir);
+	void loadDataBase(char* fileDir);
+	bool isDataBaseExist();
+
+	//*********************************************************    print
 	void printStudents();
 	void printTeachers();
 	void printUsers();
@@ -204,100 +98,21 @@ public:
 	void printSubjects();
 	void printDataBase();
 
-	//GetRecords
-
-	student findStudentByPesel(std::string pesel)
-	{
-		std::vector<student> studentRecords;
-		std::cout << "Grades table:" << std::endl << std::endl;
-		std::string sqlCommand = "SELECT * FROM Students \n WHERE Pesel = '" + pesel + "'";
-		studentRecords=executeGetStudent(sqlCommand.c_str());
-		return *studentRecords.begin();
-	}
-
-
-	//update
-
-	void updateGrade(std::string gradeId, std::string newGrade)
-	{
-		std::string sqlCode = "UPDATE Grades \n SET Grade_Id = " + newGrade + "\n WHERE `Id` = " + gradeId + ";";
-		std::cout <<std::endl<< sqlCode;
-		executeSqlInsert(sqlCode);
-	}
-
-	void updateAttandance(std::string attandanceId, std::string newStatus)
-	{
-		std::string sqlCode = "UPDATE Attendacne \n SET Status = " + newStatus + "\n WHERE `Attendacne_id` = " + attandanceId + ";";
-		std::cout << std::endl << sqlCode;
-		executeSqlInsert(sqlCode);
-	}
-
-
-	std::string encrypt(std::string text)
-	{
-		unsigned char* txt = (unsigned char*)text.c_str();
-		unsigned char encryprtedTxt[SHA256_DIGEST_LENGTH+1];
-		memset(encryprtedTxt, 0, sizeof(encryprtedTxt));
-		SHA256(txt, strlen((const char*)txt), encryprtedTxt);
-		return std::string((char*)encryprtedTxt)+"\0";
-	}
-
-	void createNewDataBase(char* fileDir)
-	{
-		do
-		{
-			this->DataBaseDir = std::string(fileDir);
-		actionMessage("checing if data abse alrady exist");
-		if (this->isDataBaseExist())
-		{
-			if (warrningHandler("Data Base alrady exist")==false)
-			{
-				break;
-			}
-			actionMessage("removing previous dataBase");
-			removeDataBaseFile();
-			
-		}
-		actionMessage("opening DataBase");
-		if (sqlite3_open(DataBaseDir.c_str(), &this->db))
-		{
-			errorHandler("could not open data base");
-		}
-	}while(0);
-		
-		createBasictables();
-	}
-
-	void loadDataBase(char* fileDir)
-	{
-		this->DataBaseDir = std::string(fileDir);
-		actionMessage("opening DataBase");
-		if (sqlite3_open(DataBaseDir.c_str(), &this->db))
-		{
-			errorHandler("could not open data base");
-		}
-	}
-
-	//dataValidators
-
-
-
-
-
-	//testing methods
+	//*********************************************************    testing
 	void insertDefaultData();
 
+	//*********************************************************    tools
+	static bool isFileExist(char* fileDir);
 
+	//*********************************************************    update
+	void updateGrade(std::string gradeId, std::string newGrade);
+	void updateAttandance(std::string attandanceId, std::string newStatus);
 
-	//utilities
-	static bool isFileExist(char* fileDir)
-	{
-		std::ifstream file(fileDir);
-		if (!file.is_open()) {
-			return false;
-		}
-		file.close();
-		return true;
-	}
+	//*********************************************************    validators
+
+	//*********************************************************    account
+	bool login(std::string nick, std::string password);
+	std::string encrypt(std::string text);
+
 };
 

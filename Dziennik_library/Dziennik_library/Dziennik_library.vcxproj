@@ -139,15 +139,23 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DziennikLib.cpp" />
+    <ClCompile Include="DziennikLib_callbacks.cpp" />
+    <ClCompile Include="DziennikLib_communication.cpp" />
+    <ClCompile Include="DziennikLib_execute.cpp" />
+    <ClCompile Include="DziennikLib_find.cpp" />
+    <ClCompile Include="DziennikLib_insert.cpp" />
+    <ClCompile Include="DziennikLib_manager.cpp" />
+    <ClCompile Include="DziennikLib_print.cpp" />
+    <ClCompile Include="DziennikLib_testing.cpp" />
+    <ClCompile Include="DziennikLib_tools.cpp" />
+    <ClCompile Include="DziennikLib_update.cpp" />
+    <ClCompile Include="DziennikLib_validators.cpp" />
     <ClCompile Include="Dziennik_library.cpp" />
-    <ClCompile Include="RecordBaseClass.cpp" />
+    <ClCompile Include="DziennkLib_account.cpp" />
     <ClCompile Include="sqlite\sqlite3.c" />
-    <ClCompile Include="student.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DziennikLib.h" />
-    <ClInclude Include="RecordBaseClass.h" />
     <ClInclude Include="sqlite\sqlite3.h" />
     <ClInclude Include="sqlite\sqlite3ext.h" />
     <ClInclude Include="student.h" />

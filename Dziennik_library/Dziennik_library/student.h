@@ -1,9 +1,9 @@
 #pragma once
 #include <string>
 #include <iostream>
-#include "RecordBaseClass.h"
 
-class student : public RecordBaseClass
+
+class student 
 {
 private:
 	std::string Pesel;
