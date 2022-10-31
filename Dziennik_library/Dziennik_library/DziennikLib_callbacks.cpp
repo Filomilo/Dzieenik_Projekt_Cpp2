@@ -14,7 +14,6 @@
 
 	int* amount = (int*)data;
 	*amount = argc;
-
 	return 0;
 }
 

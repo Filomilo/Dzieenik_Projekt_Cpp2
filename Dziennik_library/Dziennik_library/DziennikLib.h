@@ -18,6 +18,14 @@ private:
 	int LoginId = -1;
 
 	//*********************************************************    Constants
+	//TODO: change using sql from file to const
+	const char* sqlCommadCreateStudents;
+	const char* sqlCommadCreateAttendacne;
+	const char* sqlCommadCreatePesel;
+	const char* sqlCommadCreateGrades;
+	const char* sqlCommadCreateSubjects;
+	const char* sqlCommadCreateTeachers;
+	const char* sqlCommadCreateUsers;
 
 	//*********************************************************    callbacks
 	static int callbackPrint(void* data, int argc, char** argv, char** azColName);
@@ -56,6 +64,9 @@ private:
 	
 	//*********************************************************    account
 	int getAmountOfLogin(std::string nick, std::string password);
+
+	//*********************************************************    friends
+	friend class student;
 
 
 public:

@@ -105,6 +105,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)openssl-3\x64\include;$(ProjectDir)sqlite</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -141,6 +142,7 @@
   <ItemGroup>
     <ClCompile Include="DziennikLib_callbacks.cpp" />
     <ClCompile Include="DziennikLib_communication.cpp" />
+    <ClCompile Include="DziennikLib_constants.cpp" />
     <ClCompile Include="DziennikLib_execute.cpp" />
     <ClCompile Include="DziennikLib_find.cpp" />
     <ClCompile Include="DziennikLib_insert.cpp" />
