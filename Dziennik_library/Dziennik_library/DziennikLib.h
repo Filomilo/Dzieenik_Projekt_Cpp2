@@ -4,9 +4,14 @@
 #include <fstream>
 #include<string>
 #include <openssl/sha.h>
+#include <vector>
+
 #include "student.h"
 #include "user.h"
-#include <vector>
+#include "grade.h"
+#include "attendance.h"
+#include "teacher.h"
+#include "subject.h"
 
 
 class DziennikLib
@@ -33,6 +38,10 @@ private:
 	static int callbackGetAmount(void* data, int argc, char** argv, char** azColName);
 	static int callbackGetStudent(void* data, int argc, char** argv, char** azColName);
 	static int callbackGetUser(void* data, int argc, char** argv, char** azColName);
+	static int callbackGetTeacher(void* data, int argc, char** argv, char** azColName);
+	static int callbackGetAttendacne(void* data, int argc, char** argv, char** azColName);
+	static int callbackGetGrade(void* data, int argc, char** argv, char** azColName);
+	static int callbackGetSubject(void* data, int argc, char** argv, char** azColName);
 
 	
 	//*********************************************************    communication
@@ -46,6 +55,11 @@ private:
 	int executeSqlAmount(std::string sqlCommand);
 	std::vector<student> executeGetStudent(std::string sqlCommand);
 	std::vector<user> executeGetUser(std::string sqlCommand);
+	std::vector<teacher> executeGetTeacher(std::string sqlCommand);
+	std::vector<subject> executeGetSubject(std::string sqlCommand);
+	std::vector<attendance> executeGetAttendace(std::string sqlCommand);
+	std::vector<grade> executeGetGrade(std::string sqlCommand);
+
 
 	//*********************************************************    find
 	
@@ -71,6 +85,11 @@ private:
 
 	//*********************************************************    friends
 	friend class student;
+	friend class teacher;
+	friend class grade;
+	friend class attendance;
+	friend class subject;
+
 
 
 public:

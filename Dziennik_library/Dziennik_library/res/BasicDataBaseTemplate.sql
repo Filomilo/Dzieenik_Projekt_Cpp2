@@ -31,7 +31,7 @@ CREATE TABLE `Grades`
  `Subject_id` int NOT NULL ,
  `Grade`      int NOT NULL ,
 
-PRIMARY KEY (`Id`)
+PRIMARY KEY (`Grade_Id`)
  FOREIGN KEY(Student_id) REFERENCES Students(Pesel)
 );
 
@@ -54,7 +54,6 @@ CREATE TABLE `Teachers`
  `Surname`    text NOT NULL ,
  `Birthday`  date NOT NULL ,
  `Subject_id` int NOT NULL ,
-
 PRIMARY KEY (`Pesel`)
 );
 --END

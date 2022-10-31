@@ -32,6 +32,7 @@ void DziennikLib::createNewDataBase(char* fileDir)
 		{
 			errorHandler("could not open data base");
 		}
+		createBasictables();
 	} while (0);
 }
 

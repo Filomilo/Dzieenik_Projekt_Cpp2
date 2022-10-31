@@ -80,6 +80,18 @@
     <ClInclude Include="user.h">
       <Filter>Header Files\records</Filter>
     </ClInclude>
+    <ClInclude Include="teacher.h">
+      <Filter>Header Files\records</Filter>
+    </ClInclude>
+    <ClInclude Include="grade.h">
+      <Filter>Header Files\records</Filter>
+    </ClInclude>
+    <ClInclude Include="attendance.h">
+      <Filter>Header Files\records</Filter>
+    </ClInclude>
+    <ClInclude Include="subject.h">
+      <Filter>Header Files\records</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\BasicDataBaseTemplate.sql">

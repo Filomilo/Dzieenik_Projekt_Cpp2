@@ -8,15 +8,16 @@ int main()
 {
     std::setlocale(LC_ALL, "");
     DziennikLib *db = new DziennikLib;
-    char* databaseName = (char*) "dataBsse.db";
+    char* databaseName = (char*) "dataBsse2.db";
     db->loadDataBase(databaseName);
     //std::cout <<std::endl<< db->encrypt("admin");
-
+   // db->createNewDataBase(databaseName);
+   // db->insertDefaultData();
 //db->insertDefaultData();
 //db->printAttendacne();
 //db->updateAttandance("1", "7");
 //db->printAttendacne();
 
 //std::cout<<"stuednt:\n"<<db->findStudentByPesel("78032008893");
-    db->printUsers();
+   db->printDataBase();
 }

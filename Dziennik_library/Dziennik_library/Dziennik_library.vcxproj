@@ -157,10 +157,14 @@
     <ClCompile Include="sqlite\sqlite3.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="attendance.h" />
     <ClInclude Include="DziennikLib.h" />
+    <ClInclude Include="grade.h" />
     <ClInclude Include="sqlite\sqlite3.h" />
     <ClInclude Include="sqlite\sqlite3ext.h" />
     <ClInclude Include="student.h" />
+    <ClInclude Include="subject.h" />
+    <ClInclude Include="teacher.h" />
     <ClInclude Include="user.h" />
   </ItemGroup>
   <ItemGroup>
