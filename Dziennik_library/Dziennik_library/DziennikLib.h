@@ -4,6 +4,8 @@
 #include <fstream>
 #include<string>
 #include <openssl/sha.h>
+#include "student.h"
+#include "RecordBaseClass.h"
 
 
 class DziennikLib
@@ -65,8 +67,19 @@ private:
 			warrningHandler(errorMsg);
 		}
 		return amount;
-
 	}
+
+	student executeGetStudent(std::string sqlCommand)
+	{
+		char* errorMsg;
+		student studentRecord;
+		if (sqlite3_exec(this->db, sqlCommand.c_str(), callbackGetStudent, (void*)(&studentRecord), &errorMsg) != SQLITE_OK)
+		{
+			warrningHandler(errorMsg);
+		}
+		return studentRecord;
+	}
+
 	
 	
 	//sql callbakc functions
@@ -86,6 +99,18 @@ private:
 
 		return 0;
 	}
+
+	static int callbackGetStudent(void* data, int argc, char** argv, char** azColName) {
+		student* studentRecord = (student*)data;
+		studentRecord->setPesel(argv[0]);
+		studentRecord->setName(argv[1]);
+		studentRecord->setSurname(argv[2]);
+		studentRecord->setBirthday(argv[3]);
+
+		return 0;
+	}
+
+
 
 	int getAmountOfLogin(std::string nick, std::string password)
 	{
@@ -172,6 +197,18 @@ public:
 	void printSubjects();
 	void printDataBase();
 
+	//GetRecords
+
+	student findStudentByPesel(std::string pesel)
+	{
+		student studentRecord;
+		std::cout << "Grades table:" << std::endl << std::endl;
+		std::string sqlCommand = "SELECT * FROM Students \n WHERE Pesel = '" + pesel + "'";
+		studentRecord=executeGetStudent(sqlCommand.c_str());
+		return studentRecord;
+	}
+
+
 	//update
 
 	void updateGrade(std::string gradeId, std::string newGrade)
@@ -197,8 +234,6 @@ public:
 		SHA256(txt, strlen((const char*)txt), encryprtedTxt);
 		return std::string((char*)encryprtedTxt)+"\0";
 	}
-
-
 
 	void createNewDataBase(char* fileDir)
 	{

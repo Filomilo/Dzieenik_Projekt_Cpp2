@@ -17,7 +17,6 @@ db->insertDefaultData();
 //db->updateAttandance("1", "7");
 //db->printAttendacne();
 
-    std::cout<<std::endl << std::endl << std::endl << std::endl <<db->login("admin", "admin") ? "PRAWDA" : "FALSZ";
-    std::cout << std::endl << db->login("sdasdasd", "adafadfamin")?"PRAWDA":"FALSZ";
+std::cout<<"stuednt:\n"<<db->findStudentByPesel("78032008893");
 
 }
