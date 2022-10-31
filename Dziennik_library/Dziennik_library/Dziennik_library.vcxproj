@@ -161,6 +161,7 @@
     <ClInclude Include="sqlite\sqlite3.h" />
     <ClInclude Include="sqlite\sqlite3ext.h" />
     <ClInclude Include="student.h" />
+    <ClInclude Include="user.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\BasicDataBaseTemplate.sql" />

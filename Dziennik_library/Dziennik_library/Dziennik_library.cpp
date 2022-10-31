@@ -17,6 +17,6 @@ int main()
 //db->updateAttandance("1", "7");
 //db->printAttendacne();
 
-std::cout<<"stuednt:\n"<<db->findStudentByPesel("78032008893");
-
+//std::cout<<"stuednt:\n"<<db->findStudentByPesel("78032008893");
+    db->printUsers();
 }

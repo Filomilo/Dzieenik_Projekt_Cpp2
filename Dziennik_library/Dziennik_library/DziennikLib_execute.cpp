@@ -42,3 +42,15 @@ std::vector<student> DziennikLib::executeGetStudent(std::string sqlCommand)
 	}
 	return studentRecords;
 }
+
+
+std::vector<user> DziennikLib::executeGetUser(std::string sqlCommand)
+{
+	char* errorMsg;
+	std::vector<user> userRecords;
+	if (sqlite3_exec(this->db, sqlCommand.c_str(), callbackGetUser, (void*)(&userRecords), &errorMsg) != SQLITE_OK)
+	{
+		warrningHandler(errorMsg);
+	}
+	return userRecords;
+}

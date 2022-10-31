@@ -1,5 +1,5 @@
 #include "DziennikLib.h"
-
+#include "user.h"
 
  int DziennikLib::callbackPrint(void* data, int argc, char** argv, char** azColName) {
 	int i;
@@ -20,13 +20,33 @@
  int DziennikLib::callbackGetStudent(void* data, int argc, char** argv, char** azColName) {
 	 std::vector<student>* studentRecords = (std::vector<student>*)data;
 	 int i;
-	 for (i = 0; i < argc; i += 4) {
+	 int rows = 4;
+	 for (i = 0; i < argc; i += rows) {
 		 student studentRecord;
-		 studentRecord.setPesel(argv[0]);
-		 studentRecord.setName(argv[1]);
-		 studentRecord.setSurname(argv[2]);
-		 studentRecord.setBirthday(argv[3]);
+		 studentRecord.setPesel(argv[i%rows]);
+		 studentRecord.setName(argv[(i+1)%rows]);
+		 studentRecord.setSurname(argv[(i + 2) % rows]);
+		 studentRecord.setBirthday(argv[(i + 3) % rows]);
 		 studentRecords->push_back(studentRecord);
+	 }
+	 return 0;
+ }
+
+ int DziennikLib::callbackGetUser(void* data, int argc, char** argv, char** azColName) {
+	 std::vector<user>* userRecords = (std::vector<user>*)data;
+	 int i;
+
+	 int rows = 5;
+	 for (i = 0; i < argc; i += rows) {
+		 user userRecord;
+
+		 userRecord.setUserId(argv[(i) % rows]);
+		 userRecord.setNick(argv[(i + 1) % rows]);
+		 userRecord.setPassword(argv[(i + 2) % rows]);
+		 userRecord.setAccountType(argv[(i + 3) % rows]);
+		 userRecord.setIdInDb(argv[(i + 4) % rows] ? argv[(i + 4) % rows] : "NULL");
+	
+		 userRecords->push_back(userRecord);
 	 }
 	 return 0;
  }

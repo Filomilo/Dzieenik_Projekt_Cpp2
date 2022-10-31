@@ -5,6 +5,7 @@
 #include<string>
 #include <openssl/sha.h>
 #include "student.h"
+#include "user.h"
 #include <vector>
 
 
@@ -31,6 +32,8 @@ private:
 	static int callbackPrint(void* data, int argc, char** argv, char** azColName);
 	static int callbackGetAmount(void* data, int argc, char** argv, char** azColName);
 	static int callbackGetStudent(void* data, int argc, char** argv, char** azColName);
+	static int callbackGetUser(void* data, int argc, char** argv, char** azColName);
+
 	
 	//*********************************************************    communication
 	bool errorHandler(const char* warrningMessage);
@@ -42,6 +45,7 @@ private:
 	void executeSqlPrint(std::string sqlCommand);
 	int executeSqlAmount(std::string sqlCommand);
 	std::vector<student> executeGetStudent(std::string sqlCommand);
+	std::vector<user> executeGetUser(std::string sqlCommand);
 
 	//*********************************************************    find
 	
