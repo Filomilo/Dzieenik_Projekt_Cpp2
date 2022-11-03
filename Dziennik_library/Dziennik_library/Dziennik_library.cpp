@@ -20,4 +20,13 @@ int main()
 
 //std::cout<<"stuednt:\n"<<db->findStudentByPesel("78032008893");
    db->printDataBase();
+   db-> addStudent("pesle","name","surname","bbirta");
+   db->addAttendacne("dara",3,"pasoa","studne",DziennikLib::Attendance_types::ABSENT);
+   db->addGrade("stuednt pesl",4,3);
+   db->addSubject("przedmiot");
+   db->addTeacher("pesle", "name", "surname", "bbirta",3);
+   db->addUser("cnik","password", DziennikLib::Account_types::TEACHER, "pesle");
+   db->addUser("adsadasda", "password", DziennikLib::Account_types::ADMIN);
+   db->printDataBase();
+
 }

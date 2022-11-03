@@ -152,6 +152,17 @@ public:
 
 	//*********************************************************    validators
 
+	//*********************************************************    adders
+	void addStudent(std::string Pesel, std::string Name, std::string Surname, std::string Birthday);
+	void addAttendacne(std::string Date, int Lesson_num, std::string Teacher_pesel, std::string Sudent_pesel, int Status );
+	void addGrade(std::string Sudent_pesel, int Subject_id, int grade);
+	void addSubject(std::string Name);
+	void addTeacher(std::string Pesel, std::string Name, std::string Surname, std::string Birthday, int subject_id);
+	void addUser(std::string Nick, std::string Passowrd, int Account_Type, std::string Id_in_db);
+	void addUser(std::string Nick, std::string Passowrd, int Account_Type);
+
+
+
 	//*********************************************************    account
 	bool login(std::string nick, std::string password);
 	std::string encrypt(std::string text);

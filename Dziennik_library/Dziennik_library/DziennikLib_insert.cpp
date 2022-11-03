@@ -48,4 +48,3 @@ void DziennikLib::insertIntoUsers(std::string nick, std::string Password, std::s
 	std::cout << sqlCommand << std::endl;
 	executeSqlInsert(sqlCommand);
 }
-
