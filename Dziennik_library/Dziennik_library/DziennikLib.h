@@ -83,6 +83,8 @@ private:
 	//*********************************************************    tools
 	
 	//*********************************************************    update
+	void updateGrade(std::string gradeId, std::string newGrade);
+	void updateAttandance(std::string attandanceId, std::string newStatus);
 	
 	//*********************************************************    validators
 	bool validateLogin(std::string nick, std::string password);
@@ -146,8 +148,7 @@ public:
 	static bool isFileExist(char* fileDir);
 
 	//*********************************************************    update
-	void updateGrade(std::string gradeId, std::string newGrade);
-	void updateAttandance(std::string attandanceId, std::string newStatus);
+
 
 	//*********************************************************    validators
 
