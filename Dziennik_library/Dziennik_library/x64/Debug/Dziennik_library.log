@@ -1,2 +1,17 @@
-﻿  Dziennik_library.cpp
-  Dziennik_library.vcxproj -> D:\dysk google\studia\Semestr 3\C_2\Programowanie w języku C 2 - projekt\Projekt\wokringdire\Dziennik_library\x64\Debug\Dziennik_library.exe
+﻿  DziennikLib_callbacks.cpp
+  DziennikLib_communication.cpp
+  DziennikLib_constants.cpp
+  DziennikLib_execute.cpp
+  DziennikLib_find.cpp
+  DziennikLib_insert.cpp
+  DziennikLib_manager.cpp
+  DziennikLib_print.cpp
+  DziennikLib_testing.cpp
+  DziennikLib_tools.cpp
+  DziennikLib_update.cpp
+  DziennikLib_validators.cpp
+  Dziennik_library.cpp
+  DziennkLib_account.cpp
+  sqlite3.c
+  LINK : D:\studia\sem3\C_2\Programowanie w języku C 2 - projekt\Projekt\workindir\Dziennik_library\x64\Debug\Dziennik_library.exe not found or not built by the last incremental link; performing full link
+  Dziennik_library.vcxproj -> D:\studia\sem3\C_2\Programowanie w języku C 2 - projekt\Projekt\workindir\Dziennik_library\x64\Debug\Dziennik_library.exe

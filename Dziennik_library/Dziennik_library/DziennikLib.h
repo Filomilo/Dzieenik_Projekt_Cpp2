@@ -64,6 +64,13 @@ private:
 	//*********************************************************    find
 	
 	//*********************************************************    insert
+	void insertIntoStudnets(std::string pesel, std::string name, std::string surname, std::string birthday);
+	void insertIntoGrades(std::string Student_id, std::string Subject_id, std::string Grade);
+	void insertIntoAttendacne(std::string Date, std::string Lesson_num, std::string Teacher_id, std::string Student_id, std::string Status);
+	void insertIntoSubjects(std::string Name);
+	void insertIntoTeachers(std::string pesel, std::string name, std::string surname, std::string birthday, std::string Subject_id);
+	void insertIntoUsers(std::string nick, std::string Password, std::string Account_type, std::string Id_in_db);
+	void insertIntoUsers(std::string nick, std::string Password, std::string Account_type);
 	
 	//*********************************************************    manager
 	void createBasictables();
@@ -107,16 +114,16 @@ public:
 	//*********************************************************    execute
 
 	//*********************************************************    find
-	student findStudentByPesel(std::string pesel);
+	std::vector<student>  findStudentByPesel(std::string pesel);
+	std::vector<student>  findSstudentAll();
+	std::vector<grade>  findGradesAll();
+	std::vector<attendance>  findAttandanceAll();
+	std::vector<subject>  findSubjectsAll();
+	std::vector<teacher>  findTeacherstAll();
+	std::vector<user>  findUsersAll();
 
 	//*********************************************************    insert
-	void insertIntoStudnets(std::string pesel, std::string name, std::string surname, std::string birthday);
-	void insertIntoGrades(std::string Student_id, std::string Subject_id, std::string Grade);
-	void insertIntoAttendacne(std::string Date, std::string Lesson_num, std::string Teacher_id, std::string Student_id, std::string Status);
-	void insertIntoSubjects(std::string Name);
-	void insertIntoTeachers(std::string pesel, std::string name, std::string surname, std::string birthday, std::string Subject_id);
-	void insertIntoUsers(std::string nick, std::string Password, std::string Account_type, std::string Id_in_db);
-	void insertIntoUsers(std::string nick, std::string Password, std::string Account_type);
+
 
 	//*********************************************************    manager
 	void createNewDataBase(char* fileDir);
