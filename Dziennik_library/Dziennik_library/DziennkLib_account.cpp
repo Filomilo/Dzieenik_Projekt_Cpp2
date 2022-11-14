@@ -32,4 +32,84 @@ std::string DziennikLib::encrypt(std::string text)
 	return std::string((char*)encryprtedTxt) + "\0";
 }
 
+bool DziennikLib::isUserLogged()
+{
+	if (this->LoginId < 0)
+	{
+		return false;
+	}
+	return true;
+}
+std::string  DziennikLib::getUserNick()
+{
+	if (this->isUserLogged())
+	{
+	user userAccount = findUsersById(this->LoginId)[0];
+	return userAccount.Nick;
+	}
+	return "NULL";
+}
+int  DziennikLib::getUserAccountType()
+{
+	if (this->isUserLogged())
+	{
+		user userAccount = findUsersById(this->LoginId)[0];
+		return userAccount.Acccount_Type;
+	}
+	return -1;
+}
+bool  DziennikLib::isUserAdmin()
+{
+	if (this->isUserLogged())
+	{
+		user userAccount = findUsersById(this->LoginId)[0];
+		return userAccount.Acccount_Type==DziennikLib::Account_types::ADMIN;
+	}
+	return false;
+}
+bool  DziennikLib::isUserTeacher()
+{
+	if (this->isUserLogged())
+	{
+		user userAccount = findUsersById(this->LoginId)[0];
+		return userAccount.Acccount_Type == DziennikLib::Account_types::TEACHER;
+	}
+	return false;
+}
 
+bool  DziennikLib::isUserStudent()
+{
+	if (this->isUserLogged())
+	{
+		user userAccount = findUsersById(this->LoginId)[0];
+		return userAccount.Acccount_Type == DziennikLib::Account_types::STUDNET;
+	}
+	return false;
+}
+std::string  DziennikLib::getUserIdInDb()
+{
+	if (this->isUserLogged() && !(this->isUserAdmin()))
+	{
+		user userAccount = findUsersById(this->LoginId)[0];
+		return userAccount.Id_in_db;
+	}
+	return "NULL";
+}
+student  DziennikLib::getUserStudentProfile()
+{
+		if (this->isUserLogged() && !(this->isUserStudent()))
+	{
+		user userAccount = findUsersById(this->LoginId)[0];
+		return findStudentByPesel(userAccount.getIdInDb())[0];
+	}
+	return student ();
+}
+teacher  DziennikLib::getUserTeacherProfile()
+{
+	if (this->isUserLogged() && !(this->isUserTeacher()))
+	{
+		user userAccount = findUsersById(this->LoginId)[0];
+		return findTeachersByPesel(userAccount.getIdInDb())[0];
+	}
+	return teacher();
+}

@@ -51,6 +51,16 @@ std::vector<teacher>  DziennikLib::findTeacherstAll()
 	teachersRecords = executeGetTeacher(sqlCommand.c_str());
 	return teachersRecords;
 }
+
+std::vector<teacher> DziennikLib::findTeachersByPesel(std::string pesel)
+{
+	std::vector<teacher> teachersRecords;
+	std::cout << "Grades table:" << std::endl << std::endl;
+	std::string sqlCommand = "SELECT * FROM Teachers \n WHERE Pesel = '" + pesel + "'";
+	teachersRecords = executeGetTeacher(sqlCommand.c_str());
+	return teachersRecords;
+}
+
 std::vector<user>  DziennikLib::findUsersAll()
 {
 	std::vector<user> usersRecords;
@@ -64,6 +74,14 @@ std::vector<user> DziennikLib::findUserbyNickbyPass(std::string nick, std::strin
 {
 	std::vector<user> usersRecords;
 	std::string sqlCommand = "SELECT * FROM Users WHERE Nick = '" + nick + "' AND  Password = '" + encrypt(pass) + "';";
+	usersRecords = executeGetUser(sqlCommand.c_str());
+	return usersRecords;
+}
+
+std::vector<user>  DziennikLib::findUsersById(int UserId)
+{
+	std::vector<user> usersRecords;
+	std::string sqlCommand = "SELECT * FROM Users WHERE User_Id = '" + std::to_string(UserId) + "';";
 	usersRecords = executeGetUser(sqlCommand.c_str());
 	return usersRecords;
 }

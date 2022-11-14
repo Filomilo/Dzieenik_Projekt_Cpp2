@@ -125,7 +125,9 @@ public:
 	std::vector<attendance>  findAttandanceAll();
 	std::vector<subject>  findSubjectsAll();
 	std::vector<teacher>  findTeacherstAll();
+	std::vector<teacher>  findTeachersByPesel(std::string pesel);
 	std::vector<user>  findUsersAll();
+	std::vector<user>  findUsersById(int id);
 
 
 	//*********************************************************    insert
@@ -170,6 +172,14 @@ public:
 	//*********************************************************    account
 	bool login(std::string nick, std::string password);
 	std::string encrypt(std::string text);
-
+	bool isUserLogged();
+	std::string getUserNick();
+	int getUserAccountType();
+	bool isUserAdmin();
+	bool isUserTeacher();
+	bool isUserStudent();
+	std::string getUserIdInDb();
+	student getUserStudentProfile();
+	teacher getUserTeacherProfile();
 };
 

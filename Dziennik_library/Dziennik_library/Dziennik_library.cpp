@@ -32,5 +32,10 @@ int main()
    */
     db->createNewDataBase(databaseName, "admin", "admin");
     db->printDataBase();
+    std::cout << "logged as: " << db->getUserNick() << std::endl;
     db->login("admin", "admin");
+    std::cout << "logged as: " << db->getUserNick() << std::endl;
+    std::cout << "is admin: " << db->isUserAdmin() << std::endl;
+    std::cout << "is teacher: " << db->isUserTeacher() << std::endl;
+    std::cout << "is student: " << db->isUserStudent() << std::endl;
 }
