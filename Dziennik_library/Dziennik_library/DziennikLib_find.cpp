@@ -58,3 +58,12 @@ std::vector<user>  DziennikLib::findUsersAll()
 	usersRecords = executeGetUser(sqlCommand.c_str());
 	return usersRecords;
 }
+
+
+std::vector<user> DziennikLib::findUserbyNickbyPass(std::string nick, std::string pass)
+{
+	std::vector<user> usersRecords;
+	std::string sqlCommand = "SELECT * FROM Users WHERE Nick = '" + nick + "' AND  Password = '" + encrypt(pass) + "';";
+	usersRecords = executeGetUser(sqlCommand.c_str());
+	return usersRecords;
+}

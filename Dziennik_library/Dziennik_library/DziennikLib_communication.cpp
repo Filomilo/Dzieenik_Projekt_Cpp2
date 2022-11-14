@@ -15,7 +15,7 @@ bool DziennikLib::warrningHandler(const char* warrningMessage)
 	return true;
 }
 
-void DziennikLib::actionMessage(const char* message)
+void DziennikLib::actionMessage(std::string message)
 {
 	std::cout << std::endl << message << std::endl;
 }

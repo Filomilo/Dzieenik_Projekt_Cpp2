@@ -47,7 +47,7 @@ private:
 	//*********************************************************    communication
 	bool errorHandler(const char* warrningMessage);
 	bool warrningHandler(const char* warrningMessage);
-	void actionMessage(const char* message);
+	void actionMessage(std::string message);
 
 	//*********************************************************    execute
 	void executeSqlInsert(std::string sqlCommand);
@@ -62,7 +62,8 @@ private:
 
 
 	//*********************************************************    find
-	
+	std::vector<user>  findUserbyNickbyPass(std::string nick, std::string pass);
+
 	//*********************************************************    insert
 	void insertIntoStudnets(std::string pesel, std::string name, std::string surname, std::string birthday);
 	void insertIntoGrades(std::string Student_id, std::string Subject_id, std::string Grade);
@@ -125,6 +126,7 @@ public:
 	std::vector<subject>  findSubjectsAll();
 	std::vector<teacher>  findTeacherstAll();
 	std::vector<user>  findUsersAll();
+
 
 	//*********************************************************    insert
 

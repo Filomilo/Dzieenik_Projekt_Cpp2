@@ -2,7 +2,18 @@
 
 bool DziennikLib::login(std::string nick, std::string password)
 {
-	return validateLogin(nick, password);
+	bool loginResult= validateLogin(nick, password);
+	if (loginResult)
+	{
+		user loggedUser = this->findUserbyNickbyPass(nick, password)[0];
+		this->actionMessage("succesfuly looged as " + loggedUser.getNick());
+		this->LoginId = loggedUser.getUserId();
+	}
+	else
+	{
+		this->actionMessage("invalid login data priveded");
+	}
+	return loginResult;
 }
 
 int DziennikLib::getAmountOfLogin(std::string nick, std::string password)

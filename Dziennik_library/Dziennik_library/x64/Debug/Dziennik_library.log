@@ -1,3 +1,4 @@
-﻿LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/OPT:ICF' specification
+﻿  Dziennik_library.cpp
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/OPT:ICF' specification
 DziennikLib_adders.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
   Dziennik_library.vcxproj -> D:\temp\dziennik\Dzieenik_Projekt_Cpp2\Dziennik_library\x64\Debug\Dziennik_library.exe
