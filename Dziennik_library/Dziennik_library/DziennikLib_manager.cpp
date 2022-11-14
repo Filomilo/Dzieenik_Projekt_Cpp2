@@ -11,6 +11,11 @@ void DziennikLib::loadDataBase(char* fileDir)
 	}
 }
 
+void DziennikLib::loadDataBase(std::string fileDir)
+{
+	this->loadDataBase((char*)fileDir.c_str());
+}
+
 void DziennikLib::createNewDataBase(char* fileDir)
 {
 	do
@@ -21,7 +26,7 @@ void DziennikLib::createNewDataBase(char* fileDir)
 		{
 			if (warrningHandler("Data Base alrady exist") == false)
 			{
-				break;
+				//break;
 			}
 			actionMessage("removing previous dataBase");
 			removeDataBaseFile();
@@ -36,10 +41,20 @@ void DziennikLib::createNewDataBase(char* fileDir)
 	} while (0);
 }
 
+void DziennikLib::createNewDataBase(std::string fileDir)
+{
+	this->createNewDataBase((char*)fileDir.c_str());
+}
+
+
 	void DziennikLib::createBasictables()
 	{
 		std::ifstream file;
-		file.open("res/BasicDataBaseTemplate.sql", std::ios_base::in);
+		file.open("BasicDataBaseTemplate.sql", std::ios_base::in);
+		if (!file.is_open())
+		{
+			this->actionMessage("cannot create file");
+		}
 		std::string sqlCommand = "";
 		std::string buffer;
 
@@ -54,7 +69,6 @@ void DziennikLib::createNewDataBase(char* fileDir)
 				sqlCommand += buffer + "\n";
 		}
 		file.close();
-		this->createBasictables();
 	}
 
 	void DziennikLib::createNewDataBase(std::string fileDir, std::string adminLogin, std::string adminPass)

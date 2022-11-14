@@ -32,7 +32,7 @@ class dziennik_guiApp : public wxApp
 {
     public:
         virtual bool OnInit();
-        DziennikLib* dziennik;
+
 };
 
 #endif // DZIENNIK_GUIAPP_H

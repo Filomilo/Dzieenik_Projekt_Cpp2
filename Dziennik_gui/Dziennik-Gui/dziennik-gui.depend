@@ -3473,16 +3473,21 @@
 	<unicode/utf16.h>
 	<math.h>
 
-1668428116 source:d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
+1668447762 source:d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
 	"dziennik_guiMain.h"
 	<wx/msgdlg.h>
+	<iostream>
+	<DziennikLib.h>
 	<wx/intl.h>
 	<wx/string.h>
 
-1668428116 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
+1668446909 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
+	<wx/filedlg.h>
 	<wx/frame.h>
 	<wx/menu.h>
 	<wx/statusbr.h>
+	<sqlite3.h>
+	<DziennikLib.h>
 
 1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\frame.h
 	"wx/toplevel.h"
@@ -5082,13 +5087,13 @@
 
 1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\rcdefs.h
 
-1668437870 source:d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guiapp.cpp
+1668446859 source:d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guiapp.cpp
 	"dziennik_guiApp.h"
 	<iostream>
 	"dziennik_guiMain.h"
 	<wx/image.h>
 
-1668437593 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guiapp.h
+1668446859 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guiapp.h
 	<wx/app.h>
 	<sqlite3.h>
 	<DziennikLib.h>
@@ -5190,7 +5195,7 @@
 1668428699 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\sqlite\sqlite3.h
 	<stdarg.h>
 
-1668437233 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib.h
+1668447658 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib.h
 	<sqlite3.h>
 	<iostream>
 	<fstream>
@@ -5288,7 +5293,7 @@
 1668428699 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_insert.cpp
 	"DziennikLib.h"
 
-1668437713 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_manager.cpp
+1668448173 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_manager.cpp
 	"DziennikLib.h"
 	<sqlite3.h>
 
@@ -5311,4 +5316,243 @@
 
 1668437300 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dziennklib_account.cpp
 	"DziennikLib.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\filedlg.h
+	"wx/defs.h"
+	"wx/dialog.h"
+	"wx/arrstr.h"
+	"wx/generic/filedlgg.h"
+	"wx/msw/filedlg.h"
+	"wx/motif/filedlg.h"
+	"wx/gtk/filedlg.h"
+	"wx/gtk1/filedlg.h"
+	"wx/osx/filedlg.h"
+	"wx/qt/filedlg.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\generic\filedlgg.h
+	"wx/listctrl.h"
+	"wx/datetime.h"
+	"wx/filefn.h"
+	"wx/artprov.h"
+	"wx/filedlg.h"
+	"wx/generic/filectrlg.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\listctrl.h
+	"wx/defs.h"
+	"wx/listbase.h"
+	"wx/msw/listctrl.h"
+	"wx/qt/listctrl.h"
+	"wx/generic/listctrl.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\listbase.h
+	"wx/colour.h"
+	"wx/font.h"
+	"wx/gdicmn.h"
+	"wx/event.h"
+	"wx/control.h"
+	"wx/itemattr.h"
+	"wx/systhemectrl.h"
+	"wx/withimages.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\itemattr.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\systhemectrl.h
+	"wx/defs.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\withimages.h
+	"wx/defs.h"
+	"wx/bmpbndl.h"
+	"wx/icon.h"
+	"wx/imaglist.h"
+	"wx/vector.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\listctrl.h
+	"wx/textctrl.h"
+	"wx/dynarray.h"
+	"wx/vector.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\textctrl.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/textentry.h"
+	"wx/dynarray.h"
+	"wx/gdicmn.h"
+	"wx/ioswrap.h"
+	"wx/x11/textctrl.h"
+	"wx/univ/textctrl.h"
+	"wx/msw/textctrl.h"
+	"wx/motif/textctrl.h"
+	"wx/gtk/textctrl.h"
+	"wx/gtk1/textctrl.h"
+	"wx/osx/textctrl.h"
+	"wx/qt/textctrl.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\textentry.h
+	"wx/filefn.h"
+	"wx/gdicmn.h"
+	"wx/gtk/textentry.h"
+	"wx/osx/textentry.h"
+	"wx/msw/textentry.h"
+	"wx/motif/textentry.h"
+	"wx/qt/textentry.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk\textentry.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\osx\textentry.h
+	"wx/control.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\textentry.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\motif\textentry.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\qt\textentry.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\ioswrap.h
+	"wx/beforestd.h"
+	<iostream>
+	"wx/afterstd.h"
+	"wx/msw/winundef.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\x11\textctrl.h
+	"wx/univ/textctrl.h"
+	"wx/scrolwin.h"
+	"wx/arrstr.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\univ\textctrl.h
+	"wx/scrolwin.h"
+	"wx/univ/inphand.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\scrolwin.h
+	"wx/control.h"
+	"wx/panel.h"
+	"wx/scrolbar.h"
+	"wx/gtk/scrolwin.h"
+	"wx/gtk1/scrolwin.h"
+	"wx/generic/scrolwin.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\scrolbar.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/univ/scrolbar.h"
+	"wx/msw/scrolbar.h"
+	"wx/motif/scrolbar.h"
+	"wx/gtk/scrolbar.h"
+	"wx/gtk1/scrolbar.h"
+	"wx/osx/scrolbar.h"
+	"wx/qt/scrolbar.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\univ\scrolbar.h
+	"wx/univ/scrarrow.h"
+	"wx/renderer.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\univ\scrarrow.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\renderer.h
+	"wx/gdicmn.h"
+	"wx/colour.h"
+	"wx/font.h"
+	"wx/bitmap.h"
+	"wx/string.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\scrolbar.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\motif\scrolbar.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk\scrolbar.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk1\scrolbar.h
+	"wx/defs.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\osx\scrolbar.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\qt\scrolbar.h
+	"wx/scrolbar.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk\scrolwin.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk1\scrolwin.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\generic\scrolwin.h
+	"wx/recguard.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\recguard.h
+	"wx/defs.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\textctrl.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\motif\textctrl.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk\textctrl.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk1\textctrl.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\osx\textctrl.h
+	"wx/control.h"
+	"wx/textctrl.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\qt\textctrl.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\qt\listctrl.h
+	"wx/textctrl.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\generic\listctrl.h
+	"wx/containr.h"
+	"wx/scrolwin.h"
+	"wx/textctrl.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\artprov.h
+	"wx/string.h"
+	"wx/bitmap.h"
+	"wx/icon.h"
+	"wx/iconbndl.h"
+	"wx/bmpbndl.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\generic\filectrlg.h
+	"wx/containr.h"
+	"wx/listctrl.h"
+	"wx/filectrl.h"
+	"wx/filename.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\filectrl.h
+	"wx/defs.h"
+	"wx/string.h"
+	"wx/event.h"
+	"wx/gtk/filectrl.h"
+	"wx/generic/filectrlg.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk\filectrl.h
+	"wx/control.h"
+	"wx/filectrl.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\filename.h
+	"wx/arrstr.h"
+	"wx/filefn.h"
+	"wx/datetime.h"
+	"wx/intl.h"
+	"wx/longlong.h"
+	"wx/file.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\file.h
+	"wx/defs.h"
+	"wx/string.h"
+	"wx/filefn.h"
+	"wx/convauto.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\convauto.h
+	"wx/strconv.h"
+	"wx/fontenc.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\filedlg.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\motif\filedlg.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk\filedlg.h
+	"wx/gtk/filectrl.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk1\filedlg.h
+	"wx/generic/filedlgg.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\osx\filedlg.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\qt\filedlg.h
 

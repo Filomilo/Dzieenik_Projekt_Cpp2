@@ -9,6 +9,9 @@
 
 #include "dziennik_guiMain.h"
 #include <wx/msgdlg.h>
+#include <iostream>
+#include <DziennikLib.h>
+
 
 //(*InternalHeaders(dziennik_guiFrame)
 #include <wx/intl.h>
@@ -42,7 +45,9 @@ wxString wxbuildinfo(wxbuildinfoformat format)
 }
 
 //(*IdInit(dziennik_guiFrame)
-const long dziennik_guiFrame::idMenuQuit = wxNewId();
+const long dziennik_guiFrame::ID_MENUITEM1 = wxNewId();
+const long dziennik_guiFrame::idMenuNewFIle = wxNewId();
+const long dziennik_guiFrame::idMenuOpenFile = wxNewId();
 const long dziennik_guiFrame::idMenuAbout = wxNewId();
 const long dziennik_guiFrame::ID_STATUSBAR1 = wxNewId();
 //*)
@@ -54,6 +59,9 @@ END_EVENT_TABLE()
 
 dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
 {
+
+               this->dziennik= new DziennikLib;
+                   std::setlocale(LC_ALL, "");
     //(*Initialize(dziennik_guiFrame)
     wxMenu* Menu1;
     wxMenu* Menu2;
@@ -61,11 +69,16 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     wxMenuItem* MenuItem1;
     wxMenuItem* MenuItem2;
 
-    Create(parent, id, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("id"));
+    Create(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
+    SetClientSize(wxSize(1339,777));
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
-    MenuItem1 = new wxMenuItem(Menu1, idMenuQuit, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
+    MenuItem1 = new wxMenuItem(Menu1, ID_MENUITEM1, _("Quit\tAlt-F4"), _("Quit the application"), wxITEM_NORMAL);
     Menu1->Append(MenuItem1);
+    MenuItem3 = new wxMenuItem(Menu1, idMenuNewFIle, _("New File"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(MenuItem3);
+    MenuItem4 = new wxMenuItem(Menu1, idMenuOpenFile, _("Open file"), wxEmptyString, wxITEM_NORMAL);
+    Menu1->Append(MenuItem4);
     MenuBar1->Append(Menu1, _("&File"));
     Menu2 = new wxMenu();
     MenuItem2 = new wxMenuItem(Menu2, idMenuAbout, _("About\tF1"), _("Show info about this application"), wxITEM_NORMAL);
@@ -78,10 +91,15 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     StatusBar1->SetFieldsCount(1,__wxStatusBarWidths_1);
     StatusBar1->SetStatusStyles(1,__wxStatusBarStyles_1);
     SetStatusBar(StatusBar1);
+    FileDialogOpenDataBase = new wxFileDialog(this, _("Select file"), wxEmptyString, wxEmptyString, wxFileSelectorDefaultWildcardStr, wxFD_DEFAULT_STYLE, wxDefaultPosition, wxDefaultSize, _T("wxFileDialog"));
 
-    Connect(idMenuQuit,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnQuit);
+    Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnAbout);
     //*)
+    Connect(idMenuNewFIle,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnNewFile);
+    Connect(idMenuOpenFile,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnOpenFile);
+
+
 }
 
 dziennik_guiFrame::~dziennik_guiFrame()
@@ -99,4 +117,23 @@ void dziennik_guiFrame::OnAbout(wxCommandEvent& event)
 {
     wxString msg = wxbuildinfo(long_f);
     wxMessageBox(msg, _("Welcome to..."));
+}
+
+void dziennik_guiFrame::OnNewFile(wxCommandEvent& event)
+{
+  std::cout<<"new File"<<std::endl;
+  wxFileDialog saveFileDialog(this, _("Save Dziennik file"), "", "","dziennik files (*.dznk)|*.dznk", wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
+  saveFileDialog.ShowModal();
+  std::cout<<saveFileDialog.GetPath()<<std::endl;
+  this->dziennik->createNewDataBase(std::string(saveFileDialog.GetPath().mbc_str()));
+}
+
+void dziennik_guiFrame::OnOpenFile(wxCommandEvent& event)
+{
+    std::cout<<"open File"<<std::endl;
+    wxFileDialog openFileDialog(this, _("Open Dziennik file"), "", "","dziennik files (*.dznk)|*.dznk", wxFD_OPEN|wxFD_FILE_MUST_EXIST);
+    openFileDialog.ShowModal();
+    std::cout<<openFileDialog.GetPath()<<std::endl;
+    this->dziennik->loadDataBase(std::string(openFileDialog.GetPath().mbc_str()));
+    this->dziennik->printDataBase();
 }
