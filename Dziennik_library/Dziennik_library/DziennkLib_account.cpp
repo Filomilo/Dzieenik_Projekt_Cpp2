@@ -25,11 +25,14 @@ int DziennikLib::getAmountOfLogin(std::string nick, std::string password)
 
 std::string DziennikLib::encrypt(std::string text)
 {
+    /*
 	unsigned char* txt = (unsigned char*)text.c_str();
 	unsigned char encryprtedTxt[SHA256_DIGEST_LENGTH + 1];
 	memset(encryprtedTxt, 0, sizeof(encryprtedTxt));
 	SHA256(txt, strlen((const char*)txt), encryprtedTxt);
 	return std::string((char*)encryprtedTxt) + "\0";
+	*/
+	return text;
 }
 
 bool DziennikLib::isUserLogged()

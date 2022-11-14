@@ -54,6 +54,7 @@ void DziennikLib::createNewDataBase(char* fileDir)
 				sqlCommand += buffer + "\n";
 		}
 		file.close();
+		this->createBasictables();
 	}
 
 	void DziennikLib::createNewDataBase(std::string fileDir, std::string adminLogin, std::string adminPass)

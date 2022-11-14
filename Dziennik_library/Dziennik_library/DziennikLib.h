@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include<string>
-#include <openssl/sha.h>
+//#include <openssl/sha.h>
 #include <vector>
 
 #include "student.h"
