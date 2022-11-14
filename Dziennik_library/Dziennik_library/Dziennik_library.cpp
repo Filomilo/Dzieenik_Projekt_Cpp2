@@ -31,5 +31,7 @@ int main()
    db->printDataBase();
    */
     db->createNewDataBase(databaseName, "admin", "admin");
-    db->printUsers();
+    
+    db->addGrade("234234", 2, 5);
+    db->printDataBase();
 }

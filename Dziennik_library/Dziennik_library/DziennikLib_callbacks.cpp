@@ -90,6 +90,7 @@
 	 int rows = 4;
 	 for (i = 0; i < argc; i += rows) {
 		 grade gradeRecord;
+		 std::cout << "grade found: " << argv[i % rows] << std::endl;
 		 gradeRecord.setGradeId(argv[i % rows]);
 		 gradeRecord.setStudentId(argv[(i + 1) % rows]);
 		 gradeRecord.setSubjectId(argv[(i + 2) % rows]);

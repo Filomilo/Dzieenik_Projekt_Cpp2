@@ -24,14 +24,10 @@ private:
 		setSubjectId(std::stoi(subject_id));
 	}
 
-	void setGrade(int subject_id)
-	{
-		Subject_id = subject_id;
-	}
 
-	void setGrade(std::string subject_id)
+	void setGradeId(std::string subject_id)
 	{
-		setGrade(std::stoi(subject_id));
+		setGradeId(std::stoi(subject_id));
 	}
 
 	void setGradeId(int grade_id)
@@ -39,10 +35,17 @@ private:
 		Grade_id = grade_id;
 	}
 
-	void setGradeId(std::string grade_id)
+
+	void setGrade(std::string grade)
 	{
-		setGrade(std::stoi(grade_id));
+		setGrade(std::stoi(grade));
 	}
+
+	void setGrade(int grade)
+	{
+		Grade = grade;
+	}
+
 
 	void setStudentId(std::string student_id)
 	{

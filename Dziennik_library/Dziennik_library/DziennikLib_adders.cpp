@@ -15,6 +15,7 @@ void DziennikLib::addGrade(std::string Sudent_pesel, int Subject_id, int grade)
 {
 	std::string subjectId = std::to_string(Subject_id);
 	std::string Grade = std::to_string(grade);
+	std::cout << "grade: " << grade << std::endl;
 	this->insertIntoGrades(Sudent_pesel, subjectId, Grade);
 }
 void DziennikLib::addSubject(std::string Name)
