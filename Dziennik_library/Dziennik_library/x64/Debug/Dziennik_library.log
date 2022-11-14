@@ -1,2 +1,4 @@
 ﻿  Dziennik_library.cpp
-  Dziennik_library.vcxproj -> D:\studia\sem3\Programowanie_w_języku C_2\Programowanie w języku C 2 - projekt\Projekt\Dzieenik_Projekt_Cpp2\Dziennik_library\x64\Debug\Dziennik_library.exe
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/OPT:ICF' specification
+DziennikLib_adders.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:ICF' specification
+  Dziennik_library.vcxproj -> D:\temp\dziennik\Dzieenik_Projekt_Cpp2\Dziennik_library\x64\Debug\Dziennik_library.exe

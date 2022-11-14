@@ -104,30 +104,73 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)openssl-3\x64\bin;$(ProjectDir)openssl-3\x64\include;$(ProjectDir)sqlite</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)openssl-3\x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(ProjectDir)openssl-3\x64\lib\libssl.lib;$(ProjectDir)openssl-3\x64\lib\libcrypto.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
     </Link>
+    <Manifest>
+      <AdditionalOptions>-lssl %(AdditionalOptions)</AdditionalOptions>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(ProjectDir)openssl-3\x64\include;$(ProjectDir)sqlite</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)openssl-3\x64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(ProjectDir)openssl-3\x64\lib\libssl.lib;$(ProjectDir)openssl-3\x64\lib\libcrypto.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Manifest>
+      <AdditionalOptions>-lssl %(AdditionalOptions)</AdditionalOptions>
+    </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DziennikLib_adders.cpp" />
+    <ClCompile Include="DziennikLib_callbacks.cpp" />
+    <ClCompile Include="DziennikLib_communication.cpp" />
+    <ClCompile Include="DziennikLib_constants.cpp" />
+    <ClCompile Include="DziennikLib_execute.cpp" />
+    <ClCompile Include="DziennikLib_find.cpp" />
+    <ClCompile Include="DziennikLib_insert.cpp" />
+    <ClCompile Include="DziennikLib_manager.cpp" />
+    <ClCompile Include="DziennikLib_print.cpp" />
+    <ClCompile Include="DziennikLib_testing.cpp" />
+    <ClCompile Include="DziennikLib_tools.cpp" />
+    <ClCompile Include="DziennikLib_update.cpp" />
+    <ClCompile Include="DziennikLib_validators.cpp" />
     <ClCompile Include="Dziennik_library.cpp" />
+    <ClCompile Include="DziennkLib_account.cpp" />
+    <ClCompile Include="sqlite\sqlite3.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="attendance.h" />
+    <ClInclude Include="DziennikLib.h" />
+    <ClInclude Include="grade.h" />
+    <ClInclude Include="sqlite\sqlite3.h" />
+    <ClInclude Include="sqlite\sqlite3ext.h" />
+    <ClInclude Include="student.h" />
+    <ClInclude Include="subject.h" />
+    <ClInclude Include="teacher.h" />
+    <ClInclude Include="user.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\BasicDataBaseTemplate.sql" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

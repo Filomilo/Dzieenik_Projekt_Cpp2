@@ -1,20 +1,41 @@
-﻿// Dziennik_library.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
-#include <iostream>
+﻿#include <stdio.h>
+#include <sqlite3.h>
+#include "DziennikLib.h"
+#include <string>
+#include <locale>
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    std::setlocale(LC_ALL, "");
+    DziennikLib *db = new DziennikLib;
+    char* databaseName = (char*) "dataBsse2.db";
+    //db->loadDataBase(databaseName);
+    //std::cout <<std::endl<< db->encrypt("admin");
+    //db->createNewDataBase(databaseName);
+   // db->insertDefaultData();
+//db->insertDefaultData();
+//db->printAttendacne();
+//db->updateAttandance("1", "7");
+//db->printAttendacne();
+
+//std::cout<<"stuednt:\n"<<db->findStudentByPesel("78032008893");
+    /*
+   db->printDataBase();
+   db-> addStudent("pesle","name","surname","bbirta");
+   db->addAttendacne("dara",3,"pasoa","studne",DziennikLib::Attendance_types::ABSENT);
+   db->addGrade("stuednt pesl",4,3);
+   db->addSubject("przedmiot");
+   db->addTeacher("pesle", "name", "surname", "bbirta",3);
+   db->addUser("cnik","password", DziennikLib::Account_types::TEACHER, "pesle");
+   db->addUser("adsadasda", "password", DziennikLib::Account_types::ADMIN);
+   db->printDataBase();
+   */
+    db->createNewDataBase(databaseName, "admin", "admin");
+    db->printDataBase();
+    std::cout << "logged as: " << db->getUserNick() << std::endl;
+    db->login("admin", "admin");
+    std::cout << "logged as: " << db->getUserNick() << std::endl;
+    std::cout << "is admin: " << db->isUserAdmin() << std::endl;
+    std::cout << "is teacher: " << db->isUserTeacher() << std::endl;
+    std::cout << "is student: " << db->isUserStudent() << std::endl;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

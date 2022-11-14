@@ -397,7 +397,12 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-
 #wxwidget LIbrary
 /Dziennik_gui/wx/
 
+#vsfolder
+/Dziennik_library/.vs
+Dziennik_library/.vs/Dziennik_library/v17/.suo
+Dziennik_library/.vs/Dziennik_library/v17/Browse.VC.db
+Dziennik_library/.vs/Dziennik_library/v17/Browse.VC.db-shm
+Dziennik_library/.vs/Dziennik_library/v17/Browse.VC.db-wal
