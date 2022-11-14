@@ -54,7 +54,6 @@ std::vector<teacher>  DziennikLib::findTeacherstAll()
 std::vector<user>  DziennikLib::findUsersAll()
 {
 	std::vector<user> usersRecords;
-	std::cout << "Grades table:" << std::endl << std::endl;
 	std::string sqlCommand = "SELECT * FROM Users";
 	usersRecords = executeGetUser(sqlCommand.c_str());
 	return usersRecords;

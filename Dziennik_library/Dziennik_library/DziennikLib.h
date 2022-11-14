@@ -73,6 +73,7 @@ private:
 	void insertIntoUsers(std::string nick, std::string Password, std::string Account_type);
 	
 	//*********************************************************    manager
+	void createNewDataBase(char* fileDir);
 	void createBasictables();
 	void removeDataBaseFile();
 	
@@ -91,6 +92,7 @@ private:
 	
 	//*********************************************************    account
 	int getAmountOfLogin(std::string nick, std::string password);
+
 
 	//*********************************************************    friends
 	friend class student;
@@ -128,7 +130,7 @@ public:
 
 
 	//*********************************************************    manager
-	void createNewDataBase(char* fileDir);
+	void createNewDataBase(std::string fileDir,std::string adminLogin, std::string adminPass);
 	void loadDataBase(char* fileDir);
 	bool isDataBaseExist();
 

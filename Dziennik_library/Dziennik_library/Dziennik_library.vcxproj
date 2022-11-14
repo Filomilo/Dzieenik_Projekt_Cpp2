@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(ProjectDir)openssl-3\x64\include;$(ProjectDir)sqlite</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)openssl-3\x64\bin;$(ProjectDir)openssl-3\x64\include;$(ProjectDir)sqlite</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>

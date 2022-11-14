@@ -56,6 +56,12 @@ void DziennikLib::createNewDataBase(char* fileDir)
 		file.close();
 	}
 
+	void DziennikLib::createNewDataBase(std::string fileDir, std::string adminLogin, std::string adminPass)
+	{
+		createNewDataBase((char*)fileDir.c_str());
+		this->addUser(adminLogin, adminPass, DziennikLib::Account_types::ADMIN);
+	}
+
 
 void DziennikLib::removeDataBaseFile()
 {

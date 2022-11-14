@@ -20,3 +20,5 @@ std::string DziennikLib::encrypt(std::string text)
 	SHA256(txt, strlen((const char*)txt), encryprtedTxt);
 	return std::string((char*)encryprtedTxt) + "\0";
 }
+
+
