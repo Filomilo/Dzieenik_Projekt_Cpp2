@@ -3473,7 +3473,7 @@
 	<unicode/utf16.h>
 	<math.h>
 
-1668491610 source:d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
+1668510109 source:d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
 	"dziennik_guiMain.h"
 	<wx/msgdlg.h>
 	<iostream>
@@ -3481,11 +3481,18 @@
 	<wx/intl.h>
 	<wx/string.h>
 
-1668491608 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
+1668510109 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
+	<wx/button.h>
+	<wx/checkbox.h>
 	<wx/filedlg.h>
 	<wx/frame.h>
 	<wx/menu.h>
+	<wx/notebook.h>
+	<wx/panel.h>
+	<wx/sizer.h>
 	<wx/statusbr.h>
+	<wx/textctrl.h>
+	<wx/textdlg.h>
 	<sqlite3.h>
 	<DziennikLib.h>
 
@@ -5556,4 +5563,215 @@
 1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\osx\filedlg.h
 
 1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\qt\filedlg.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\notebook.h
+	"wx/defs.h"
+	"wx/bookctrl.h"
+	"wx/univ/notebook.h"
+	"wx/msw/notebook.h"
+	"wx/generic/notebook.h"
+	"wx/gtk/notebook.h"
+	"wx/gtk1/notebook.h"
+	"wx/osx/notebook.h"
+	"wx/qt/notebook.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\bookctrl.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/vector.h"
+	"wx/withimages.h"
+	"wx/notebook.h"
+	"wx/choicebk.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\choicebk.h
+	"wx/defs.h"
+	"wx/bookctrl.h"
+	"wx/choice.h"
+	"wx/containr.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\choice.h
+	"wx/defs.h"
+	"wx/ctrlsub.h"
+	"wx/univ/choice.h"
+	"wx/msw/choice.h"
+	"wx/motif/choice.h"
+	"wx/gtk/choice.h"
+	"wx/gtk1/choice.h"
+	"wx/osx/choice.h"
+	"wx/qt/choice.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\ctrlsub.h
+	"wx/defs.h"
+	"wx/arrstr.h"
+	"wx/control.h"
+	<vector>
+	"wx/msw/ctrlsub.h"
+	"wx/motif/ctrlsub.h"
+	"wx/qt/ctrlsub.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\ctrlsub.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\motif\ctrlsub.h
+	"wx/dynarray.h"
+	"wx/generic/ctrlsub.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\generic\ctrlsub.h
+	"wx/dynarray.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\qt\ctrlsub.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\univ\choice.h
+	"wx/combobox.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\combobox.h
+	"wx/defs.h"
+	"wx/textctrl.h"
+	"wx/ctrlsub.h"
+	"wx/textentry.h"
+	"wx/univ/combobox.h"
+	"wx/msw/combobox.h"
+	"wx/motif/combobox.h"
+	"wx/gtk/combobox.h"
+	"wx/gtk1/combobox.h"
+	"wx/osx/combobox.h"
+	"wx/qt/combobox.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\univ\combobox.h
+	"wx/combo.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\combo.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/renderer.h"
+	"wx/bmpbndl.h"
+	"wx/textentry.h"
+	"wx/time.h"
+	"wx/msw/combo.h"
+	"wx/generic/combo.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\combo.h
+	"wx/timer.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\timer.h
+	"wx/defs.h"
+	"wx/object.h"
+	"wx/longlong.h"
+	"wx/event.h"
+	"wx/stopwatch.h"
+	"wx/utils.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\stopwatch.h
+	"wx/defs.h"
+	"wx/longlong.h"
+	"wx/time.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\generic\combo.h
+	"wx/containr.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\combobox.h
+	"wx/choice.h"
+	"wx/textentry.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\motif\combobox.h
+	"wx/choice.h"
+	"wx/textentry.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk\combobox.h
+	"wx/choice.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk1\combobox.h
+	"wx/defs.h"
+	"wx/object.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\osx\combobox.h
+	"wx/containr.h"
+	"wx/choice.h"
+	"wx/textctrl.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\qt\combobox.h
+	"wx/choice.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\choice.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\motif\choice.h
+	"wx/clntdata.h"
+	"wx/dynarray.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk\choice.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk1\choice.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\osx\choice.h
+	"wx/control.h"
+	"wx/dynarray.h"
+	"wx/arrstr.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\qt\choice.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\univ\notebook.h
+	"wx/arrstr.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\notebook.h
+	"wx/control.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\generic\notebook.h
+	"wx/event.h"
+	"wx/control.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk\notebook.h
+	"wx/list.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk1\notebook.h
+	"wx/list.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\osx\notebook.h
+	"wx/event.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\qt\notebook.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\textdlg.h
+	"wx/generic/textdlgg.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\generic\textdlgg.h
+	"wx/defs.h"
+	"wx/dialog.h"
+	"wx/valtext.h"
+	"wx/textctrl.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\valtext.h
+	"wx/defs.h"
+	"wx/validate.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\checkbox.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/univ/checkbox.h"
+	"wx/msw/checkbox.h"
+	"wx/motif/checkbox.h"
+	"wx/gtk/checkbox.h"
+	"wx/gtk1/checkbox.h"
+	"wx/osx/checkbox.h"
+	"wx/qt/checkbox.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\univ\checkbox.h
+	"wx/button.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\checkbox.h
+	"wx/msw/ownerdrawnbutton.h"
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\ownerdrawnbutton.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\motif\checkbox.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk\checkbox.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\gtk1\checkbox.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\osx\checkbox.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\qt\checkbox.h
+
+1662399371 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\sizer.h
+	"wx/defs.h"
+	"wx/window.h"
 
