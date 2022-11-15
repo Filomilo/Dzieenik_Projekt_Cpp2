@@ -18,11 +18,18 @@
 							<object class="wxBoxSizer" variable="BoxSizer2" member="no">
 								<orient>wxVERTICAL</orient>
 								<object class="sizeritem">
-									<object class="wxTextCtrl" name="ID_TEXTCTRLNICKREGISTER" variable="TextCtrlNickRegister" member="yes">
-										<value>Nick</value>
+									<object class="wxTextCtrl" name="ID_TEXTCTRLNICK" variable="TextCtrlNick" member="yes">
 										<size>487,37</size>
-										<maxsize>0,0</maxsize>
-										<handler function="OnTextCtrlNickRegisterText" entry="EVT_TEXT" />
+										<handler function="OnTextCtrlNickText" entry="EVT_TEXT" />
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
+										<label>Nick</label>
+										<size>487,37</size>
 									</object>
 									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 									<border>5</border>
@@ -30,9 +37,43 @@
 								</object>
 								<object class="sizeritem">
 									<object class="wxTextCtrl" name="ID_TEXTCTRLPASSREGISTER" variable="TextCtrlPassRegister" member="yes">
-										<value>Passoword</value>
+										<size>487,37</size>
+										<style>wxTE_PASSWORD</style>
+										<handler function="OnTextCtrlPassRegisterText" entry="EVT_TEXT" />
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
+										<label>Passoword</label>
+										<size>487,19</size>
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxTextCtrl" name="ID_TEXTCTRLREGISTERREAPEATPASSWORD" variable="TextCtrlRegisterReapeatPassword" member="yes">
+										<size>487,37</size>
+										<style>wxTE_PASSWORD</style>
+										<handler function="OnTextCtrlRegisterReapeatPasswordText" entry="EVT_TEXT" />
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
+										<label>Reapeat Password</label>
 										<size>487,37</size>
 									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="spacer">
 									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 									<border>5</border>
 									<option>1</option>
@@ -40,6 +81,7 @@
 								<object class="sizeritem">
 									<object class="wxButton" name="ID_BUTTONREGISTER" variable="ButtonRegister" member="yes">
 										<label>Register</label>
+										<handler function="OnButtonRegisterClick" entry="EVT_BUTTON" />
 									</object>
 									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 									<border>5</border>
@@ -60,36 +102,57 @@
 				<label>Create admin</label>
 			</object>
 			<object class="notebookpage">
-				<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
-					<pos>173,5</pos>
-					<hidden>1</hidden>
-					<object class="wxButton" name="ID_BUTTON2" variable="Button2" member="yes">
-						<label>Label</label>
-						<pos>256,192</pos>
-					</object>
-					<object class="wxCheckBox" name="ID_CHECKBOX1" variable="CheckBox1" member="yes">
-						<label>Label</label>
-						<pos>360,472</pos>
-					</object>
+				<object class="wxPanel" name="ID_PANELLOGIN" variable="PanelLogin" member="yes">
+					<pos>184,8</pos>
 				</object>
-				<label>Page name</label>
+				<label>Login</label>
+			</object>
+			<object class="notebookpage">
+				<object class="wxPanel" name="ID_PANELStudents" variable="PanelStudents" member="yes">
+					<pos>248,30</pos>
+				</object>
+				<label>Students</label>
+			</object>
+			<object class="notebookpage">
+				<object class="wxPanel" name="ID_PANELMYGRADES" variable="PanelMyGrades" member="yes">
+					<pos>375,9</pos>
+				</object>
+				<label>My grades</label>
+			</object>
+			<object class="notebookpage">
+				<object class="wxPanel" name="ID_PANELYOURSTUdNETS" variable="PanelYourStudentes" member="yes">
+					<pos>439,24</pos>
+				</object>
+				<label>Your Students</label>
+			</object>
+			<object class="notebookpage">
+				<object class="wxPanel" name="ID_PANELTEACHERS" variable="PanelTeachers" member="yes">
+					<pos>574,7</pos>
+				</object>
+				<label>Teachers</label>
+			</object>
+			<object class="notebookpage">
+				<object class="wxPanel" name="ID_PANELSUBJECTS" variable="PanelSubjects" member="yes">
+					<pos>776,13</pos>
+				</object>
+				<label>Subjects</label>
 			</object>
 		</object>
 		<object class="wxMenuBar" variable="MenuBar1" member="no">
 			<object class="wxMenu" variable="Menu1" member="no">
 				<label>&amp;File</label>
-				<object class="wxMenuItem" name="ID_MENUITEM1" variable="MenuItem1" member="no">
-					<label>Quit</label>
-					<accel>Alt-F4</accel>
-					<help>Quit the application</help>
-					<handler function="OnQuit" entry="EVT_MENU" />
-				</object>
 				<object class="wxMenuItem" name="idMenuNewFIle" variable="MenuItem3" member="yes">
 					<label>New File</label>
 					<accel>ctrl+n</accel>
 				</object>
 				<object class="wxMenuItem" name="idMenuOpenFile" variable="MenuItem4" member="yes">
 					<label>Open File</label>
+				</object>
+				<object class="wxMenuItem" name="ID_MENUITEM1" variable="MenuItem1" member="no">
+					<label>Quit</label>
+					<accel>Alt-F4</accel>
+					<help>Quit the application</help>
+					<handler function="OnQuit" entry="EVT_MENU" />
 				</object>
 			</object>
 			<object class="wxMenu" variable="Menu2" member="no">
