@@ -3,6 +3,7 @@
 	<object class="wxFrame" name="dziennik_guiFrame">
 		<size>1360,763</size>
 		<id_arg>0</id_arg>
+		<handler function="OnClose" entry="EVT_CLOSE" />
 		<object class="wxNotebook" name="ID_NOTEBOOKMAIN" variable="NotebookMain" member="yes">
 			<pos>384,544</pos>
 			<object class="notebookpage">
@@ -148,9 +149,15 @@
 									<border>5</border>
 									<option>1</option>
 								</object>
+								<object class="spacer">
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
 								<object class="sizeritem">
 									<object class="wxButton" name="ID_BUTTONLOGIN" variable="ButtonLogin" member="yes">
 										<label>Login</label>
+										<handler function="OnButtonLoginClick" entry="EVT_BUTTON" />
 									</object>
 									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 									<border>5</border>
@@ -197,6 +204,85 @@
 			<object class="notebookpage">
 				<object class="wxPanel" name="ID_PANELSUBJECTS" variable="PanelSubjects" member="yes">
 					<pos>776,13</pos>
+					<object class="wxBoxSizer" variable="BoxSizer5" member="no">
+						<orient>wxVERTICAL</orient>
+						<object class="sizeritem">
+							<object class="wxListCtrl" name="ID_LISTCTRLSUBJECTSLIST" variable="ListCtrlSubjectList" member="yes">
+								<style>wxLC_REPORT</style>
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+							<option>11</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="BoxSizer6" member="no">
+								<object class="sizeritem">
+									<object class="wxBoxSizer" variable="BoxSizer8" member="no">
+										<orient>wxVERTICAL</orient>
+										<object class="sizeritem">
+											<object class="wxStaticText" name="ID_STATICTEXT6" variable="StaticText6" member="yes">
+												<label>Subject name</label>
+											</object>
+											<flag>wxALL|wxEXPAND</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxTextCtrl" name="ID_TEXTCTRLSUBJECTEDITOR" variable="TextCtrlSubjectEditor" member="yes" />
+											<flag>wxALL|wxEXPAND</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="spacer">
+											<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+									</object>
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>6</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxBoxSizer" variable="BoxSizer7" member="no">
+										<orient>wxVERTICAL</orient>
+										<object class="spacer">
+											<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxButton" name="ID_BUTTONSAVESUBJECT" variable="ButtonSaveSubject" member="yes">
+												<label>save</label>
+											</object>
+											<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxButton" name="ID_BUTTON1" variable="Button1" member="yes">
+												<label>delete</label>
+											</object>
+											<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="spacer">
+											<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+					</object>
 				</object>
 				<label>Subjects</label>
 			</object>

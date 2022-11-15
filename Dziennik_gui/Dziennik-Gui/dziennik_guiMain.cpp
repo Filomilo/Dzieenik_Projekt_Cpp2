@@ -11,6 +11,8 @@
 #include <wx/msgdlg.h>
 #include <iostream>
 #include <DziennikLib.h>
+#include <subject.h>
+#include<vector>
 
 
 //(*InternalHeaders(dziennik_guiFrame)
@@ -63,6 +65,11 @@ const long dziennik_guiFrame::ID_PANELStudents = wxNewId();
 const long dziennik_guiFrame::ID_PANELMYGRADES = wxNewId();
 const long dziennik_guiFrame::ID_PANELYOURSTUdNETS = wxNewId();
 const long dziennik_guiFrame::ID_PANELTEACHERS = wxNewId();
+const long dziennik_guiFrame::ID_LISTCTRLSUBJECTSLIST = wxNewId();
+const long dziennik_guiFrame::ID_STATICTEXT6 = wxNewId();
+const long dziennik_guiFrame::ID_TEXTCTRLSUBJECTEDITOR = wxNewId();
+const long dziennik_guiFrame::ID_BUTTONSAVESUBJECT = wxNewId();
+const long dziennik_guiFrame::ID_BUTTON1 = wxNewId();
 const long dziennik_guiFrame::ID_PANELSUBJECTS = wxNewId();
 const long dziennik_guiFrame::ID_NOTEBOOKMAIN = wxNewId();
 const long dziennik_guiFrame::idMenuNewFIle = wxNewId();
@@ -88,6 +95,10 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     wxBoxSizer* BoxSizer2;
     wxBoxSizer* BoxSizer3;
     wxBoxSizer* BoxSizer4;
+    wxBoxSizer* BoxSizer5;
+    wxBoxSizer* BoxSizer6;
+    wxBoxSizer* BoxSizer7;
+    wxBoxSizer* BoxSizer8;
     wxMenu* Menu1;
     wxMenu* Menu2;
     wxMenuBar* MenuBar1;
@@ -133,7 +144,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     BoxSizer4->Add(TextCtrlLoginPassword, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     StaticText4 = new wxStaticText(PanelLogin, ID_STATICTEXT4, _("Password"), wxDefaultPosition, wxSize(500,37), 0, _T("ID_STATICTEXT4"));
     BoxSizer4->Add(StaticText4, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    BoxSizer4->Add(0,0,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer4->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     ButtonLogin = new wxButton(PanelLogin, ID_BUTTONLOGIN, _("Login"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONLOGIN"));
     BoxSizer4->Add(ButtonLogin, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer3->Add(BoxSizer4, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
@@ -146,6 +157,29 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     PanelYourStudentes = new wxPanel(NotebookMain, ID_PANELYOURSTUdNETS, wxPoint(439,24), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELYOURSTUdNETS"));
     PanelTeachers = new wxPanel(NotebookMain, ID_PANELTEACHERS, wxPoint(574,7), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELTEACHERS"));
     PanelSubjects = new wxPanel(NotebookMain, ID_PANELSUBJECTS, wxPoint(776,13), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELSUBJECTS"));
+    BoxSizer5 = new wxBoxSizer(wxVERTICAL);
+    ListCtrlSubjectList = new wxListCtrl(PanelSubjects, ID_LISTCTRLSUBJECTSLIST, wxDefaultPosition, wxDefaultSize, wxLC_REPORT, wxDefaultValidator, _T("ID_LISTCTRLSUBJECTSLIST"));
+    BoxSizer5->Add(ListCtrlSubjectList, 11, wxALL|wxEXPAND, 5);
+    BoxSizer6 = new wxBoxSizer(wxHORIZONTAL);
+    BoxSizer8 = new wxBoxSizer(wxVERTICAL);
+    StaticText6 = new wxStaticText(PanelSubjects, ID_STATICTEXT6, _("Subject name"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT6"));
+    BoxSizer8->Add(StaticText6, 1, wxALL|wxEXPAND, 5);
+    TextCtrlSubjectEditor = new wxTextCtrl(PanelSubjects, ID_TEXTCTRLSUBJECTEDITOR, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRLSUBJECTEDITOR"));
+    BoxSizer8->Add(TextCtrlSubjectEditor, 1, wxALL|wxEXPAND, 5);
+    BoxSizer8->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer6->Add(BoxSizer8, 6, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer7 = new wxBoxSizer(wxVERTICAL);
+    BoxSizer7->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    ButtonSaveSubject = new wxButton(PanelSubjects, ID_BUTTONSAVESUBJECT, _("save"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONSAVESUBJECT"));
+    BoxSizer7->Add(ButtonSaveSubject, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    Button1 = new wxButton(PanelSubjects, ID_BUTTON1, _("delete"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
+    BoxSizer7->Add(Button1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer7->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer6->Add(BoxSizer7, 1, wxALL|wxEXPAND, 5);
+    BoxSizer5->Add(BoxSizer6, 1, wxALL|wxEXPAND, 5);
+    PanelSubjects->SetSizer(BoxSizer5);
+    BoxSizer5->Fit(PanelSubjects);
+    BoxSizer5->SetSizeHints(PanelSubjects);
     NotebookMain->AddPage(PanelCreateAdmin, _("Create admin"), false);
     NotebookMain->AddPage(PanelLogin, _("Login"), false);
     NotebookMain->AddPage(PanelStudents, _("Students"), false);
@@ -183,10 +217,18 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_BUTTONLOGIN,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonLoginClick);
     Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnAbout);
+    Connect(wxID_ANY,wxEVT_CLOSE_WINDOW,(wxObjectEventFunction)&dziennik_guiFrame::OnClose);
     //*)
     Connect(idMenuNewFIle,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnNewFile);
     Connect(idMenuOpenFile,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnOpenFile);
-    removeAllPages();
+
+
+
+
+    //removeAllPages();
+    dziennik->loadDataBase("exampple.dznk");
+    refreshSubjectList();
+
 }
 
 dziennik_guiFrame::~dziennik_guiFrame()
@@ -310,4 +352,28 @@ void dziennik_guiFrame::OnButtonLoginClick(wxCommandEvent& event)
          case DziennikLib::Account_types::TEACHER: setViewAsTeacher(); break;
          case DziennikLib::Account_types::STUDNET: setViewAsStudent(); break;
      }
+}
+
+void dziennik_guiFrame::refreshSubjectList()
+{
+
+    ListCtrlSubjectList->ClearAll();
+    ListCtrlSubjectList->AppendColumn(_("id"));
+    ListCtrlSubjectList->AppendColumn(_("subject name"));
+   dziennik->printSubjects();
+    std::vector<subject> subjectList=this->dziennik->findSubjectsAll();
+    int i=0;
+    for(auto it=subjectList.begin();it!=subjectList.end();it++)
+    {
+      ListCtrlSubjectList->InsertItem(i, wxString::Format(wxT("%i"),(*it).getSubjectId()));
+      ListCtrlSubjectList->SetItem(i++, 1, (*it).getName());
+    }
+
+
+
+
+}
+
+void dziennik_guiFrame::OnClose(wxCloseEvent& event)
+{
 }

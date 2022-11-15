@@ -11,7 +11,7 @@ bool DziennikLib::errorHandler(const char* warrningMessage)
 bool DziennikLib::warrningHandler(const char* warrningMessage)
 {
 	//TODO: adjust warring handler to wx widget
-	std::cout << "warrning:" << std::endl << warrningMessage << std::endl << std::endl;
+	//std::cout << "warrning:" << std::endl << warrningMessage << std::endl << std::endl;
 	return true;
 }
 

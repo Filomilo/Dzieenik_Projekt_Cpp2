@@ -14,6 +14,7 @@
 #include <wx/button.h>
 #include <wx/filedlg.h>
 #include <wx/frame.h>
+#include <wx/listctrl.h>
 #include <wx/menu.h>
 #include <wx/notebook.h>
 #include <wx/panel.h>
@@ -49,6 +50,7 @@ class dziennik_guiFrame: public wxFrame
         void OnButtonRegisterClick(wxCommandEvent& event);
         void OnTextCtrlRegisterReapeatPasswordText(wxCommandEvent& event);
         void OnButtonLoginClick(wxCommandEvent& event);
+        void OnClose(wxCloseEvent& event);
         //*)
 
         void removeAllPages();
@@ -57,6 +59,10 @@ class dziennik_guiFrame: public wxFrame
         void setViewAsTeacher();
         void setViewAsStudent();
         void setViewAsAdmin();
+
+        void refreshSubjectList();
+
+
 
         //(*Identifiers(dziennik_guiFrame)
         static const long ID_TEXTCTRLNICK;
@@ -77,6 +83,11 @@ class dziennik_guiFrame: public wxFrame
         static const long ID_PANELMYGRADES;
         static const long ID_PANELYOURSTUdNETS;
         static const long ID_PANELTEACHERS;
+        static const long ID_LISTCTRLSUBJECTSLIST;
+        static const long ID_STATICTEXT6;
+        static const long ID_TEXTCTRLSUBJECTEDITOR;
+        static const long ID_BUTTONSAVESUBJECT;
+        static const long ID_BUTTON1;
         static const long ID_PANELSUBJECTS;
         static const long ID_NOTEBOOKMAIN;
         static const long idMenuNewFIle;
@@ -88,9 +99,12 @@ class dziennik_guiFrame: public wxFrame
         //*)
 
         //(*Declarations(dziennik_guiFrame)
+        wxButton* Button1;
         wxButton* ButtonLogin;
         wxButton* ButtonRegister;
+        wxButton* ButtonSaveSubject;
         wxFileDialog* FileDialog1;
+        wxListCtrl* ListCtrlSubjectList;
         wxMenu Menu3;
         wxMenuItem* MenuItem3;
         wxMenuItem* MenuItem4;
@@ -108,12 +122,14 @@ class dziennik_guiFrame: public wxFrame
         wxStaticText* StaticText3;
         wxStaticText* StaticText4;
         wxStaticText* StaticText5;
+        wxStaticText* StaticText6;
         wxStatusBar* StatusBar1;
         wxTextCtrl* TextCtrlLoginNick;
         wxTextCtrl* TextCtrlLoginPassword;
         wxTextCtrl* TextCtrlNick;
         wxTextCtrl* TextCtrlPassRegister;
         wxTextCtrl* TextCtrlRegisterReapeatPassword;
+        wxTextCtrl* TextCtrlSubjectEditor;
         //*)
 
         DECLARE_EVENT_TABLE()
