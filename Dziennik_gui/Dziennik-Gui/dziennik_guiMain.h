@@ -46,7 +46,7 @@ class dziennik_guiFrame: public wxFrame
         //*)
 
         //(*Declarations(dziennik_guiFrame)
-        wxFileDialog* FileDialogOpenDataBase;
+        wxFileDialog* FileDialog1;
         wxMenuItem* MenuItem3;
         wxMenuItem* MenuItem4;
         wxStatusBar* StatusBar1;

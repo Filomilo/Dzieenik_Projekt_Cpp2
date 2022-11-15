@@ -12,6 +12,7 @@
 
 #include <wx/app.h>
 #include <sqlite3.h>
+#include <sqlite3.h>
 #include <DziennikLib.h>
 #include <DziennikLib_adders.cpp>
 #include <DziennikLib_callbacks.cpp>

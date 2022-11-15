@@ -3473,7 +3473,7 @@
 	<unicode/utf16.h>
 	<math.h>
 
-1668447762 source:d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
+1668491610 source:d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
 	"dziennik_guiMain.h"
 	<wx/msgdlg.h>
 	<iostream>
@@ -3481,7 +3481,7 @@
 	<wx/intl.h>
 	<wx/string.h>
 
-1668446909 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
+1668491608 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
 	<wx/filedlg.h>
 	<wx/frame.h>
 	<wx/menu.h>
@@ -5093,8 +5093,9 @@
 	"dziennik_guiMain.h"
 	<wx/image.h>
 
-1668446859 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guiapp.h
+1668491197 d:\temp\dziennik\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guiapp.h
 	<wx/app.h>
+	<sqlite3.h>
 	<sqlite3.h>
 	<DziennikLib.h>
 	<DziennikLib_adders.cpp>
