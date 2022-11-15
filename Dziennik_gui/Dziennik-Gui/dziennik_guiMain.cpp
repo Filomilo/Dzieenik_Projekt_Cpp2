@@ -53,6 +53,11 @@ const long dziennik_guiFrame::ID_TEXTCTRLREGISTERREAPEATPASSWORD = wxNewId();
 const long dziennik_guiFrame::ID_STATICTEXT3 = wxNewId();
 const long dziennik_guiFrame::ID_BUTTONREGISTER = wxNewId();
 const long dziennik_guiFrame::ID_PANELCREATEADMIN = wxNewId();
+const long dziennik_guiFrame::ID_TEXTCTRLLOGINNICK = wxNewId();
+const long dziennik_guiFrame::ID_STATICTEXT5 = wxNewId();
+const long dziennik_guiFrame::ID_TEXTCTRLLOGINPASSWORD = wxNewId();
+const long dziennik_guiFrame::ID_STATICTEXT4 = wxNewId();
+const long dziennik_guiFrame::ID_BUTTONLOGIN = wxNewId();
 const long dziennik_guiFrame::ID_PANELLOGIN = wxNewId();
 const long dziennik_guiFrame::ID_PANELStudents = wxNewId();
 const long dziennik_guiFrame::ID_PANELMYGRADES = wxNewId();
@@ -81,6 +86,8 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     //(*Initialize(dziennik_guiFrame)
     wxBoxSizer* BoxSizer1;
     wxBoxSizer* BoxSizer2;
+    wxBoxSizer* BoxSizer3;
+    wxBoxSizer* BoxSizer4;
     wxMenu* Menu1;
     wxMenu* Menu2;
     wxMenuBar* MenuBar1;
@@ -94,17 +101,17 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     BoxSizer1 = new wxBoxSizer(wxHORIZONTAL);
     BoxSizer1->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer2 = new wxBoxSizer(wxVERTICAL);
-    TextCtrlNick = new wxTextCtrl(PanelCreateAdmin, ID_TEXTCTRLNICK, wxEmptyString, wxDefaultPosition, wxSize(487,37), 0, wxDefaultValidator, _T("ID_TEXTCTRLNICK"));
+    TextCtrlNick = new wxTextCtrl(PanelCreateAdmin, ID_TEXTCTRLNICK, wxEmptyString, wxDefaultPosition, wxSize(500,37), 0, wxDefaultValidator, _T("ID_TEXTCTRLNICK"));
     BoxSizer2->Add(TextCtrlNick, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText1 = new wxStaticText(PanelCreateAdmin, ID_STATICTEXT1, _("Nick"), wxDefaultPosition, wxSize(487,37), 0, _T("ID_STATICTEXT1"));
+    StaticText1 = new wxStaticText(PanelCreateAdmin, ID_STATICTEXT1, _("Nick"), wxDefaultPosition, wxSize(500,37), 0, _T("ID_STATICTEXT1"));
     BoxSizer2->Add(StaticText1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    TextCtrlPassRegister = new wxTextCtrl(PanelCreateAdmin, ID_TEXTCTRLPASSREGISTER, wxEmptyString, wxDefaultPosition, wxSize(487,37), wxTE_PASSWORD, wxDefaultValidator, _T("ID_TEXTCTRLPASSREGISTER"));
+    TextCtrlPassRegister = new wxTextCtrl(PanelCreateAdmin, ID_TEXTCTRLPASSREGISTER, wxEmptyString, wxDefaultPosition, wxSize(500,37), wxTE_PASSWORD, wxDefaultValidator, _T("ID_TEXTCTRLPASSREGISTER"));
     BoxSizer2->Add(TextCtrlPassRegister, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText2 = new wxStaticText(PanelCreateAdmin, ID_STATICTEXT2, _("Passoword"), wxDefaultPosition, wxSize(487,19), 0, _T("ID_STATICTEXT2"));
+    StaticText2 = new wxStaticText(PanelCreateAdmin, ID_STATICTEXT2, _("Passoword"), wxDefaultPosition, wxSize(500,19), 0, _T("ID_STATICTEXT2"));
     BoxSizer2->Add(StaticText2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     TextCtrlRegisterReapeatPassword = new wxTextCtrl(PanelCreateAdmin, ID_TEXTCTRLREGISTERREAPEATPASSWORD, wxEmptyString, wxDefaultPosition, wxSize(487,37), wxTE_PASSWORD, wxDefaultValidator, _T("ID_TEXTCTRLREGISTERREAPEATPASSWORD"));
     BoxSizer2->Add(TextCtrlRegisterReapeatPassword, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    StaticText3 = new wxStaticText(PanelCreateAdmin, ID_STATICTEXT3, _("Reapeat Password"), wxDefaultPosition, wxSize(487,37), 0, _T("ID_STATICTEXT3"));
+    StaticText3 = new wxStaticText(PanelCreateAdmin, ID_STATICTEXT3, _("Reapeat Password"), wxDefaultPosition, wxSize(500,37), 0, _T("ID_STATICTEXT3"));
     BoxSizer2->Add(StaticText3, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer2->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     ButtonRegister = new wxButton(PanelCreateAdmin, ID_BUTTONREGISTER, _("Register"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONREGISTER"));
@@ -115,6 +122,25 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     BoxSizer1->Fit(PanelCreateAdmin);
     BoxSizer1->SetSizeHints(PanelCreateAdmin);
     PanelLogin = new wxPanel(NotebookMain, ID_PANELLOGIN, wxPoint(184,8), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELLOGIN"));
+    BoxSizer3 = new wxBoxSizer(wxHORIZONTAL);
+    BoxSizer3->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer4 = new wxBoxSizer(wxVERTICAL);
+    TextCtrlLoginNick = new wxTextCtrl(PanelLogin, ID_TEXTCTRLLOGINNICK, wxEmptyString, wxDefaultPosition, wxSize(500,37), 0, wxDefaultValidator, _T("ID_TEXTCTRLLOGINNICK"));
+    BoxSizer4->Add(TextCtrlLoginNick, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText5 = new wxStaticText(PanelLogin, ID_STATICTEXT5, _("Nick"), wxDefaultPosition, wxSize(500,37), 0, _T("ID_STATICTEXT5"));
+    BoxSizer4->Add(StaticText5, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    TextCtrlLoginPassword = new wxTextCtrl(PanelLogin, ID_TEXTCTRLLOGINPASSWORD, wxEmptyString, wxDefaultPosition, wxSize(500,37), wxTE_PASSWORD, wxDefaultValidator, _T("ID_TEXTCTRLLOGINPASSWORD"));
+    BoxSizer4->Add(TextCtrlLoginPassword, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    StaticText4 = new wxStaticText(PanelLogin, ID_STATICTEXT4, _("Password"), wxDefaultPosition, wxSize(500,37), 0, _T("ID_STATICTEXT4"));
+    BoxSizer4->Add(StaticText4, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer4->Add(0,0,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    ButtonLogin = new wxButton(PanelLogin, ID_BUTTONLOGIN, _("Login"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONLOGIN"));
+    BoxSizer4->Add(ButtonLogin, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer3->Add(BoxSizer4, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer3->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    PanelLogin->SetSizer(BoxSizer3);
+    BoxSizer3->Fit(PanelLogin);
+    BoxSizer3->SetSizeHints(PanelLogin);
     PanelStudents = new wxPanel(NotebookMain, ID_PANELStudents, wxPoint(248,30), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELStudents"));
     PanelMyGrades = new wxPanel(NotebookMain, ID_PANELMYGRADES, wxPoint(375,9), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELMYGRADES"));
     PanelYourStudentes = new wxPanel(NotebookMain, ID_PANELYOURSTUdNETS, wxPoint(439,24), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELYOURSTUdNETS"));
@@ -154,6 +180,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_TEXTCTRLPASSREGISTER,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnTextCtrlPassRegisterText);
     Connect(ID_TEXTCTRLREGISTERREAPEATPASSWORD,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnTextCtrlRegisterReapeatPasswordText);
     Connect(ID_BUTTONREGISTER,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonRegisterClick);
+    Connect(ID_BUTTONLOGIN,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonLoginClick);
     Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnAbout);
     //*)
@@ -197,6 +224,7 @@ void dziennik_guiFrame::OnOpenFile(wxCommandEvent& event)
     std::cout<<openFileDialog.GetPath()<<std::endl;
     this->dziennik->loadDataBase(std::string(openFileDialog.GetPath().mbc_str()));
     this->dziennik->printDataBase();
+    setViewAsNoLogged();
 }
 
 void dziennik_guiFrame::removeAllPages()
@@ -206,7 +234,7 @@ void dziennik_guiFrame::removeAllPages()
     for(int i=0;i<amount;i++)
     {
         NotebookMain->GetPage(0)->Show(false);
-        //NotebookMain->RemovePage(0);
+        NotebookMain->RemovePage(0);
     }
 
 }
@@ -265,4 +293,21 @@ void dziennik_guiFrame::OnButtonRegisterClick(wxCommandEvent& event)
 
 void dziennik_guiFrame::OnTextCtrlRegisterReapeatPasswordText(wxCommandEvent& event)
 {
+}
+
+void dziennik_guiFrame::OnButtonLoginClick(wxCommandEvent& event)
+{
+     std::string nick=std::string(TextCtrlLoginNick->GetLineText(0).mbc_str());
+     std::string pass=std::string(TextCtrlLoginPassword->GetLineText(0).mbc_str());
+     std::cout<<nick<<std::endl;
+     if(this->dziennik->login(nick,pass)==false){
+        return;
+        std::cout<<"not logged"<<std::endl;
+     }
+     switch(this->dziennik->getUserAccountType())
+     {
+         case DziennikLib::Account_types::ADMIN: setViewAsAdmin(); break;
+         case DziennikLib::Account_types::TEACHER: setViewAsTeacher(); break;
+         case DziennikLib::Account_types::STUDNET: setViewAsStudent(); break;
+     }
 }

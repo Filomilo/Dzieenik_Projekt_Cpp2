@@ -48,6 +48,7 @@ class dziennik_guiFrame: public wxFrame
         void OnTextCtrlPassRegisterText(wxCommandEvent& event);
         void OnButtonRegisterClick(wxCommandEvent& event);
         void OnTextCtrlRegisterReapeatPasswordText(wxCommandEvent& event);
+        void OnButtonLoginClick(wxCommandEvent& event);
         //*)
 
         void removeAllPages();
@@ -66,6 +67,11 @@ class dziennik_guiFrame: public wxFrame
         static const long ID_STATICTEXT3;
         static const long ID_BUTTONREGISTER;
         static const long ID_PANELCREATEADMIN;
+        static const long ID_TEXTCTRLLOGINNICK;
+        static const long ID_STATICTEXT5;
+        static const long ID_TEXTCTRLLOGINPASSWORD;
+        static const long ID_STATICTEXT4;
+        static const long ID_BUTTONLOGIN;
         static const long ID_PANELLOGIN;
         static const long ID_PANELStudents;
         static const long ID_PANELMYGRADES;
@@ -82,6 +88,7 @@ class dziennik_guiFrame: public wxFrame
         //*)
 
         //(*Declarations(dziennik_guiFrame)
+        wxButton* ButtonLogin;
         wxButton* ButtonRegister;
         wxFileDialog* FileDialog1;
         wxMenu Menu3;
@@ -99,7 +106,11 @@ class dziennik_guiFrame: public wxFrame
         wxStaticText* StaticText1;
         wxStaticText* StaticText2;
         wxStaticText* StaticText3;
+        wxStaticText* StaticText4;
+        wxStaticText* StaticText5;
         wxStatusBar* StatusBar1;
+        wxTextCtrl* TextCtrlLoginNick;
+        wxTextCtrl* TextCtrlLoginPassword;
         wxTextCtrl* TextCtrlNick;
         wxTextCtrl* TextCtrlPassRegister;
         wxTextCtrl* TextCtrlRegisterReapeatPassword;
