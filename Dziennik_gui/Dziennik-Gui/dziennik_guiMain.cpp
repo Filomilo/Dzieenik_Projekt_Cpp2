@@ -158,7 +158,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     PanelTeachers = new wxPanel(NotebookMain, ID_PANELTEACHERS, wxPoint(574,7), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELTEACHERS"));
     PanelSubjects = new wxPanel(NotebookMain, ID_PANELSUBJECTS, wxPoint(776,13), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELSUBJECTS"));
     BoxSizer5 = new wxBoxSizer(wxVERTICAL);
-    ListCtrlSubjectList = new wxListCtrl(PanelSubjects, ID_LISTCTRLSUBJECTSLIST, wxDefaultPosition, wxDefaultSize, wxLC_REPORT, wxDefaultValidator, _T("ID_LISTCTRLSUBJECTSLIST"));
+    ListCtrlSubjectList = new wxListCtrl(PanelSubjects, ID_LISTCTRLSUBJECTSLIST, wxDefaultPosition, wxDefaultSize, wxLC_REPORT|wxLC_EDIT_LABELS, wxDefaultValidator, _T("ID_LISTCTRLSUBJECTSLIST"));
     BoxSizer5->Add(ListCtrlSubjectList, 11, wxALL|wxEXPAND, 5);
     BoxSizer6 = new wxBoxSizer(wxHORIZONTAL);
     BoxSizer8 = new wxBoxSizer(wxVERTICAL);
@@ -215,15 +215,15 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_TEXTCTRLREGISTERREAPEATPASSWORD,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnTextCtrlRegisterReapeatPasswordText);
     Connect(ID_BUTTONREGISTER,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonRegisterClick);
     Connect(ID_BUTTONLOGIN,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonLoginClick);
+    PanelTeachers->Connect(wxEVT_PAINT,(wxObjectEventFunction)&dziennik_guiFrame::OnPanelTeachersPaint,0,this);
+    Connect(ID_LISTCTRLSUBJECTSLIST,wxEVT_COMMAND_LIST_BEGIN_DRAG,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlSubjectListBeginDrag);
     Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnAbout);
     Connect(wxID_ANY,wxEVT_CLOSE_WINDOW,(wxObjectEventFunction)&dziennik_guiFrame::OnClose);
     //*)
     Connect(idMenuNewFIle,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnNewFile);
     Connect(idMenuOpenFile,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnOpenFile);
-
-
-
+    Connect(ID_LISTCTRLSUBJECTSLIST,wxEVT_LIST_ITEM_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlSubjectListBeginDrag);
 
     //removeAllPages();
     dziennik->loadDataBase("exampple.dznk");
@@ -375,5 +375,25 @@ void dziennik_guiFrame::refreshSubjectList()
 }
 
 void dziennik_guiFrame::OnClose(wxCloseEvent& event)
+{
+}
+
+void dziennik_guiFrame::OnListCtrlSubjectListBeginDrag(wxListEvent& event)
+{
+          std::cout<<"clicked\n";
+        long SelctedItem = ListCtrlSubjectList->GetNextItem(-1,  wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+        wxListItem item;
+        item.SetId(SelctedItem);
+        ListCtrlSubjectList->GetItem(item);
+        subject itemSelcted=dziennik->findSubjectsById(wxAtoi(item.GetText()))[0];
+        std::cout<<itemSelcted<<std::endl;
+}
+
+void OnSubjectListItemClicked(wxListEvent& event)
+{
+
+}
+
+void dziennik_guiFrame::OnPanelTeachersPaint(wxPaintEvent& event)
 {
 }

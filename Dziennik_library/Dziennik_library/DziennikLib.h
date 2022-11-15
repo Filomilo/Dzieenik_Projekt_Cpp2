@@ -123,6 +123,7 @@ public:
 	std::vector<grade>  findGradesAll();
 	std::vector<attendance>  findAttandanceAll();
 	std::vector<subject>  findSubjectsAll();
+	std::vector<subject>  findSubjectsById(int id);
 	std::vector<teacher>  findTeacherstAll();
 	std::vector<teacher>  findTeachersByPesel(std::string pesel);
 	std::vector<user>  findUsersAll();

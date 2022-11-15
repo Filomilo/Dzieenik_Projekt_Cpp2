@@ -208,7 +208,8 @@
 						<orient>wxVERTICAL</orient>
 						<object class="sizeritem">
 							<object class="wxListCtrl" name="ID_LISTCTRLSUBJECTSLIST" variable="ListCtrlSubjectList" member="yes">
-								<style>wxLC_REPORT</style>
+								<style>wxLC_REPORT|wxLC_EDIT_LABELS</style>
+								<handler function="OnListCtrlSubjectListBeginDrag" entry="EVT_LIST_BEGIN_DRAG" />
 							</object>
 							<flag>wxALL|wxEXPAND</flag>
 							<border>5</border>

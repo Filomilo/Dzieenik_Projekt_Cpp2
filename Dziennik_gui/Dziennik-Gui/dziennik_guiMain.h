@@ -51,6 +51,8 @@ class dziennik_guiFrame: public wxFrame
         void OnTextCtrlRegisterReapeatPasswordText(wxCommandEvent& event);
         void OnButtonLoginClick(wxCommandEvent& event);
         void OnClose(wxCloseEvent& event);
+        void OnListCtrlSubjectListBeginDrag(wxListEvent& event);
+        void OnPanelTeachersPaint(wxPaintEvent& event);
         //*)
 
         void removeAllPages();
@@ -62,6 +64,7 @@ class dziennik_guiFrame: public wxFrame
 
         void refreshSubjectList();
 
+        void OnSubjectListItemClicked(wxListEvent &e);
 
 
         //(*Identifiers(dziennik_guiFrame)
