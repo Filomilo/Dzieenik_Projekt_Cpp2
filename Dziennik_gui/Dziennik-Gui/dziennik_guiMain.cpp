@@ -69,7 +69,8 @@ const long dziennik_guiFrame::ID_LISTCTRLSUBJECTSLIST = wxNewId();
 const long dziennik_guiFrame::ID_STATICTEXT6 = wxNewId();
 const long dziennik_guiFrame::ID_TEXTCTRLSUBJECTEDITOR = wxNewId();
 const long dziennik_guiFrame::ID_BUTTONSAVESUBJECT = wxNewId();
-const long dziennik_guiFrame::ID_BUTTON1 = wxNewId();
+const long dziennik_guiFrame::ID_BUTTONDELTETSUBJCECT = wxNewId();
+const long dziennik_guiFrame::ID_BUTTONLOGINCANCLE = wxNewId();
 const long dziennik_guiFrame::ID_PANELSUBJECTS = wxNewId();
 const long dziennik_guiFrame::ID_NOTEBOOKMAIN = wxNewId();
 const long dziennik_guiFrame::idMenuNewFIle = wxNewId();
@@ -172,8 +173,10 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     BoxSizer7->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     ButtonSaveSubject = new wxButton(PanelSubjects, ID_BUTTONSAVESUBJECT, _("save"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONSAVESUBJECT"));
     BoxSizer7->Add(ButtonSaveSubject, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    Button1 = new wxButton(PanelSubjects, ID_BUTTON1, _("delete"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
-    BoxSizer7->Add(Button1, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    ButtonDeleteSubject = new wxButton(PanelSubjects, ID_BUTTONDELTETSUBJCECT, _("delete"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONDELTETSUBJCECT"));
+    BoxSizer7->Add(ButtonDeleteSubject, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    ButtonLoginCancel = new wxButton(PanelSubjects, ID_BUTTONLOGINCANCLE, _("cancel"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONLOGINCANCLE"));
+    BoxSizer7->Add(ButtonLoginCancel, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer7->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer6->Add(BoxSizer7, 1, wxALL|wxEXPAND, 5);
     BoxSizer5->Add(BoxSizer6, 1, wxALL|wxEXPAND, 5);
@@ -217,13 +220,17 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_BUTTONLOGIN,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonLoginClick);
     PanelTeachers->Connect(wxEVT_PAINT,(wxObjectEventFunction)&dziennik_guiFrame::OnPanelTeachersPaint,0,this);
     Connect(ID_LISTCTRLSUBJECTSLIST,wxEVT_COMMAND_LIST_BEGIN_DRAG,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlSubjectListBeginDrag);
+    Connect(ID_TEXTCTRLSUBJECTEDITOR,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnTextCtrlSubjectEditorText);
+    Connect(ID_BUTTONSAVESUBJECT,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonSaveSubjectClick);
+    Connect(ID_BUTTONDELTETSUBJCECT,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButton1Click1);
+    Connect(ID_BUTTONLOGINCANCLE,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonLoginCancelClick);
     Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnAbout);
     Connect(wxID_ANY,wxEVT_CLOSE_WINDOW,(wxObjectEventFunction)&dziennik_guiFrame::OnClose);
     //*)
     Connect(idMenuNewFIle,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnNewFile);
     Connect(idMenuOpenFile,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnOpenFile);
-    Connect(ID_LISTCTRLSUBJECTSLIST,wxEVT_LIST_ITEM_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlSubjectListBeginDrag);
+    Connect(ID_LISTCTRLSUBJECTSLIST,wxEVT_LIST_ITEM_ACTIVATED,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlSubjectListBeginDrag);
 
     //removeAllPages();
     dziennik->loadDataBase("exampple.dznk");
@@ -380,6 +387,7 @@ void dziennik_guiFrame::OnClose(wxCloseEvent& event)
 
 void dziennik_guiFrame::OnListCtrlSubjectListBeginDrag(wxListEvent& event)
 {
+    isSubjectSelected=false;
           std::cout<<"clicked\n";
         long SelctedItem = ListCtrlSubjectList->GetNextItem(-1,  wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
         wxListItem item;
@@ -387,6 +395,13 @@ void dziennik_guiFrame::OnListCtrlSubjectListBeginDrag(wxListEvent& event)
         ListCtrlSubjectList->GetItem(item);
         subject itemSelcted=dziennik->findSubjectsById(wxAtoi(item.GetText()))[0];
         std::cout<<itemSelcted<<std::endl;
+        if(!isSubjectInEditModde)
+        {
+            TextCtrlSubjectEditor->Clear();
+            TextCtrlSubjectEditor->AppendText(itemSelcted.getName());
+            selectedSubjectId=itemSelcted.getSubjectId();
+             isSubjectSelected=true;
+        }
 }
 
 void OnSubjectListItemClicked(wxListEvent& event)
@@ -395,5 +410,48 @@ void OnSubjectListItemClicked(wxListEvent& event)
 }
 
 void dziennik_guiFrame::OnPanelTeachersPaint(wxPaintEvent& event)
+{
+}
+
+void dziennik_guiFrame::OnTextCtrlSubjectEditorText(wxCommandEvent& event)
+{
+    if(isSubjectSelected)
+    {
+        std::cout<<"locked"<<std::endl;
+        isSubjectInEditModde=true;
+    }
+}
+
+void dziennik_guiFrame::OnButtonLoginCancelClick(wxCommandEvent& event)
+{
+    refreshSubjectSelection();
+}
+
+void dziennik_guiFrame::OnButtonSaveSubjectClick(wxCommandEvent& event)
+{
+    if(isSubjectInEditModde)
+    {
+    if(selectedSubjectId>0)
+    {
+    }
+    else
+    {
+        wxString name=TextCtrlSubjectEditor->GetLineText(0);
+        this->dziennik->addSubject(std::string(name.mbc_str()));
+
+    }
+  TextCtrlSubjectEditor->Clear();
+refreshSubjectSelection();
+    }
+}
+
+void dziennik_guiFrame::refreshSubjectSelection()
+{
+       isSubjectInEditModde=false;
+    isSubjectSelected=true;
+    refreshSubjectList();
+}
+
+void dziennik_guiFrame::OnButton1Click1(wxCommandEvent& event)
 {
 }

@@ -158,7 +158,7 @@ public:
 	static bool isFileExist(char* fileDir);
 
 	//*********************************************************    update
-
+	void updateSubject(int subjectId,std::string Name);
 
 	//*********************************************************    validators
 

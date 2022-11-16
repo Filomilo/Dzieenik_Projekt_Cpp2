@@ -53,6 +53,10 @@ class dziennik_guiFrame: public wxFrame
         void OnClose(wxCloseEvent& event);
         void OnListCtrlSubjectListBeginDrag(wxListEvent& event);
         void OnPanelTeachersPaint(wxPaintEvent& event);
+        void OnTextCtrlSubjectEditorText(wxCommandEvent& event);
+        void OnButtonLoginCancelClick(wxCommandEvent& event);
+        void OnButtonSaveSubjectClick(wxCommandEvent& event);
+        void OnButton1Click1(wxCommandEvent& event);
         //*)
 
         void removeAllPages();
@@ -67,6 +71,11 @@ class dziennik_guiFrame: public wxFrame
         void OnSubjectListItemClicked(wxListEvent &e);
 
 
+
+        void refreshSubjectSelection();
+        bool isSubjectSelected=true;
+        bool isSubjectInEditModde=false;
+        int selectedSubjectId=-1;
         //(*Identifiers(dziennik_guiFrame)
         static const long ID_TEXTCTRLNICK;
         static const long ID_STATICTEXT1;
@@ -90,7 +99,8 @@ class dziennik_guiFrame: public wxFrame
         static const long ID_STATICTEXT6;
         static const long ID_TEXTCTRLSUBJECTEDITOR;
         static const long ID_BUTTONSAVESUBJECT;
-        static const long ID_BUTTON1;
+        static const long ID_BUTTONDELTETSUBJCECT;
+        static const long ID_BUTTONLOGINCANCLE;
         static const long ID_PANELSUBJECTS;
         static const long ID_NOTEBOOKMAIN;
         static const long idMenuNewFIle;
@@ -102,8 +112,9 @@ class dziennik_guiFrame: public wxFrame
         //*)
 
         //(*Declarations(dziennik_guiFrame)
-        wxButton* Button1;
+        wxButton* ButtonDeleteSubject;
         wxButton* ButtonLogin;
+        wxButton* ButtonLoginCancel;
         wxButton* ButtonRegister;
         wxButton* ButtonSaveSubject;
         wxFileDialog* FileDialog1;
