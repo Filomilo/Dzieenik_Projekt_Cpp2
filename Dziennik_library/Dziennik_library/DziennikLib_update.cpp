@@ -13,3 +13,10 @@ void DziennikLib::updateAttandance(std::string attandanceId, std::string newStat
 	std::cout << std::endl << sqlCode;
 	executeSqlInsert(sqlCode);
 }
+
+void  DziennikLib::updateSubject(int subjectId,std::string Name)
+{
+		std::string sqlCode = "UPDATE Subjects \n SET Name = \"" + Name + "\"\n WHERE Suvject_id = " + std::to_string(subjectId) + ";";
+	std::cout << std::endl << sqlCode;
+	executeSqlInsert(sqlCode);
+}

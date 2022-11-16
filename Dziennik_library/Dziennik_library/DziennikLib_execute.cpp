@@ -13,7 +13,7 @@ void DziennikLib::executeSqlInsert(std::string sqlCommand)
 void DziennikLib::executeSqlPrint(std::string sqlCommand)
 {
 	char* errorMsg;
-
+    std::cout<<sqlCommand<<std::endl;
 	if (sqlite3_exec(this->db, sqlCommand.c_str(), callbackPrint, NULL, &errorMsg) != SQLITE_OK)
 	{
 		warrningHandler(errorMsg);

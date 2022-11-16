@@ -346,6 +346,7 @@ void dziennik_guiFrame::OnTextCtrlRegisterReapeatPasswordText(wxCommandEvent& ev
 
 void dziennik_guiFrame::OnButtonLoginClick(wxCommandEvent& event)
 {
+
      std::string nick=std::string(TextCtrlLoginNick->GetLineText(0).mbc_str());
      std::string pass=std::string(TextCtrlLoginPassword->GetLineText(0).mbc_str());
      std::cout<<nick<<std::endl;
@@ -363,11 +364,11 @@ void dziennik_guiFrame::OnButtonLoginClick(wxCommandEvent& event)
 
 void dziennik_guiFrame::refreshSubjectList()
 {
-
+    checkVariables();
     ListCtrlSubjectList->ClearAll();
     ListCtrlSubjectList->AppendColumn(_("id"));
     ListCtrlSubjectList->AppendColumn(_("subject name"));
-   dziennik->printSubjects();
+  // dziennik->printSubjects();
     std::vector<subject> subjectList=this->dziennik->findSubjectsAll();
     int i=0;
     for(auto it=subjectList.begin();it!=subjectList.end();it++)
@@ -387,6 +388,7 @@ void dziennik_guiFrame::OnClose(wxCloseEvent& event)
 
 void dziennik_guiFrame::OnListCtrlSubjectListBeginDrag(wxListEvent& event)
 {
+        checkVariables();
     isSubjectSelected=false;
           std::cout<<"clicked\n";
         long SelctedItem = ListCtrlSubjectList->GetNextItem(-1,  wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
@@ -394,13 +396,17 @@ void dziennik_guiFrame::OnListCtrlSubjectListBeginDrag(wxListEvent& event)
         item.SetId(SelctedItem);
         ListCtrlSubjectList->GetItem(item);
         subject itemSelcted=dziennik->findSubjectsById(wxAtoi(item.GetText()))[0];
-        std::cout<<itemSelcted<<std::endl;
         if(!isSubjectInEditModde)
         {
+            std::cout<<"into subject mode\n";
             TextCtrlSubjectEditor->Clear();
             TextCtrlSubjectEditor->AppendText(itemSelcted.getName());
             selectedSubjectId=itemSelcted.getSubjectId();
              isSubjectSelected=true;
+        }
+        else
+        {
+               std::cout<<"something in edit\n";
         }
 }
 
@@ -415,43 +421,56 @@ void dziennik_guiFrame::OnPanelTeachersPaint(wxPaintEvent& event)
 
 void dziennik_guiFrame::OnTextCtrlSubjectEditorText(wxCommandEvent& event)
 {
-    if(isSubjectSelected)
-    {
-        std::cout<<"locked"<<std::endl;
+        checkVariables();
+
+        std::cout<<"locked: "<<selectedSubjectId<<std::endl;
         isSubjectInEditModde=true;
-    }
+
 }
 
 void dziennik_guiFrame::OnButtonLoginCancelClick(wxCommandEvent& event)
 {
+        checkVariables();
     refreshSubjectSelection();
 }
 
 void dziennik_guiFrame::OnButtonSaveSubjectClick(wxCommandEvent& event)
 {
+    checkVariables();
     if(isSubjectInEditModde)
     {
+         wxString name=TextCtrlSubjectEditor->GetLineText(0);
     if(selectedSubjectId>0)
     {
+        this->dziennik->updateSubject(selectedSubjectId,std::string(name.mbc_str()));
     }
     else
     {
-        wxString name=TextCtrlSubjectEditor->GetLineText(0);
         this->dziennik->addSubject(std::string(name.mbc_str()));
 
     }
-  TextCtrlSubjectEditor->Clear();
 refreshSubjectSelection();
     }
 }
 
 void dziennik_guiFrame::refreshSubjectSelection()
 {
-       isSubjectInEditModde=false;
-    isSubjectSelected=true;
+        checkVariables();
+
+    selectedSubjectId=-1;
+    TextCtrlSubjectEditor->Clear();
+        isSubjectInEditModde=false;
+    isSubjectSelected=false;
     refreshSubjectList();
 }
 
 void dziennik_guiFrame::OnButton1Click1(wxCommandEvent& event)
 {
+}
+
+void dziennik_guiFrame::checkVariables()
+{
+    std::cout<<"is subject in edit mdoe: "<<isSubjectInEditModde<<std::endl;
+       std:: cout<<"isSubjectSelected  "<<isSubjectSelected<<std::endl;
+
 }

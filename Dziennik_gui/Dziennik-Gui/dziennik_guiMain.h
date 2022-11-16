@@ -76,6 +76,8 @@ class dziennik_guiFrame: public wxFrame
         bool isSubjectSelected=true;
         bool isSubjectInEditModde=false;
         int selectedSubjectId=-1;
+
+        void checkVariables();
         //(*Identifiers(dziennik_guiFrame)
         static const long ID_TEXTCTRLNICK;
         static const long ID_STATICTEXT1;
