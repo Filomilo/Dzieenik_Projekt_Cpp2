@@ -28,6 +28,8 @@
 #include <DziennikLib_update.cpp>
 #include <DziennikLib_validators.cpp>
 #include <DziennkLib_account.cpp>
+#include <DziennkLib_remove.cpp>
+
 
 class dziennik_guiApp : public wxApp
 {

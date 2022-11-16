@@ -466,6 +466,11 @@ void dziennik_guiFrame::refreshSubjectSelection()
 
 void dziennik_guiFrame::OnButton1Click1(wxCommandEvent& event)
 {
+    if(selectedSubjectId>0)
+    {
+        this->dziennik->removeSubject(selectedSubjectId);
+    }
+    refreshSubjectSelection();
 }
 
 void dziennik_guiFrame::checkVariables()

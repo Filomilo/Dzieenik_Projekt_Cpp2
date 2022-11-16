@@ -5988,7 +5988,7 @@
 	"dziennik_guiMain.h"
 	<wx/image.h>
 
-1668491197 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guiapp.h
+1668605511 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guiapp.h
 	<wx/app.h>
 	<sqlite3.h>
 	<sqlite3.h>
@@ -6007,6 +6007,7 @@
 	<DziennikLib_update.cpp>
 	<DziennikLib_validators.cpp>
 	<DziennkLib_account.cpp>
+	<DziennkLib_remove.cpp>
 
 1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\app.h
 	"wx/event.h"
@@ -8113,7 +8114,7 @@
 	"wx/defs.h"
 	"wx/validate.h"
 
-1668604944 source:d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
+1668605445 source:d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
 	"dziennik_guiMain.h"
 	<wx/msgdlg.h>
 	<iostream>
@@ -8167,7 +8168,7 @@
 1668514907 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\sqlite\sqlite3.h
 	<stdarg.h>
 
-1668577776 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib.h
+1668605460 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib.h
 	<sqlite3.h>
 	<iostream>
 	<fstream>
@@ -8313,4 +8314,7 @@
 	<unicode/ubrk.h>
 	<unicode/utf16.h>
 	<math.h>
+
+1668605480 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dziennklib_remove.cpp
+	"DziennikLib.h"
 

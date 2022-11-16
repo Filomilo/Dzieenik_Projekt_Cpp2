@@ -43,7 +43,7 @@ private:
 	static int callbackGetGrade(void* data, int argc, char** argv, char** azColName);
 	static int callbackGetSubject(void* data, int argc, char** argv, char** azColName);
 
-	
+
 	//*********************************************************    communication
 	bool errorHandler(const char* warrningMessage);
 	bool warrningHandler(const char* warrningMessage);
@@ -72,24 +72,24 @@ private:
 	void insertIntoTeachers(std::string pesel, std::string name, std::string surname, std::string birthday, std::string Subject_id);
 	void insertIntoUsers(std::string nick, std::string Password, std::string Account_type, std::string Id_in_db);
 	void insertIntoUsers(std::string nick, std::string Password, std::string Account_type);
-	
+
 	//*********************************************************    manager
 	void createBasictables();
 	void removeDataBaseFile();
-	
+
 	//*********************************************************    print
-	
+
 	//*********************************************************    testing
 
 	//*********************************************************    tools
-	
+
 	//*********************************************************    update
 	void updateGrade(std::string gradeId, std::string newGrade);
 	void updateAttandance(std::string attandanceId, std::string newStatus);
-	
+
 	//*********************************************************    validators
 	bool validateLogin(std::string nick, std::string password);
-	
+
 	//*********************************************************    account
 	int getAmountOfLogin(std::string nick, std::string password);
 
@@ -129,6 +129,8 @@ public:
 	std::vector<user>  findUsersAll();
 	std::vector<user>  findUsersById(int id);
 
+    //*********************************************************    remove
+    void removeSubject(int subjectId);
 
 	//*********************************************************    insert
 
