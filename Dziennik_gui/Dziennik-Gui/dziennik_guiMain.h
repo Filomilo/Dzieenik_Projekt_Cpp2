@@ -12,6 +12,9 @@
 
 //(*Headers(dziennik_guiFrame)
 #include <wx/button.h>
+#include <wx/combobox.h>
+#include <wx/datectrl.h>
+#include <wx/dateevt.h>
 #include <wx/filedlg.h>
 #include <wx/frame.h>
 #include <wx/listctrl.h>
@@ -57,6 +60,8 @@ class dziennik_guiFrame: public wxFrame
         void OnButtonLoginCancelClick(wxCommandEvent& event);
         void OnButtonSaveSubjectClick(wxCommandEvent& event);
         void OnButton1Click1(wxCommandEvent& event);
+        void OnNotebookMainPageChanged(wxNotebookEvent& event);
+        void OnTextCtrl2Text(wxCommandEvent& event);
         //*)
 
         void removeAllPages();
@@ -96,6 +101,20 @@ class dziennik_guiFrame: public wxFrame
         static const long ID_PANELStudents;
         static const long ID_PANELMYGRADES;
         static const long ID_PANELYOURSTUdNETS;
+        static const long ID_LISTCTRLTEACHERS;
+        static const long ID_STATICTEXT7;
+        static const long ID_TEXTCTRL1;
+        static const long ID_STATICTEXT8;
+        static const long ID_TEXTCTRL2;
+        static const long ID_STATICTEXT9;
+        static const long ID_DATEPICKERCTRL1;
+        static const long ID_STATICTEXT11;
+        static const long ID_TEXTCTRL3;
+        static const long ID_STATICTEXT10;
+        static const long ID_COMBOBOX1;
+        static const long ID_BUTTON1;
+        static const long ID_BUTTON2;
+        static const long ID_BUTTON3;
         static const long ID_PANELTEACHERS;
         static const long ID_LISTCTRLSUBJECTSLIST;
         static const long ID_STATICTEXT6;
@@ -114,13 +133,19 @@ class dziennik_guiFrame: public wxFrame
         //*)
 
         //(*Declarations(dziennik_guiFrame)
+        wxButton* Button1;
+        wxButton* Button2;
+        wxButton* Button3;
         wxButton* ButtonDeleteSubject;
         wxButton* ButtonLogin;
         wxButton* ButtonLoginCancel;
         wxButton* ButtonRegister;
         wxButton* ButtonSaveSubject;
+        wxComboBox* ComboBox1;
+        wxDatePickerCtrl* DatePickerCtrl1;
         wxFileDialog* FileDialog1;
         wxListCtrl* ListCtrlSubjectList;
+        wxListCtrl* ListCtrlTeachers;
         wxMenu Menu3;
         wxMenuItem* MenuItem3;
         wxMenuItem* MenuItem4;
@@ -133,13 +158,21 @@ class dziennik_guiFrame: public wxFrame
         wxPanel* PanelTeachers;
         wxPanel* PanelYourStudentes;
         wxPasswordEntryDialog* PasswordEntryDialog1;
+        wxStaticText* StaticText10;
+        wxStaticText* StaticText11;
         wxStaticText* StaticText1;
         wxStaticText* StaticText2;
         wxStaticText* StaticText3;
         wxStaticText* StaticText4;
         wxStaticText* StaticText5;
         wxStaticText* StaticText6;
+        wxStaticText* StaticText7;
+        wxStaticText* StaticText8;
+        wxStaticText* StaticText9;
         wxStatusBar* StatusBar1;
+        wxTextCtrl* TextCtrl1;
+        wxTextCtrl* TextCtrl2;
+        wxTextCtrl* TextCtrl3;
         wxTextCtrl* TextCtrlLoginNick;
         wxTextCtrl* TextCtrlLoginPassword;
         wxTextCtrl* TextCtrlNick;

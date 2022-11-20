@@ -7511,8 +7511,11 @@
 1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\univ\theme.h
 	"wx/string.h"
 
-1668604696 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
+1668974994 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
 	<wx/button.h>
+	<wx/combobox.h>
+	<wx/datectrl.h>
+	<wx/dateevt.h>
 	<wx/filedlg.h>
 	<wx/frame.h>
 	<wx/listctrl.h>
@@ -8114,7 +8117,7 @@
 	"wx/defs.h"
 	"wx/validate.h"
 
-1668605445 source:d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
+1668975282 source:d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
 	"dziennik_guiMain.h"
 	<wx/msgdlg.h>
 	<iostream>
@@ -8317,4 +8320,40 @@
 
 1668605480 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dziennklib_remove.cpp
 	"DziennikLib.h"
+
+1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\datectrl.h
+	"wx/defs.h"
+	"wx/datetimectrl.h"
+	"wx/msw/datectrl.h"
+	"wx/osx/datectrl.h"
+	"wx/generic/datectrl.h"
+
+1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\datetimectrl.h
+	"wx/defs.h"
+	"wx/control.h"
+	"wx/datetime.h"
+	"wx/msw/datetimectrl.h"
+	"wx/osx/datetimectrl.h"
+
+1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\datetimectrl.h
+	"wx/intl.h"
+
+1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\osx\datetimectrl.h
+
+1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\datectrl.h
+
+1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\osx\datectrl.h
+
+1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\generic\datectrl.h
+	"wx/compositewin.h"
+	"wx/containr.h"
+
+1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\compositewin.h
+	"wx/window.h"
+	"wx/containr.h"
+
+1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\dateevt.h
+	"wx/event.h"
+	"wx/datetime.h"
+	"wx/window.h"
 
