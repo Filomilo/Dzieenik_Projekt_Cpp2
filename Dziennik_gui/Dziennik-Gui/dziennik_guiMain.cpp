@@ -284,7 +284,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     BoxSizer15->Add(TextCtrlTeacherSurname, 1, wxALL|wxEXPAND, 5);
     StaticText11 = new wxStaticText(PanelTeachers, ID_STATICTEXT11, _("Surname"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT11"));
     BoxSizer15->Add(StaticText11, 1, wxALL|wxALIGN_LEFT, 5);
-    ComboBoxTeacherSubject = new wxComboBox(PanelTeachers, ID_COMBOBOXTEACHERSUBJECT, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_COMBOBOXTEACHERSUBJECT"));
+    ComboBoxTeacherSubject = new wxChoice(PanelTeachers, ID_COMBOBOXTEACHERSUBJECT, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_COMBOBOXTEACHERSUBJECT"));
     BoxSizer15->Add(ComboBoxTeacherSubject, 1, wxALL|wxEXPAND, 5);
     StaticText10 = new wxStaticText(PanelTeachers, ID_STATICTEXT10, _("Subject"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT10"));
     BoxSizer15->Add(StaticText10, 1, wxALL|wxALIGN_LEFT, 5);
@@ -367,6 +367,14 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_BUTTONREGISTER,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonRegisterClick);
     Connect(ID_BUTTONLOGIN,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonLoginClick);
     Connect(ID_LISTCTRLTEACHERS,wxEVT_COMMAND_LIST_BEGIN_DRAG,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlTeachersBeginDrag);
+    Connect(ID_TEXTCTRLTEACHERPESEL,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnChangeInTeachers);
+    Connect(ID_TEXTCTRL2,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnChangeInTeachers);
+    Connect(ID_DATEPICKERCTRLTEACHERBIRTHDAY,wxEVT_DATE_CHANGED,(wxObjectEventFunction)&dziennik_guiFrame::OnDatePickerCtrlTeacherBirthdayChanged);
+    Connect(ID_TEXTCTRLTEACHERSURNAME,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnChangeInTeachers);
+    Connect(ID_COMBOBOXTEACHERSUBJECT,wxEVT_COMMAND_CHOICE_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnChangeInTeachers);
+    Connect(ID_BUTTONSAVETEACHER,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonSaveTeacherClick);
+    Connect(ID_BUTTONDELETETEACHER,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonDeleteTeacherClick);
+    Connect(ID_BUTTONCANCELTEACHER,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonCancelTeacherClick);
     PanelTeachers->Connect(wxEVT_PAINT,(wxObjectEventFunction)&dziennik_guiFrame::OnPanelTeachersPaint,0,this);
     Connect(ID_LISTCTRLSUBJECTSLIST,wxEVT_COMMAND_LIST_BEGIN_DRAG,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlSubjectListBeginDrag);
     Connect(ID_TEXTCTRLSUBJECTEDITOR,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnTextCtrlSubjectEditorText);
@@ -386,7 +394,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     //removeAllPages();
     dziennik->loadDataBase("exampple.dznk");
     refreshSubjectList();
-    refreshTeacherList();
+    refreshTeacherSelection();
 }
 
 dziennik_guiFrame::~dziennik_guiFrame()
@@ -568,7 +576,7 @@ void dziennik_guiFrame::OnPanelTeachersPaint(wxPaintEvent& event)
 
 void dziennik_guiFrame::OnTextCtrlSubjectEditorText(wxCommandEvent& event)
 {
-        checkVariables();
+        //checkVariables();
 
         std::cout<<"locked: "<<selectedSubjectId<<std::endl;
         isSubjectInEditModde=true;
@@ -644,6 +652,7 @@ void dziennik_guiFrame::OnTextCtrl2Text(wxCommandEvent& event)
 void dziennik_guiFrame::refreshTeacherList()
 {
     ListCtrlTeachers->ClearAll();
+
     ListCtrlTeachers->AppendColumn(_("Pesel"));
     ListCtrlTeachers->AppendColumn(_("Name"));
     ListCtrlTeachers->AppendColumn(_("Surname"));
@@ -651,7 +660,7 @@ void dziennik_guiFrame::refreshTeacherList()
     ListCtrlTeachers->AppendColumn(_("Subject"));
     std::vector<teacher> teachersList=this->dziennik->findTeacherstAll();
     int i=0;
-
+    ComboBoxTeacherSubject->Clear();
     for(auto it=teachersList.begin();it!=teachersList.end();it++)
     {
       ListCtrlTeachers->InsertItem(i, (*it).getPesel());
@@ -678,7 +687,7 @@ void dziennik_guiFrame::OnListCtrlTeachersBeginDrag(wxListEvent& event)
         std::cout<<std::string(ListCtrlTeachers->GetItemText(item,0).mb_str())<<std::endl;
         teacher itemSelcted=dziennik->findTeachersByPesel(std::string(ListCtrlTeachers->GetItemText(item,0).mb_str()))[0];
         std::cout<<"test"<<std::endl;
-        if(!isSubjectInEditModde)
+        if(!isTeacherInEditModde)
         {
             std::cout<<"into teacher mode\n";
             TextCtrlTeacherPesel->Clear();
@@ -703,9 +712,10 @@ void dziennik_guiFrame::OnListCtrlTeachersBeginDrag(wxListEvent& event)
             //DatePickerCtrlTeacherBirthday->se();
             //DatePickerCtrlTeacherBirthday->;
 
-
+            TextCtrlTeacherPesel->SetEditable(false);
             selectedTeacherId=itemSelcted.getPesel();
              isTeacherSelected=true;
+             isTeacherInEditModde=false;
         }
         else
         {
@@ -719,3 +729,86 @@ void dziennik_guiFrame::OnListCtrlTeachersBeginDrag(wxListEvent& event)
 
 
 
+
+void dziennik_guiFrame::OnComboBoxTeacherSubjectSelect(wxCommandEvent& event)
+{
+}
+
+void dziennik_guiFrame::OnChangeInTeachers(wxCommandEvent& event)
+{
+
+    isTeacherInEditModde=true;
+}
+
+void dziennik_guiFrame::OnButtonCancelTeacherClick(wxCommandEvent& event)
+{
+
+    refreshTeacherSelection();
+}
+
+void dziennik_guiFrame::refreshTeacherSelection()
+{
+    TextCtrlTeacherPesel->SetEditable(true);
+    selectedTeacherId[0]='\0';
+    TextCtrlTeacherName->Clear();
+    TextCtrlTeacherPesel->Clear();
+    TextCtrlTeacherSurname->Clear();
+    ComboBoxTeacherSubject->SetSelection(-1);
+    wxDateTime data;
+    data.SetToCurrent();
+    DatePickerCtrlTeacherBirthday->SetValue(data);
+        isTeacherInEditModde=false;
+    isTeacherSelected=false;
+    refreshTeacherList();
+}
+
+
+void dziennik_guiFrame::OnDatePickerCtrlTeacherBirthdayChanged(wxDateEvent& event)
+{
+    OnChangeInTeachers(event);
+}
+
+void dziennik_guiFrame::OnButtonSaveTeacherClick(wxCommandEvent& event)
+{
+    if(isTeacherInEditModde)
+    {
+        std::cout<<"test\n";
+         wxString name=TextCtrlTeacherName->GetLineText(0);
+         wxString pesel=TextCtrlTeacherPesel->GetLineText(0);
+         wxString surname=TextCtrlTeacherSurname->GetLineText(0);
+         wxDateTime birthday=DatePickerCtrlTeacherBirthday->GetValue();
+         wxString birthdayString= birthday.Format(wxT("%Y-%m-%d"), wxDateTime::CET );
+         int subjectId=ComboBoxTeacherSubject->GetSelection()+1;
+    if(selectedTeacherId[0]!='\0')
+    {
+          this->dziennik->updateTeacher(
+                                   std::string(pesel.mbc_str()),
+                                   std::string(name.mbc_str()),
+                                   std::string(surname.mbc_str()),
+                                   std::string(birthdayString.mbc_str()),
+                                   subjectId
+                                   );
+    }
+    else
+    {
+        this->dziennik->addTeacher(
+                                   std::string(pesel.mbc_str()),
+                                   std::string(name.mbc_str()),
+                                   std::string(surname.mbc_str()),
+                                   std::string(birthdayString.mbc_str()),
+                                   subjectId
+                                   );
+        std::cout<<birthdayString<<std::endl;
+    }
+refreshTeacherSelection();
+    }
+}
+
+void dziennik_guiFrame::OnButtonDeleteTeacherClick(wxCommandEvent& event)
+{
+        if(selectedTeacherId[0]!='\0')
+    {
+        this->dziennik->removeTeacher(selectedTeacherId);
+    }
+    refreshTeacherSelection();
+}

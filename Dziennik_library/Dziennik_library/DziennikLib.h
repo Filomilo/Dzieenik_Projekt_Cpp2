@@ -131,6 +131,7 @@ public:
 
     //*********************************************************    remove
     void removeSubject(int subjectId);
+	void removeTeacher(std::string teacherPesel);
 
 	//*********************************************************    insert
 
@@ -161,6 +162,7 @@ public:
 
 	//*********************************************************    update
 	void updateSubject(int subjectId,std::string Name);
+	void updateTeacher(std::string Pesel, std::string Name, std::string Surname, std::string Birthday, int subject_id);
 
 	//*********************************************************    validators
 

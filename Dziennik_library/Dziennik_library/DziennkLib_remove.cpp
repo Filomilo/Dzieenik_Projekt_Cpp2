@@ -6,3 +6,10 @@
 	std::cout << std::endl << sqlCode;
 	executeSqlInsert(sqlCode);
    }
+   
+   void DziennikLib::removeTeacher(std::string teacherPesel)
+   {
+	 	std::string sqlCode = "DELETE FROM Teachers \n WHERE Pesel = \'" + teacherPesel + "\';";
+	std::cout << std::endl << sqlCode;
+	executeSqlInsert(sqlCode);  
+   }

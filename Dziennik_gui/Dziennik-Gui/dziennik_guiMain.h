@@ -12,7 +12,7 @@
 
 //(*Headers(dziennik_guiFrame)
 #include <wx/button.h>
-#include <wx/combobox.h>
+#include <wx/choice.h>
 #include <wx/datectrl.h>
 #include <wx/dateevt.h>
 #include <wx/filedlg.h>
@@ -63,6 +63,12 @@ class dziennik_guiFrame: public wxFrame
         void OnNotebookMainPageChanged(wxNotebookEvent& event);
         void OnTextCtrl2Text(wxCommandEvent& event);
         void OnListCtrlTeachersBeginDrag(wxListEvent& event);
+        void OnComboBoxTeacherSubjectSelect(wxCommandEvent& event);
+        void OnChangeInTeachers(wxCommandEvent& event);
+        void OnButtonCancelTeacherClick(wxCommandEvent& event);
+        void OnDatePickerCtrlTeacherBirthdayChanged(wxDateEvent& event);
+        void OnButtonSaveTeacherClick(wxCommandEvent& event);
+        void OnButtonDeleteTeacherClick(wxCommandEvent& event);
         //*)
 
         void removeAllPages();
@@ -165,7 +171,7 @@ class dziennik_guiFrame: public wxFrame
         wxButton* ButtonSaveStudent;
         wxButton* ButtonSaveSubject;
         wxButton* ButtonSaveTeacher;
-        wxComboBox* ComboBoxTeacherSubject;
+        wxChoice* ComboBoxTeacherSubject;
         wxDatePickerCtrl* DatePickerCtrlStudentBirthday;
         wxDatePickerCtrl* DatePickerCtrlTeacherBirthday;
         wxFileDialog* FileDialog1;

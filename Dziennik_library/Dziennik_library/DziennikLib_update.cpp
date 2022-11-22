@@ -20,3 +20,15 @@ void  DziennikLib::updateSubject(int subjectId,std::string Name)
 	std::cout << std::endl << sqlCode;
 	executeSqlInsert(sqlCode);
 }
+
+void DziennikLib::updateTeacher(std::string Pesel, std::string Name, std::string Surname, std::string Birthday, int subject_id)
+{
+		std::string sqlCommand = "UPDATE Teachers\n SET ";
+		sqlCommand+="Name = \'"+ Name+ "\', \n";
+		sqlCommand+="Surname = \'"+ Surname+ "\', \n";
+		sqlCommand+="Birthday = \'"+ Birthday+ "\', \n";
+		sqlCommand+="Subject_id = \'"+ std::to_string(subject_id)+ "\' \n";
+		sqlCommand+="WHERE  Pesel=\'" + Pesel+ "\'\;";
+	std::cout << sqlCommand << std::endl;
+	executeSqlInsert(sqlCommand);
+}
