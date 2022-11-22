@@ -61,35 +61,37 @@ const long dziennik_guiFrame::ID_TEXTCTRLLOGINPASSWORD = wxNewId();
 const long dziennik_guiFrame::ID_STATICTEXT4 = wxNewId();
 const long dziennik_guiFrame::ID_BUTTONLOGIN = wxNewId();
 const long dziennik_guiFrame::ID_PANELLOGIN = wxNewId();
-const long dziennik_guiFrame::ID_LISTCTRL1 = wxNewId();
-const long dziennik_guiFrame::ID_TEXTCTRL4 = wxNewId();
+const long dziennik_guiFrame::ID_LISTCTRLSTUDENTS = wxNewId();
+const long dziennik_guiFrame::ID_TEXTCTRLSTUDENTPESEL = wxNewId();
 const long dziennik_guiFrame::ID_STATICTEXT13 = wxNewId();
-const long dziennik_guiFrame::ID_TEXTCTRL6 = wxNewId();
+const long dziennik_guiFrame::ID_TEXTCTRLSTUDENTNAME = wxNewId();
 const long dziennik_guiFrame::ID_STATICTEXT12 = wxNewId();
-const long dziennik_guiFrame::ID_DATEPICKERCTRL2 = wxNewId();
+const long dziennik_guiFrame::ID_DATEPICKERCTRLSTUDENTBIRTHDAY = wxNewId();
 const long dziennik_guiFrame::ID_STATICTEXT15 = wxNewId();
 const long dziennik_guiFrame::ID_TEXTCTRL5 = wxNewId();
 const long dziennik_guiFrame::ID_STATICTEXT14 = wxNewId();
-const long dziennik_guiFrame::ID_BUTTON4 = wxNewId();
-const long dziennik_guiFrame::ID_BUTTON5 = wxNewId();
-const long dziennik_guiFrame::ID_BUTTON6 = wxNewId();
+const long dziennik_guiFrame::ID_BUTTONSAVESTUDENT = wxNewId();
+const long dziennik_guiFrame::ID_BUTTONDELETESTUDENT = wxNewId();
+const long dziennik_guiFrame::ID_BUTTONCANCELSTUDENT = wxNewId();
 const long dziennik_guiFrame::ID_PANELStudents = wxNewId();
+const long dziennik_guiFrame::ID_LISTCTRL2 = wxNewId();
 const long dziennik_guiFrame::ID_PANELMYGRADES = wxNewId();
+const long dziennik_guiFrame::ID_LISTCTRL3 = wxNewId();
 const long dziennik_guiFrame::ID_PANELYOURSTUdNETS = wxNewId();
 const long dziennik_guiFrame::ID_LISTCTRLTEACHERS = wxNewId();
-const long dziennik_guiFrame::ID_TEXTCTRL1 = wxNewId();
+const long dziennik_guiFrame::ID_TEXTCTRLTEACHERPESEL = wxNewId();
 const long dziennik_guiFrame::ID_STATICTEXT7 = wxNewId();
 const long dziennik_guiFrame::ID_TEXTCTRL2 = wxNewId();
 const long dziennik_guiFrame::ID_STATICTEXT8 = wxNewId();
-const long dziennik_guiFrame::ID_DATEPICKERCTRL1 = wxNewId();
+const long dziennik_guiFrame::ID_DATEPICKERCTRLTEACHERBIRTHDAY = wxNewId();
 const long dziennik_guiFrame::ID_STATICTEXT9 = wxNewId();
-const long dziennik_guiFrame::ID_TEXTCTRL3 = wxNewId();
+const long dziennik_guiFrame::ID_TEXTCTRLTEACHERSURNAME = wxNewId();
 const long dziennik_guiFrame::ID_STATICTEXT11 = wxNewId();
-const long dziennik_guiFrame::ID_COMBOBOX1 = wxNewId();
+const long dziennik_guiFrame::ID_COMBOBOXTEACHERSUBJECT = wxNewId();
 const long dziennik_guiFrame::ID_STATICTEXT10 = wxNewId();
-const long dziennik_guiFrame::ID_BUTTON1 = wxNewId();
-const long dziennik_guiFrame::ID_BUTTON2 = wxNewId();
-const long dziennik_guiFrame::ID_BUTTON3 = wxNewId();
+const long dziennik_guiFrame::ID_BUTTONSAVETEACHER = wxNewId();
+const long dziennik_guiFrame::ID_BUTTONDELETETEACHER = wxNewId();
+const long dziennik_guiFrame::ID_BUTTONCANCELTEACHER = wxNewId();
 const long dziennik_guiFrame::ID_PANELTEACHERS = wxNewId();
 const long dziennik_guiFrame::ID_LISTCTRLSUBJECTSLIST = wxNewId();
 const long dziennik_guiFrame::ID_STATICTEXT6 = wxNewId();
@@ -132,6 +134,9 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     wxBoxSizer* BoxSizer20;
     wxBoxSizer* BoxSizer21;
     wxBoxSizer* BoxSizer22;
+    wxBoxSizer* BoxSizer23;
+    wxBoxSizer* BoxSizer24;
+    wxBoxSizer* BoxSizer25;
     wxBoxSizer* BoxSizer2;
     wxBoxSizer* BoxSizer3;
     wxBoxSizer* BoxSizer4;
@@ -195,41 +200,41 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     BoxSizer3->SetSizeHints(PanelLogin);
     PanelStudents = new wxPanel(NotebookMain, ID_PANELStudents, wxPoint(248,30), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELStudents"));
     BoxSizer16 = new wxBoxSizer(wxVERTICAL);
-    ListCtrl1 = new wxListCtrl(PanelStudents, ID_LISTCTRL1, wxDefaultPosition, wxDefaultSize, wxLC_LIST, wxDefaultValidator, _T("ID_LISTCTRL1"));
-    BoxSizer16->Add(ListCtrl1, 12, wxALL|wxEXPAND, 5);
+    ListCtrlStudents = new wxListCtrl(PanelStudents, ID_LISTCTRLSTUDENTS, wxDefaultPosition, wxDefaultSize, wxLC_REPORT, wxDefaultValidator, _T("ID_LISTCTRLSTUDENTS"));
+    BoxSizer16->Add(ListCtrlStudents, 12, wxALL|wxEXPAND, 5);
     BoxSizer17 = new wxBoxSizer(wxHORIZONTAL);
     BoxSizer18 = new wxBoxSizer(wxHORIZONTAL);
     BoxSizer19 = new wxBoxSizer(wxHORIZONTAL);
     BoxSizer21 = new wxBoxSizer(wxVERTICAL);
-    TextCtrl4 = new wxTextCtrl(PanelStudents, ID_TEXTCTRL4, _("Text"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL4"));
-    BoxSizer21->Add(TextCtrl4, 0, wxALL|wxEXPAND, 5);
+    TextCtrlStudentPesel = new wxTextCtrl(PanelStudents, ID_TEXTCTRLSTUDENTPESEL, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRLSTUDENTPESEL"));
+    BoxSizer21->Add(TextCtrlStudentPesel, 0, wxALL|wxEXPAND, 5);
     StaticText13 = new wxStaticText(PanelStudents, ID_STATICTEXT13, _("Pesel"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT13"));
     BoxSizer21->Add(StaticText13, 1, wxALL|wxALIGN_LEFT, 5);
-    TextCtrl6 = new wxTextCtrl(PanelStudents, ID_TEXTCTRL6, _("Text"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL6"));
-    BoxSizer21->Add(TextCtrl6, 1, wxALL|wxEXPAND, 5);
+    TextCtrlStudentName = new wxTextCtrl(PanelStudents, ID_TEXTCTRLSTUDENTNAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRLSTUDENTNAME"));
+    BoxSizer21->Add(TextCtrlStudentName, 1, wxALL|wxEXPAND, 5);
     StaticText12 = new wxStaticText(PanelStudents, ID_STATICTEXT12, _("Name"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT12"));
     BoxSizer21->Add(StaticText12, 1, wxALL|wxALIGN_LEFT, 5);
     BoxSizer19->Add(BoxSizer21, 1, wxALL|wxEXPAND, 5);
     BoxSizer22 = new wxBoxSizer(wxVERTICAL);
-    DatePickerCtrl2 = new wxDatePickerCtrl(PanelStudents, ID_DATEPICKERCTRL2, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT|wxDP_SHOWCENTURY, wxDefaultValidator, _T("ID_DATEPICKERCTRL2"));
-    BoxSizer22->Add(DatePickerCtrl2, 1, wxALL|wxEXPAND, 5);
+    DatePickerCtrlStudentBirthday = new wxDatePickerCtrl(PanelStudents, ID_DATEPICKERCTRLSTUDENTBIRTHDAY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT|wxDP_SHOWCENTURY, wxDefaultValidator, _T("ID_DATEPICKERCTRLSTUDENTBIRTHDAY"));
+    BoxSizer22->Add(DatePickerCtrlStudentBirthday, 1, wxALL|wxEXPAND, 5);
     StaticText15 = new wxStaticText(PanelStudents, ID_STATICTEXT15, _("Birthday"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT15"));
     BoxSizer22->Add(StaticText15, 1, wxALL|wxALIGN_LEFT, 5);
-    TextCtrl5 = new wxTextCtrl(PanelStudents, ID_TEXTCTRL5, _("Text"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL5"));
-    BoxSizer22->Add(TextCtrl5, 1, wxALL|wxEXPAND, 5);
+    TextCtrlStudentSurname = new wxTextCtrl(PanelStudents, ID_TEXTCTRL5, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL5"));
+    BoxSizer22->Add(TextCtrlStudentSurname, 1, wxALL|wxEXPAND, 5);
     StaticText14 = new wxStaticText(PanelStudents, ID_STATICTEXT14, _("Surname"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT14"));
     BoxSizer22->Add(StaticText14, 1, wxALL|wxALIGN_LEFT, 5);
     BoxSizer19->Add(BoxSizer22, 1, wxALL|wxEXPAND, 5);
     BoxSizer18->Add(BoxSizer19, 5, wxALL|wxEXPAND, 5);
     BoxSizer20 = new wxBoxSizer(wxVERTICAL);
-    BoxSizer20->Add(0,0,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    Button4 = new wxButton(PanelStudents, ID_BUTTON4, _("save"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON4"));
-    BoxSizer20->Add(Button4, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    Button5 = new wxButton(PanelStudents, ID_BUTTON5, _("delete"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON5"));
-    BoxSizer20->Add(Button5, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    Button6 = new wxButton(PanelStudents, ID_BUTTON6, _("cancel"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON6"));
-    BoxSizer20->Add(Button6, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    BoxSizer20->Add(0,0,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer20->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    ButtonSaveStudent = new wxButton(PanelStudents, ID_BUTTONSAVESTUDENT, _("save"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONSAVESTUDENT"));
+    BoxSizer20->Add(ButtonSaveStudent, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    ButtonDeleteStudent = new wxButton(PanelStudents, ID_BUTTONDELETESTUDENT, _("delete"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONDELETESTUDENT"));
+    BoxSizer20->Add(ButtonDeleteStudent, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    ButtonCancelStudent = new wxButton(PanelStudents, ID_BUTTONCANCELSTUDENT, _("cancel"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONCANCELSTUDENT"));
+    BoxSizer20->Add(ButtonCancelStudent, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer20->Add(-1,-1,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer18->Add(BoxSizer20, 1, wxALL|wxEXPAND, 5);
     BoxSizer17->Add(BoxSizer18, 1, wxALL|wxEXPAND, 5);
     BoxSizer16->Add(BoxSizer17, 1, wxALL|wxEXPAND, 5);
@@ -237,35 +242,50 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     BoxSizer16->Fit(PanelStudents);
     BoxSizer16->SetSizeHints(PanelStudents);
     PanelMyGrades = new wxPanel(NotebookMain, ID_PANELMYGRADES, wxPoint(375,9), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELMYGRADES"));
+    BoxSizer23 = new wxBoxSizer(wxHORIZONTAL);
+    ListCtrlMyGrades = new wxListCtrl(PanelMyGrades, ID_LISTCTRL2, wxDefaultPosition, wxDefaultSize, wxLC_REPORT, wxDefaultValidator, _T("ID_LISTCTRL2"));
+    BoxSizer23->Add(ListCtrlMyGrades, 1, wxALL|wxEXPAND, 5);
+    PanelMyGrades->SetSizer(BoxSizer23);
+    BoxSizer23->Fit(PanelMyGrades);
+    BoxSizer23->SetSizeHints(PanelMyGrades);
     PanelYourStudentes = new wxPanel(NotebookMain, ID_PANELYOURSTUdNETS, wxPoint(439,24), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELYOURSTUdNETS"));
+    BoxSizer24 = new wxBoxSizer(wxVERTICAL);
+    ListCtrlYourStudent = new wxListCtrl(PanelYourStudentes, ID_LISTCTRL3, wxDefaultPosition, wxDefaultSize, wxLC_REPORT, wxDefaultValidator, _T("ID_LISTCTRL3"));
+    BoxSizer24->Add(ListCtrlYourStudent, 12, wxALL|wxEXPAND, 5);
+    BoxSizer25 = new wxBoxSizer(wxVERTICAL);
+    BoxSizer25->Add(142,144,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer24->Add(BoxSizer25, 1, wxALL|wxEXPAND, 5);
+    PanelYourStudentes->SetSizer(BoxSizer24);
+    BoxSizer24->Fit(PanelYourStudentes);
+    BoxSizer24->SetSizeHints(PanelYourStudentes);
     PanelTeachers = new wxPanel(NotebookMain, ID_PANELTEACHERS, wxPoint(574,7), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELTEACHERS"));
     BoxSizer9 = new wxBoxSizer(wxVERTICAL);
-    ListCtrlTeachers = new wxListCtrl(PanelTeachers, ID_LISTCTRLTEACHERS, wxDefaultPosition, wxDefaultSize, wxLC_LIST, wxDefaultValidator, _T("ID_LISTCTRLTEACHERS"));
+    ListCtrlTeachers = new wxListCtrl(PanelTeachers, ID_LISTCTRLTEACHERS, wxDefaultPosition, wxDefaultSize, wxLC_REPORT, wxDefaultValidator, _T("ID_LISTCTRLTEACHERS"));
     BoxSizer9->Add(ListCtrlTeachers, 12, wxALL|wxEXPAND, 5);
     BoxSizer10 = new wxBoxSizer(wxHORIZONTAL);
     BoxSizer11 = new wxBoxSizer(wxVERTICAL);
-    TextCtrl1 = new wxTextCtrl(PanelTeachers, ID_TEXTCTRL1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL1"));
-    BoxSizer11->Add(TextCtrl1, 2, wxALL|wxEXPAND, 5);
+    TextCtrlTeacherPesel = new wxTextCtrl(PanelTeachers, ID_TEXTCTRLTEACHERPESEL, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRLTEACHERPESEL"));
+    BoxSizer11->Add(TextCtrlTeacherPesel, 1, wxALL|wxEXPAND, 5);
     StaticText7 = new wxStaticText(PanelTeachers, ID_STATICTEXT7, _("Pesel"), wxDefaultPosition, wxSize(46,17), 0, _T("ID_STATICTEXT7"));
     BoxSizer11->Add(StaticText7, 1, wxALL|wxALIGN_LEFT, 5);
     BoxSizer13 = new wxBoxSizer(wxHORIZONTAL);
     BoxSizer14 = new wxBoxSizer(wxVERTICAL);
-    TextCtrl2 = new wxTextCtrl(PanelTeachers, ID_TEXTCTRL2, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL2"));
-    BoxSizer14->Add(TextCtrl2, 2, wxALL|wxEXPAND, 5);
+    TextCtrlTeacherName = new wxTextCtrl(PanelTeachers, ID_TEXTCTRL2, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL2"));
+    BoxSizer14->Add(TextCtrlTeacherName, 1, wxALL|wxEXPAND, 5);
     StaticText8 = new wxStaticText(PanelTeachers, ID_STATICTEXT8, _("Name"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT8"));
     BoxSizer14->Add(StaticText8, 1, wxALL|wxALIGN_LEFT, 5);
-    DatePickerCtrl1 = new wxDatePickerCtrl(PanelTeachers, ID_DATEPICKERCTRL1, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT|wxDP_SHOWCENTURY, wxDefaultValidator, _T("ID_DATEPICKERCTRL1"));
-    BoxSizer14->Add(DatePickerCtrl1, 2, wxALL|wxEXPAND, 5);
+    DatePickerCtrlTeacherBirthday = new wxDatePickerCtrl(PanelTeachers, ID_DATEPICKERCTRLTEACHERBIRTHDAY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT|wxDP_SHOWCENTURY, wxDefaultValidator, _T("ID_DATEPICKERCTRLTEACHERBIRTHDAY"));
+    BoxSizer14->Add(DatePickerCtrlTeacherBirthday, 1, wxALL|wxEXPAND, 5);
     StaticText9 = new wxStaticText(PanelTeachers, ID_STATICTEXT9, _("Birthday"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT9"));
     BoxSizer14->Add(StaticText9, 1, wxALL|wxALIGN_LEFT, 2);
     BoxSizer13->Add(BoxSizer14, 1, wxALL|wxEXPAND, 5);
     BoxSizer15 = new wxBoxSizer(wxVERTICAL);
-    TextCtrl3 = new wxTextCtrl(PanelTeachers, ID_TEXTCTRL3, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRL3"));
-    BoxSizer15->Add(TextCtrl3, 2, wxALL|wxEXPAND, 5);
+    TextCtrlTeacherSurname = new wxTextCtrl(PanelTeachers, ID_TEXTCTRLTEACHERSURNAME, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_TEXTCTRLTEACHERSURNAME"));
+    BoxSizer15->Add(TextCtrlTeacherSurname, 1, wxALL|wxEXPAND, 5);
     StaticText11 = new wxStaticText(PanelTeachers, ID_STATICTEXT11, _("Surname"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT11"));
     BoxSizer15->Add(StaticText11, 1, wxALL|wxALIGN_LEFT, 5);
-    ComboBox1 = new wxComboBox(PanelTeachers, ID_COMBOBOX1, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_COMBOBOX1"));
-    BoxSizer15->Add(ComboBox1, 2, wxALL|wxEXPAND, 5);
+    ComboBoxTeacherSubject = new wxComboBox(PanelTeachers, ID_COMBOBOXTEACHERSUBJECT, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_COMBOBOXTEACHERSUBJECT"));
+    BoxSizer15->Add(ComboBoxTeacherSubject, 1, wxALL|wxEXPAND, 5);
     StaticText10 = new wxStaticText(PanelTeachers, ID_STATICTEXT10, _("Subject"), wxDefaultPosition, wxDefaultSize, 0, _T("ID_STATICTEXT10"));
     BoxSizer15->Add(StaticText10, 1, wxALL|wxALIGN_LEFT, 5);
     BoxSizer13->Add(BoxSizer15, 1, wxALL|wxEXPAND, 5);
@@ -273,12 +293,12 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     BoxSizer10->Add(BoxSizer11, 8, wxALL|wxEXPAND, 5);
     BoxSizer12 = new wxBoxSizer(wxVERTICAL);
     BoxSizer12->Add(-1,-1,2, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    Button1 = new wxButton(PanelTeachers, ID_BUTTON1, _("save"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON1"));
-    BoxSizer12->Add(Button1, 1, wxALL|wxEXPAND, 5);
-    Button2 = new wxButton(PanelTeachers, ID_BUTTON2, _("delete"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON2"));
-    BoxSizer12->Add(Button2, 1, wxALL|wxEXPAND, 5);
-    Button3 = new wxButton(PanelTeachers, ID_BUTTON3, _("cancel"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTON3"));
-    BoxSizer12->Add(Button3, 1, wxALL|wxEXPAND, 5);
+    ButtonSaveTeacher = new wxButton(PanelTeachers, ID_BUTTONSAVETEACHER, _("save"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONSAVETEACHER"));
+    BoxSizer12->Add(ButtonSaveTeacher, 1, wxALL|wxEXPAND, 5);
+    ButtonDeleteTeacher = new wxButton(PanelTeachers, ID_BUTTONDELETETEACHER, _("delete"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONDELETETEACHER"));
+    BoxSizer12->Add(ButtonDeleteTeacher, 1, wxALL|wxEXPAND, 5);
+    ButtonCancelTeacher = new wxButton(PanelTeachers, ID_BUTTONCANCELTEACHER, _("cancel"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONCANCELTEACHER"));
+    BoxSizer12->Add(ButtonCancelTeacher, 1, wxALL|wxEXPAND, 5);
     BoxSizer12->Add(-1,-1,2, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer10->Add(BoxSizer12, 1, wxALL|wxEXPAND, 5);
     BoxSizer9->Add(BoxSizer10, 1, wxALL|wxEXPAND, 5);
@@ -346,6 +366,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_TEXTCTRLREGISTERREAPEATPASSWORD,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnTextCtrlRegisterReapeatPasswordText);
     Connect(ID_BUTTONREGISTER,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonRegisterClick);
     Connect(ID_BUTTONLOGIN,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonLoginClick);
+    Connect(ID_LISTCTRLTEACHERS,wxEVT_COMMAND_LIST_BEGIN_DRAG,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlTeachersBeginDrag);
     PanelTeachers->Connect(wxEVT_PAINT,(wxObjectEventFunction)&dziennik_guiFrame::OnPanelTeachersPaint,0,this);
     Connect(ID_LISTCTRLSUBJECTSLIST,wxEVT_COMMAND_LIST_BEGIN_DRAG,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlSubjectListBeginDrag);
     Connect(ID_TEXTCTRLSUBJECTEDITOR,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnTextCtrlSubjectEditorText);
@@ -360,11 +381,12 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(idMenuNewFIle,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnNewFile);
     Connect(idMenuOpenFile,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnOpenFile);
     Connect(ID_LISTCTRLSUBJECTSLIST,wxEVT_LIST_ITEM_ACTIVATED,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlSubjectListBeginDrag);
+    Connect(ID_LISTCTRLTEACHERS,wxEVT_LIST_ITEM_ACTIVATED,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlTeachersBeginDrag);
 
     //removeAllPages();
     dziennik->loadDataBase("exampple.dznk");
     refreshSubjectList();
-
+    refreshTeacherList();
 }
 
 dziennik_guiFrame::~dziennik_guiFrame()
@@ -439,28 +461,28 @@ void dziennik_guiFrame::OnButtonRegisterClick(wxCommandEvent& event)
      this->dziennik->addUser(nick,pass,DziennikLib::Account_types::ADMIN);
      setViewAsNoLogged();
 }
-        void dziennik_guiFrame::setViewAsNewDb()
+void dziennik_guiFrame::setViewAsNewDb()
         {
             removeAllPages();
             NotebookMain->AddPage(PanelCreateAdmin, _("Create admin"), true);
         }
-        void dziennik_guiFrame::setViewAsNoLogged()
+void dziennik_guiFrame::setViewAsNoLogged()
         {
             removeAllPages();
             NotebookMain->AddPage(PanelLogin, _("Login"), true);
         }
-        void dziennik_guiFrame::setViewAsTeacher()
+void dziennik_guiFrame::setViewAsTeacher()
         {
             removeAllPages();
              NotebookMain->AddPage(PanelYourStudentes, _("My Students"), true);
         }
-        void dziennik_guiFrame::setViewAsStudent()
+void dziennik_guiFrame::setViewAsStudent()
         {
             removeAllPages();
             NotebookMain->AddPage(PanelMyGrades, _("My Grades"), true);
 
         }
-        void dziennik_guiFrame::setViewAsAdmin()
+void dziennik_guiFrame::setViewAsAdmin()
         {
             removeAllPages();
             NotebookMain->AddPage(PanelStudents, _("Students"), true);
@@ -472,6 +494,7 @@ void dziennik_guiFrame::OnButtonRegisterClick(wxCommandEvent& event)
 void dziennik_guiFrame::OnTextCtrlRegisterReapeatPasswordText(wxCommandEvent& event)
 {
 }
+
 
 void dziennik_guiFrame::OnButtonLoginClick(wxCommandEvent& event)
 {
@@ -497,7 +520,6 @@ void dziennik_guiFrame::refreshSubjectList()
     ListCtrlSubjectList->ClearAll();
     ListCtrlSubjectList->AppendColumn(_("id"));
     ListCtrlSubjectList->AppendColumn(_("subject name"));
-  // dziennik->printSubjects();
     std::vector<subject> subjectList=this->dziennik->findSubjectsAll();
     int i=0;
     for(auto it=subjectList.begin();it!=subjectList.end();it++)
@@ -505,10 +527,6 @@ void dziennik_guiFrame::refreshSubjectList()
       ListCtrlSubjectList->InsertItem(i, wxString::Format(wxT("%i"),(*it).getSubjectId()));
       ListCtrlSubjectList->SetItem(i++, 1, (*it).getName());
     }
-
-
-
-
 }
 
 void dziennik_guiFrame::OnClose(wxCloseEvent& event)
@@ -517,7 +535,7 @@ void dziennik_guiFrame::OnClose(wxCloseEvent& event)
 
 void dziennik_guiFrame::OnListCtrlSubjectListBeginDrag(wxListEvent& event)
 {
-        checkVariables();
+
     isSubjectSelected=false;
           std::cout<<"clicked\n";
         long SelctedItem = ListCtrlSubjectList->GetNextItem(-1,  wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
@@ -611,8 +629,93 @@ void dziennik_guiFrame::checkVariables()
 
 void dziennik_guiFrame::OnNotebookMainPageChanged(wxNotebookEvent& event)
 {
+   //refreshSubjectList();
+   //refreshTeacherList();
 }
 
 void dziennik_guiFrame::OnTextCtrl2Text(wxCommandEvent& event)
 {
 }
+
+
+
+
+
+void dziennik_guiFrame::refreshTeacherList()
+{
+    ListCtrlTeachers->ClearAll();
+    ListCtrlTeachers->AppendColumn(_("Pesel"));
+    ListCtrlTeachers->AppendColumn(_("Name"));
+    ListCtrlTeachers->AppendColumn(_("Surname"));
+    ListCtrlTeachers->AppendColumn(_("Birthday"));
+    ListCtrlTeachers->AppendColumn(_("Subject"));
+    std::vector<teacher> teachersList=this->dziennik->findTeacherstAll();
+    int i=0;
+
+    for(auto it=teachersList.begin();it!=teachersList.end();it++)
+    {
+      ListCtrlTeachers->InsertItem(i, (*it).getPesel());
+      ListCtrlTeachers->SetItem(i, 1, (*it).getName());
+      ListCtrlTeachers->SetItem(i, 2, (*it).getSurname());
+      ListCtrlTeachers->SetItem(i, 3, (*it).getBirthday());
+      ListCtrlTeachers->SetItem(i, 4, dziennik->findSubjectsById((*it).getSubjectId())[0].getName());
+    }
+
+     std::vector<subject> subjectList=this->dziennik->findSubjectsAll();
+    for(auto it=subjectList.begin();it!=subjectList.end();it++)
+    {
+      ComboBoxTeacherSubject->Append((*it).getName());
+
+    }
+}
+void dziennik_guiFrame::OnListCtrlTeachersBeginDrag(wxListEvent& event)
+{
+    std::cout<<"item clokced"<<std::endl;
+        isTeacherSelected=false;
+        long SelctedItem = ListCtrlTeachers->GetNextItem(-1,  wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+        wxListItem item;
+        item.SetId(SelctedItem);
+        std::cout<<std::string(ListCtrlTeachers->GetItemText(item,0).mb_str())<<std::endl;
+        teacher itemSelcted=dziennik->findTeachersByPesel(std::string(ListCtrlTeachers->GetItemText(item,0).mb_str()))[0];
+        std::cout<<"test"<<std::endl;
+        if(!isSubjectInEditModde)
+        {
+            std::cout<<"into teacher mode\n";
+            TextCtrlTeacherPesel->Clear();
+            TextCtrlTeacherPesel->AppendText(itemSelcted.getPesel());
+             TextCtrlTeacherName->Clear();
+            TextCtrlTeacherName->AppendText(itemSelcted.getName());
+            TextCtrlTeacherSurname->Clear();
+            TextCtrlTeacherSurname->AppendText(itemSelcted.getSurname());
+
+
+            std::cout<<"date: "<<itemSelcted.getBirthdayYear()<<std::endl;
+            wxDateTime date;
+               date.SetToCurrent();
+            date.SetYear(itemSelcted.getBirthdayYear());
+            date.SetMonth(wxDateTime::Month(wxDateTime::Jan + itemSelcted.getBirthdayMonth() - 1)   );
+            date.SetDay(itemSelcted.getBirthdayDay());
+            //date.Format(_("1964-08-11"),"%Y-%m-%d");
+
+            DatePickerCtrlTeacherBirthday->SetValue(date);
+            ComboBoxTeacherSubject->SetSelection(itemSelcted.getSubjectId()-1);
+
+            //DatePickerCtrlTeacherBirthday->se();
+            //DatePickerCtrlTeacherBirthday->;
+
+
+            selectedTeacherId=itemSelcted.getPesel();
+             isTeacherSelected=true;
+        }
+        else
+        {
+               std::cout<<"something in edit\n";
+        }
+
+}
+
+
+
+
+
+

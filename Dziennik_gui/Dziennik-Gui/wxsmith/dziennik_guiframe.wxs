@@ -184,7 +184,9 @@
 					<object class="wxBoxSizer" variable="BoxSizer16" member="no">
 						<orient>wxVERTICAL</orient>
 						<object class="sizeritem">
-							<object class="wxListCtrl" name="ID_LISTCTRL1" variable="ListCtrl1" member="yes" />
+							<object class="wxListCtrl" name="ID_LISTCTRLSTUDENTS" variable="ListCtrlStudents" member="yes">
+								<style>wxLC_REPORT</style>
+							</object>
 							<flag>wxALL|wxEXPAND</flag>
 							<border>5</border>
 							<option>12</option>
@@ -199,7 +201,7 @@
 													<object class="wxBoxSizer" variable="BoxSizer21" member="no">
 														<orient>wxVERTICAL</orient>
 														<object class="sizeritem">
-															<object class="wxTextCtrl" name="ID_TEXTCTRL4" variable="TextCtrl4" member="yes" />
+															<object class="wxTextCtrl" name="ID_TEXTCTRLSTUDENTPESEL" variable="TextCtrlStudentPesel" member="yes" />
 															<flag>wxALL|wxEXPAND</flag>
 															<border>5</border>
 														</object>
@@ -212,7 +214,7 @@
 															<option>1</option>
 														</object>
 														<object class="sizeritem">
-															<object class="wxTextCtrl" name="ID_TEXTCTRL6" variable="TextCtrl6" member="yes" />
+															<object class="wxTextCtrl" name="ID_TEXTCTRLSTUDENTNAME" variable="TextCtrlStudentName" member="yes" />
 															<flag>wxALL|wxEXPAND</flag>
 															<border>5</border>
 															<option>1</option>
@@ -234,7 +236,7 @@
 													<object class="wxBoxSizer" variable="BoxSizer22" member="no">
 														<orient>wxVERTICAL</orient>
 														<object class="sizeritem">
-															<object class="wxDatePickerCtrl" name="ID_DATEPICKERCTRL2" variable="DatePickerCtrl2" member="yes" />
+															<object class="wxDatePickerCtrl" name="ID_DATEPICKERCTRLSTUDENTBIRTHDAY" variable="DatePickerCtrlStudentBirthday" member="yes" />
 															<flag>wxALL|wxEXPAND</flag>
 															<border>5</border>
 															<option>1</option>
@@ -248,7 +250,7 @@
 															<option>1</option>
 														</object>
 														<object class="sizeritem">
-															<object class="wxTextCtrl" name="ID_TEXTCTRL5" variable="TextCtrl5" member="yes" />
+															<object class="wxTextCtrl" name="ID_TEXTCTRL5" variable="TextCtrlStudentSurname" member="yes" />
 															<flag>wxALL|wxEXPAND</flag>
 															<border>5</border>
 															<option>1</option>
@@ -280,7 +282,7 @@
 													<option>1</option>
 												</object>
 												<object class="sizeritem">
-													<object class="wxButton" name="ID_BUTTON4" variable="Button4" member="yes">
+													<object class="wxButton" name="ID_BUTTONSAVESTUDENT" variable="ButtonSaveStudent" member="yes">
 														<label>save</label>
 													</object>
 													<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -288,7 +290,7 @@
 													<option>1</option>
 												</object>
 												<object class="sizeritem">
-													<object class="wxButton" name="ID_BUTTON5" variable="Button5" member="yes">
+													<object class="wxButton" name="ID_BUTTONDELETESTUDENT" variable="ButtonDeleteStudent" member="yes">
 														<label>delete</label>
 													</object>
 													<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -296,7 +298,7 @@
 													<option>1</option>
 												</object>
 												<object class="sizeritem">
-													<object class="wxButton" name="ID_BUTTON6" variable="Button6" member="yes">
+													<object class="wxButton" name="ID_BUTTONCANCELSTUDENT" variable="ButtonCancelStudent" member="yes">
 														<label>cancel</label>
 													</object>
 													<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
@@ -330,12 +332,47 @@
 			<object class="notebookpage">
 				<object class="wxPanel" name="ID_PANELMYGRADES" variable="PanelMyGrades" member="yes">
 					<pos>375,9</pos>
+					<object class="wxBoxSizer" variable="BoxSizer23" member="no">
+						<object class="sizeritem">
+							<object class="wxListCtrl" name="ID_LISTCTRL2" variable="ListCtrlMyGrades" member="yes">
+								<style>wxLC_REPORT</style>
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+					</object>
 				</object>
 				<label>My grades</label>
 			</object>
 			<object class="notebookpage">
 				<object class="wxPanel" name="ID_PANELYOURSTUdNETS" variable="PanelYourStudentes" member="yes">
 					<pos>439,24</pos>
+					<object class="wxBoxSizer" variable="BoxSizer24" member="no">
+						<orient>wxVERTICAL</orient>
+						<object class="sizeritem">
+							<object class="wxListCtrl" name="ID_LISTCTRL3" variable="ListCtrlYourStudent" member="yes">
+								<style>wxLC_REPORT</style>
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+							<option>12</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="BoxSizer25" member="no">
+								<orient>wxVERTICAL</orient>
+								<object class="spacer">
+									<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<option>1</option>
+									<size>142,144</size>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+					</object>
 				</object>
 				<label>Your Students</label>
 			</object>
@@ -346,7 +383,10 @@
 					<object class="wxBoxSizer" variable="BoxSizer9" member="no">
 						<orient>wxVERTICAL</orient>
 						<object class="sizeritem">
-							<object class="wxListCtrl" name="ID_LISTCTRLTEACHERS" variable="ListCtrlTeachers" member="yes" />
+							<object class="wxListCtrl" name="ID_LISTCTRLTEACHERS" variable="ListCtrlTeachers" member="yes">
+								<style>wxLC_REPORT</style>
+								<handler function="OnListCtrlTeachersBeginDrag" entry="EVT_LIST_BEGIN_DRAG" />
+							</object>
 							<flag>wxALL|wxEXPAND</flag>
 							<border>5</border>
 							<option>12</option>
@@ -357,10 +397,10 @@
 									<object class="wxBoxSizer" variable="BoxSizer11" member="no">
 										<orient>wxVERTICAL</orient>
 										<object class="sizeritem">
-											<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextCtrl1" member="yes" />
+											<object class="wxTextCtrl" name="ID_TEXTCTRLTEACHERPESEL" variable="TextCtrlTeacherPesel" member="yes" />
 											<flag>wxALL|wxEXPAND</flag>
 											<border>5</border>
-											<option>2</option>
+											<option>1</option>
 										</object>
 										<object class="sizeritem">
 											<object class="wxStaticText" name="ID_STATICTEXT7" variable="StaticText7" member="yes">
@@ -377,10 +417,10 @@
 													<object class="wxBoxSizer" variable="BoxSizer14" member="no">
 														<orient>wxVERTICAL</orient>
 														<object class="sizeritem">
-															<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextCtrl2" member="yes" />
+															<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextCtrlTeacherName" member="yes" />
 															<flag>wxALL|wxEXPAND</flag>
 															<border>5</border>
-															<option>2</option>
+															<option>1</option>
 														</object>
 														<object class="sizeritem">
 															<object class="wxStaticText" name="ID_STATICTEXT8" variable="StaticText8" member="yes">
@@ -391,10 +431,10 @@
 															<option>1</option>
 														</object>
 														<object class="sizeritem">
-															<object class="wxDatePickerCtrl" name="ID_DATEPICKERCTRL1" variable="DatePickerCtrl1" member="yes" />
+															<object class="wxDatePickerCtrl" name="ID_DATEPICKERCTRLTEACHERBIRTHDAY" variable="DatePickerCtrlTeacherBirthday" member="yes" />
 															<flag>wxALL|wxEXPAND</flag>
 															<border>5</border>
-															<option>2</option>
+															<option>1</option>
 														</object>
 														<object class="sizeritem">
 															<object class="wxStaticText" name="ID_STATICTEXT9" variable="StaticText9" member="yes">
@@ -413,10 +453,10 @@
 													<object class="wxBoxSizer" variable="BoxSizer15" member="no">
 														<orient>wxVERTICAL</orient>
 														<object class="sizeritem">
-															<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="TextCtrl3" member="yes" />
+															<object class="wxTextCtrl" name="ID_TEXTCTRLTEACHERSURNAME" variable="TextCtrlTeacherSurname" member="yes" />
 															<flag>wxALL|wxEXPAND</flag>
 															<border>5</border>
-															<option>2</option>
+															<option>1</option>
 														</object>
 														<object class="sizeritem">
 															<object class="wxStaticText" name="ID_STATICTEXT11" variable="StaticText11" member="yes">
@@ -427,10 +467,10 @@
 															<option>1</option>
 														</object>
 														<object class="sizeritem">
-															<object class="wxComboBox" name="ID_COMBOBOX1" variable="ComboBox1" member="yes" />
+															<object class="wxComboBox" name="ID_COMBOBOXTEACHERSUBJECT" variable="ComboBoxTeacherSubject" member="yes" />
 															<flag>wxALL|wxEXPAND</flag>
 															<border>5</border>
-															<option>2</option>
+															<option>1</option>
 														</object>
 														<object class="sizeritem">
 															<object class="wxStaticText" name="ID_STATICTEXT10" variable="StaticText10" member="yes">
@@ -464,7 +504,7 @@
 											<option>2</option>
 										</object>
 										<object class="sizeritem">
-											<object class="wxButton" name="ID_BUTTON1" variable="Button1" member="yes">
+											<object class="wxButton" name="ID_BUTTONSAVETEACHER" variable="ButtonSaveTeacher" member="yes">
 												<label>save</label>
 											</object>
 											<flag>wxALL|wxEXPAND</flag>
@@ -472,7 +512,7 @@
 											<option>1</option>
 										</object>
 										<object class="sizeritem">
-											<object class="wxButton" name="ID_BUTTON2" variable="Button2" member="yes">
+											<object class="wxButton" name="ID_BUTTONDELETETEACHER" variable="ButtonDeleteTeacher" member="yes">
 												<label>delete</label>
 											</object>
 											<flag>wxALL|wxEXPAND</flag>
@@ -480,7 +520,7 @@
 											<option>1</option>
 										</object>
 										<object class="sizeritem">
-											<object class="wxButton" name="ID_BUTTON3" variable="Button3" member="yes">
+											<object class="wxButton" name="ID_BUTTONCANCELTEACHER" variable="ButtonCancelTeacher" member="yes">
 												<label>cancel</label>
 											</object>
 											<flag>wxALL|wxEXPAND</flag>

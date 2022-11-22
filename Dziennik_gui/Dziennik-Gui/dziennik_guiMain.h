@@ -62,6 +62,7 @@ class dziennik_guiFrame: public wxFrame
         void OnButton1Click1(wxCommandEvent& event);
         void OnNotebookMainPageChanged(wxNotebookEvent& event);
         void OnTextCtrl2Text(wxCommandEvent& event);
+        void OnListCtrlTeachersBeginDrag(wxListEvent& event);
         //*)
 
         void removeAllPages();
@@ -72,15 +73,21 @@ class dziennik_guiFrame: public wxFrame
         void setViewAsAdmin();
 
         void refreshSubjectList();
-
         void OnSubjectListItemClicked(wxListEvent &e);
-
-
-
         void refreshSubjectSelection();
         bool isSubjectSelected=true;
         bool isSubjectInEditModde=false;
         int selectedSubjectId=-1;
+
+
+        void refreshTeacherList();
+        void OnTeacherListItemClicked(wxListEvent &e);
+        void refreshTeacherSelection();
+        bool isTeacherSelected=true;
+        bool isTeacherInEditModde=false;
+        std::string selectedTeacherId="0";
+
+
 
         void checkVariables();
         //(*Identifiers(dziennik_guiFrame)
@@ -98,35 +105,37 @@ class dziennik_guiFrame: public wxFrame
         static const long ID_STATICTEXT4;
         static const long ID_BUTTONLOGIN;
         static const long ID_PANELLOGIN;
-        static const long ID_LISTCTRL1;
-        static const long ID_TEXTCTRL4;
+        static const long ID_LISTCTRLSTUDENTS;
+        static const long ID_TEXTCTRLSTUDENTPESEL;
         static const long ID_STATICTEXT13;
-        static const long ID_TEXTCTRL6;
+        static const long ID_TEXTCTRLSTUDENTNAME;
         static const long ID_STATICTEXT12;
-        static const long ID_DATEPICKERCTRL2;
+        static const long ID_DATEPICKERCTRLSTUDENTBIRTHDAY;
         static const long ID_STATICTEXT15;
         static const long ID_TEXTCTRL5;
         static const long ID_STATICTEXT14;
-        static const long ID_BUTTON4;
-        static const long ID_BUTTON5;
-        static const long ID_BUTTON6;
+        static const long ID_BUTTONSAVESTUDENT;
+        static const long ID_BUTTONDELETESTUDENT;
+        static const long ID_BUTTONCANCELSTUDENT;
         static const long ID_PANELStudents;
+        static const long ID_LISTCTRL2;
         static const long ID_PANELMYGRADES;
+        static const long ID_LISTCTRL3;
         static const long ID_PANELYOURSTUdNETS;
         static const long ID_LISTCTRLTEACHERS;
-        static const long ID_TEXTCTRL1;
+        static const long ID_TEXTCTRLTEACHERPESEL;
         static const long ID_STATICTEXT7;
         static const long ID_TEXTCTRL2;
         static const long ID_STATICTEXT8;
-        static const long ID_DATEPICKERCTRL1;
+        static const long ID_DATEPICKERCTRLTEACHERBIRTHDAY;
         static const long ID_STATICTEXT9;
-        static const long ID_TEXTCTRL3;
+        static const long ID_TEXTCTRLTEACHERSURNAME;
         static const long ID_STATICTEXT11;
-        static const long ID_COMBOBOX1;
+        static const long ID_COMBOBOXTEACHERSUBJECT;
         static const long ID_STATICTEXT10;
-        static const long ID_BUTTON1;
-        static const long ID_BUTTON2;
-        static const long ID_BUTTON3;
+        static const long ID_BUTTONSAVETEACHER;
+        static const long ID_BUTTONDELETETEACHER;
+        static const long ID_BUTTONCANCELTEACHER;
         static const long ID_PANELTEACHERS;
         static const long ID_LISTCTRLSUBJECTSLIST;
         static const long ID_STATICTEXT6;
@@ -145,24 +154,26 @@ class dziennik_guiFrame: public wxFrame
         //*)
 
         //(*Declarations(dziennik_guiFrame)
-        wxButton* Button1;
-        wxButton* Button2;
-        wxButton* Button3;
-        wxButton* Button4;
-        wxButton* Button5;
-        wxButton* Button6;
+        wxButton* ButtonCancelStudent;
+        wxButton* ButtonCancelTeacher;
+        wxButton* ButtonDeleteStudent;
         wxButton* ButtonDeleteSubject;
+        wxButton* ButtonDeleteTeacher;
         wxButton* ButtonLogin;
         wxButton* ButtonLoginCancel;
         wxButton* ButtonRegister;
+        wxButton* ButtonSaveStudent;
         wxButton* ButtonSaveSubject;
-        wxComboBox* ComboBox1;
-        wxDatePickerCtrl* DatePickerCtrl1;
-        wxDatePickerCtrl* DatePickerCtrl2;
+        wxButton* ButtonSaveTeacher;
+        wxComboBox* ComboBoxTeacherSubject;
+        wxDatePickerCtrl* DatePickerCtrlStudentBirthday;
+        wxDatePickerCtrl* DatePickerCtrlTeacherBirthday;
         wxFileDialog* FileDialog1;
-        wxListCtrl* ListCtrl1;
+        wxListCtrl* ListCtrlMyGrades;
+        wxListCtrl* ListCtrlStudents;
         wxListCtrl* ListCtrlSubjectList;
         wxListCtrl* ListCtrlTeachers;
+        wxListCtrl* ListCtrlYourStudent;
         wxMenu Menu3;
         wxMenuItem* MenuItem3;
         wxMenuItem* MenuItem4;
@@ -191,18 +202,18 @@ class dziennik_guiFrame: public wxFrame
         wxStaticText* StaticText8;
         wxStaticText* StaticText9;
         wxStatusBar* StatusBar1;
-        wxTextCtrl* TextCtrl1;
-        wxTextCtrl* TextCtrl2;
-        wxTextCtrl* TextCtrl3;
-        wxTextCtrl* TextCtrl4;
-        wxTextCtrl* TextCtrl5;
-        wxTextCtrl* TextCtrl6;
         wxTextCtrl* TextCtrlLoginNick;
         wxTextCtrl* TextCtrlLoginPassword;
         wxTextCtrl* TextCtrlNick;
         wxTextCtrl* TextCtrlPassRegister;
         wxTextCtrl* TextCtrlRegisterReapeatPassword;
+        wxTextCtrl* TextCtrlStudentName;
+        wxTextCtrl* TextCtrlStudentPesel;
+        wxTextCtrl* TextCtrlStudentSurname;
         wxTextCtrl* TextCtrlSubjectEditor;
+        wxTextCtrl* TextCtrlTeacherName;
+        wxTextCtrl* TextCtrlTeacherPesel;
+        wxTextCtrl* TextCtrlTeacherSurname;
         //*)
 
         DECLARE_EVENT_TABLE()

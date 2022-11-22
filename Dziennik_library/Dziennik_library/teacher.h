@@ -56,11 +56,29 @@ public:
 
 	std::string getSurname()
 	{
-		return Name;
+		return Surname;
 	}
 	std::string getBirthday()
 	{
-		return Name;
+		return Birthday;
+	}
+
+    	int getBirthdayYear()
+	{
+	    std::string year=getBirthday().substr(0, 4);
+		return stoi(year);
+	}
+
+	 	int getBirthdayMonth()
+	{
+	    std::string month=getBirthday().substr(5, 7);
+		return stoi(month);
+	}
+	
+		int getBirthdayDay()
+	{
+	    std::string day=getBirthday().substr(8, 10);
+		return stoi(day);
 	}
 
 	int getSubjectId()

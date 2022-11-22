@@ -7511,7 +7511,7 @@
 1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\univ\theme.h
 	"wx/string.h"
 
-1669008112 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
+1669095038 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
 	<wx/button.h>
 	<wx/combobox.h>
 	<wx/datectrl.h>
@@ -8117,7 +8117,7 @@
 	"wx/defs.h"
 	"wx/validate.h"
 
-1668975282 source:d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
+1669095201 source:d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
 	"dziennik_guiMain.h"
 	<wx/msgdlg.h>
 	<iostream>
@@ -8204,7 +8204,7 @@
 	<iostream>
 	"DziennikLib.h"
 
-1668514907 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\teacher.h
+1669094726 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\teacher.h
 	<string>
 	<iostream>
 	"DziennikLib.h"
