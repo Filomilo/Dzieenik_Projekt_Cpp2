@@ -128,10 +128,12 @@ public:
 	std::vector<teacher>  findTeachersByPesel(std::string pesel);
 	std::vector<user>  findUsersAll();
 	std::vector<user>  findUsersById(int id);
+	std::vector<grade>findGradesByStudentId(std::string pesel);
 
     //*********************************************************    remove
     void removeSubject(int subjectId);
 	void removeTeacher(std::string teacherPesel);
+	void removeStudent(std::string studentPesel);
 
 	//*********************************************************    insert
 
@@ -163,6 +165,8 @@ public:
 	//*********************************************************    update
 	void updateSubject(int subjectId,std::string Name);
 	void updateTeacher(std::string Pesel, std::string Name, std::string Surname, std::string Birthday, int subject_id);
+	void updateStudent(std::string Pesel, std::string Name, std::string Surname, std::string Birthday);
+
 
 	//*********************************************************    validators
 

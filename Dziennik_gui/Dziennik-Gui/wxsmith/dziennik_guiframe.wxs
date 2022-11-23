@@ -186,6 +186,8 @@
 						<object class="sizeritem">
 							<object class="wxListCtrl" name="ID_LISTCTRLSTUDENTS" variable="ListCtrlStudents" member="yes">
 								<style>wxLC_REPORT</style>
+								<handler function="OnListCtrlStudentsBeginDrag" entry="EVT_LIST_BEGIN_DRAG" />
+								<handler function="OnListCtrlStudentsItemActivated" entry="EVT_LIST_ITEM_ACTIVATED" />
 							</object>
 							<flag>wxALL|wxEXPAND</flag>
 							<border>5</border>
@@ -201,7 +203,9 @@
 													<object class="wxBoxSizer" variable="BoxSizer21" member="no">
 														<orient>wxVERTICAL</orient>
 														<object class="sizeritem">
-															<object class="wxTextCtrl" name="ID_TEXTCTRLSTUDENTPESEL" variable="TextCtrlStudentPesel" member="yes" />
+															<object class="wxTextCtrl" name="ID_TEXTCTRLSTUDENTPESEL" variable="TextCtrlStudentPesel" member="yes">
+																<handler function="OnChangeInStudents" entry="EVT_TEXT" />
+															</object>
 															<flag>wxALL|wxEXPAND</flag>
 															<border>5</border>
 														</object>
@@ -214,7 +218,9 @@
 															<option>1</option>
 														</object>
 														<object class="sizeritem">
-															<object class="wxTextCtrl" name="ID_TEXTCTRLSTUDENTNAME" variable="TextCtrlStudentName" member="yes" />
+															<object class="wxTextCtrl" name="ID_TEXTCTRLSTUDENTNAME" variable="TextCtrlStudentName" member="yes">
+																<handler function="OnChangeInStudents" entry="EVT_TEXT" />
+															</object>
 															<flag>wxALL|wxEXPAND</flag>
 															<border>5</border>
 															<option>1</option>
@@ -236,7 +242,9 @@
 													<object class="wxBoxSizer" variable="BoxSizer22" member="no">
 														<orient>wxVERTICAL</orient>
 														<object class="sizeritem">
-															<object class="wxDatePickerCtrl" name="ID_DATEPICKERCTRLSTUDENTBIRTHDAY" variable="DatePickerCtrlStudentBirthday" member="yes" />
+															<object class="wxDatePickerCtrl" name="ID_DATEPICKERCTRLSTUDENTBIRTHDAY" variable="DatePickerCtrlStudentBirthday" member="yes">
+																<handler function="OnDatePickerCtrlStudentBirthdayChanged" entry="EVT_DATE_CHANGED" />
+															</object>
 															<flag>wxALL|wxEXPAND</flag>
 															<border>5</border>
 															<option>1</option>
@@ -250,7 +258,9 @@
 															<option>1</option>
 														</object>
 														<object class="sizeritem">
-															<object class="wxTextCtrl" name="ID_TEXTCTRL5" variable="TextCtrlStudentSurname" member="yes" />
+															<object class="wxTextCtrl" name="ID_TEXTCTRL5" variable="TextCtrlStudentSurname" member="yes">
+																<handler function="OnChangeInStudents" entry="EVT_TEXT" />
+															</object>
 															<flag>wxALL|wxEXPAND</flag>
 															<border>5</border>
 															<option>1</option>
@@ -284,6 +294,7 @@
 												<object class="sizeritem">
 													<object class="wxButton" name="ID_BUTTONSAVESTUDENT" variable="ButtonSaveStudent" member="yes">
 														<label>save</label>
+														<handler function="OnButtonSaveStudentClick" entry="EVT_BUTTON" />
 													</object>
 													<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 													<border>5</border>
@@ -292,6 +303,7 @@
 												<object class="sizeritem">
 													<object class="wxButton" name="ID_BUTTONDELETESTUDENT" variable="ButtonDeleteStudent" member="yes">
 														<label>delete</label>
+														<handler function="OnButtonDeleteStudentClick" entry="EVT_BUTTON" />
 													</object>
 													<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 													<border>5</border>
@@ -300,6 +312,7 @@
 												<object class="sizeritem">
 													<object class="wxButton" name="ID_BUTTONCANCELSTUDENT" variable="ButtonCancelStudent" member="yes">
 														<label>cancel</label>
+														<handler function="OnButtonCancelStudentClick" entry="EVT_BUTTON" />
 													</object>
 													<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 													<border>5</border>

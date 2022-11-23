@@ -23,6 +23,15 @@ std::vector<grade>  DziennikLib::findGradesAll()
 	gradesRecords = executeGetGrade(sqlCommand.c_str());
 	return gradesRecords;
 }
+
+std::vector<grade>  DziennikLib::findGradesByStudentId(std::string pesel)
+{
+	std::vector<grade> gradesRecords;
+	std::string sqlCommand = "SELECT * FROM Grades \n WHERE Student_id = '" + pesel + "'";
+	gradesRecords = executeGetGrade(sqlCommand.c_str());
+	return gradesRecords;
+}
+
 std::vector<attendance>  DziennikLib::findAttandanceAll()
 {
 	std::vector<attendance> attendancesRecords;

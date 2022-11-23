@@ -118,7 +118,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
 {
 
                this->dziennik= new DziennikLib;
-                   std::setlocale(LC_ALL, "");
+    std::setlocale(LC_ALL, "");
     //(*Initialize(dziennik_guiFrame)
     wxBoxSizer* BoxSizer10;
     wxBoxSizer* BoxSizer11;
@@ -366,6 +366,15 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_TEXTCTRLREGISTERREAPEATPASSWORD,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnTextCtrlRegisterReapeatPasswordText);
     Connect(ID_BUTTONREGISTER,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonRegisterClick);
     Connect(ID_BUTTONLOGIN,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonLoginClick);
+    Connect(ID_LISTCTRLSTUDENTS,wxEVT_COMMAND_LIST_BEGIN_DRAG,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlStudentsBeginDrag);
+    Connect(ID_LISTCTRLSTUDENTS,wxEVT_COMMAND_LIST_ITEM_ACTIVATED,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlStudentsItemActivated);
+    Connect(ID_TEXTCTRLSTUDENTPESEL,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnChangeInStudents);
+    Connect(ID_TEXTCTRLSTUDENTNAME,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnChangeInStudents);
+    Connect(ID_DATEPICKERCTRLSTUDENTBIRTHDAY,wxEVT_DATE_CHANGED,(wxObjectEventFunction)&dziennik_guiFrame::OnDatePickerCtrlStudentBirthdayChanged);
+    Connect(ID_TEXTCTRL5,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnChangeInStudents);
+    Connect(ID_BUTTONSAVESTUDENT,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonSaveStudentClick);
+    Connect(ID_BUTTONDELETESTUDENT,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonDeleteStudentClick);
+    Connect(ID_BUTTONCANCELSTUDENT,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonCancelStudentClick);
     Connect(ID_LISTCTRLTEACHERS,wxEVT_COMMAND_LIST_BEGIN_DRAG,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlTeachersBeginDrag);
     Connect(ID_TEXTCTRLTEACHERPESEL,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnChangeInTeachers);
     Connect(ID_TEXTCTRL2,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnChangeInTeachers);
@@ -393,8 +402,12 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
 
     //removeAllPages();
     dziennik->loadDataBase("exampple.dznk");
-    refreshSubjectList();
+    dziennik->login("STUDENT","STUDENT");
+    std::cout<<"login: "<<dziennik->getUserStudentProfile()<<std::endl;
+    refreshStudentSelection();
     refreshTeacherSelection();
+    refreshStudentSelection();
+    refreshMyGradeList();
 }
 
 dziennik_guiFrame::~dziennik_guiFrame()
@@ -812,3 +825,191 @@ void dziennik_guiFrame::OnButtonDeleteTeacherClick(wxCommandEvent& event)
     }
     refreshTeacherSelection();
 }
+
+
+
+
+
+
+
+ void dziennik_guiFrame::refreshStudentList()
+ {
+         ListCtrlStudents->ClearAll();
+     std::vector<subject> subjectList=this->dziennik->findSubjectsAll();
+    ListCtrlStudents->AppendColumn(_("Pesel"));
+    ListCtrlStudents->AppendColumn(_("Name"));
+    ListCtrlStudents->AppendColumn(_("Surname"));
+    ListCtrlStudents->AppendColumn(_("Birthday"));
+    std::vector<student> studentList=this->dziennik->findSstudentAll();
+    int i=0;
+    ComboBoxTeacherSubject->Clear();
+    for(auto it=studentList.begin();it!=studentList.end();it++)
+    {
+      ListCtrlStudents->InsertItem(i, (*it).getPesel());
+      ListCtrlStudents->SetItem(i, 1, (*it).getName());
+     ListCtrlStudents->SetItem(i, 2, (*it).getSurname());
+      ListCtrlStudents->SetItem(i, 3, (*it).getBirthday());
+    }
+
+ }
+void dziennik_guiFrame::OnStudentListItemClicked(wxListEvent &e)
+{
+
+
+}
+void dziennik_guiFrame::refreshStudentSelection()
+{
+    TextCtrlStudentPesel->SetEditable(true);
+    selectedStudentId[0]='\0';
+    TextCtrlStudentName->Clear();
+    TextCtrlStudentPesel->Clear();
+    TextCtrlStudentSurname->Clear();
+    wxDateTime data;
+    data.SetToCurrent();
+    DatePickerCtrlStudentBirthday->SetValue(data);
+        isStudentInEditModde=false;
+    isStudentInEditModde=false;
+    refreshStudentList();
+}
+
+
+
+void dziennik_guiFrame::OnListCtrlStudentsItemActivated(wxListEvent& event)
+{
+       std::cout<<"item clokced"<<std::endl;
+        isStudentSelected=false;
+        long SelctedItem = ListCtrlStudents->GetNextItem(-1,  wxLIST_NEXT_ALL, wxLIST_STATE_SELECTED);
+        wxListItem item;
+        item.SetId(SelctedItem);
+        std::cout<<std::string(ListCtrlStudents->GetItemText(item,0).mb_str())<<std::endl;
+        student itemSelcted=dziennik->findStudentByPesel(std::string(ListCtrlStudents->GetItemText(item,0).mb_str()))[0];
+        std::cout<<"test"<<std::endl;
+        if(!isStudentInEditModde)
+        {
+            std::cout<<"into teacher mode\n";
+            TextCtrlStudentPesel->Clear();
+            TextCtrlStudentPesel->AppendText(itemSelcted.getPesel());
+            TextCtrlStudentName->Clear();
+            TextCtrlStudentName->AppendText(itemSelcted.getName());
+            TextCtrlStudentSurname->Clear();
+            TextCtrlStudentSurname->AppendText(itemSelcted.getSurname());
+            wxDateTime date;
+            date.SetToCurrent();
+            date.SetYear(itemSelcted.getBirthdayYear());
+            date.SetMonth(wxDateTime::Month(wxDateTime::Jan + itemSelcted.getBirthdayMonth() - 1)   );
+            date.SetDay(itemSelcted.getBirthdayDay());
+            //date.Format(_("1964-08-11"),"%Y-%m-%d");
+
+            DatePickerCtrlStudentBirthday->SetValue(date);
+            TextCtrlStudentPesel->SetEditable(false);
+            selectedStudentId=itemSelcted.getPesel();
+             isStudentSelected=true;
+             isStudentInEditModde=false;
+        }
+        else
+        {
+               std::cout<<"something in edit\n";
+        }
+}
+void dziennik_guiFrame::OnListCtrlStudentsBeginDrag(wxListEvent& event)
+{
+
+}
+
+void dziennik_guiFrame::OnButtonCancelStudentClick(wxCommandEvent& event)
+{
+    refreshStudentSelection();
+}
+
+void dziennik_guiFrame::OnButtonDeleteStudentClick(wxCommandEvent& event)
+{
+    if(selectedStudentId[0]!='\0')
+    {
+        this->dziennik->removeStudent(selectedStudentId);
+    }
+    refreshStudentSelection();
+}
+
+void dziennik_guiFrame::OnButtonSaveStudentClick(wxCommandEvent& event)
+{
+     if(isStudentInEditModde)
+    {
+        std::cout<<"test\n";
+         wxString name=TextCtrlStudentName->GetLineText(0);
+         wxString pesel=TextCtrlStudentPesel->GetLineText(0);
+         wxString surname=TextCtrlStudentSurname->GetLineText(0);
+         wxDateTime birthday=DatePickerCtrlStudentBirthday->GetValue();
+         wxString birthdayString= birthday.Format(wxT("%Y-%m-%d"), wxDateTime::CET );
+    if(selectedStudentId[0]!='\0')
+    {
+          this->dziennik->updateStudent(
+                                   std::string(pesel.mbc_str()),
+                                   std::string(name.mbc_str()),
+                                   std::string(surname.mbc_str()),
+                                   std::string(birthdayString.mbc_str())
+                                   );
+    }
+    else
+    {
+        this->dziennik->addStudent(
+                                   std::string(pesel.mbc_str()),
+                                   std::string(name.mbc_str()),
+                                   std::string(surname.mbc_str()),
+                                   std::string(birthdayString.mbc_str())
+                                   );
+    }
+refreshStudentSelection();
+    }
+}
+
+void dziennik_guiFrame::OnTextCtrlStudentPeselText(wxCommandEvent& event)
+{
+}
+
+void dziennik_guiFrame::OnChangeInStudents(wxCommandEvent& event)
+{
+        isStudentInEditModde=true;
+
+}
+
+void dziennik_guiFrame::OnDatePickerCtrlStudentBirthdayChanged(wxDateEvent& event)
+{
+    OnChangeInStudents(event);
+}
+
+
+
+void dziennik_guiFrame::refreshMyGradeList()
+{
+    //Functoin in Progres do not touch
+    /*
+    ListCtrlStudents->ClearAll();
+    std::vector<subject> subjectList=this->dziennik->findSubjectsAll();
+    std::vector<int> counter;
+    for(auto it=subjectList.begin();it!=subjectList.end();it++)
+    {
+         ListCtrlMyGrades->AppendColumn(_(it->getName().c_str()));
+         counter.push_back(0);
+    }
+
+    //ListCtrlStudents->AppendColumn(_("Name"));
+    //ListCtrlStudents->AppendColumn(_("Surname"));
+   // ListCtrlStudents->AppendColumn(_("Birthday"));
+    std::vector<grade> gradeList=this->dziennik->findGradesByStudentId(dziennik->getUserIdInDb());
+    int i=0;
+    for(auto it=gradeList.begin();it!=gradeList.end();it++)
+    {
+        int subjectid=it->getSubjectId()-1;
+        if(counter.at(subjectid)>i)
+            {
+                ListCtrlMyGrades->InsertItem(0, "");
+                i++;
+            }
+
+      ListCtrlMyGrades->SetItem(counter.at(subjectid), subjectid, wxString::Format(wxT("%i"),it->getGrade()));
+      counter[subjectid]++;
+    }
+*/
+}
+
+

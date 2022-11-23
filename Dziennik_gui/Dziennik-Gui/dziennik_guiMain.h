@@ -69,6 +69,14 @@ class dziennik_guiFrame: public wxFrame
         void OnDatePickerCtrlTeacherBirthdayChanged(wxDateEvent& event);
         void OnButtonSaveTeacherClick(wxCommandEvent& event);
         void OnButtonDeleteTeacherClick(wxCommandEvent& event);
+        void OnListCtrlStudentsItemActivated(wxListEvent& event);
+        void OnListCtrlStudentsBeginDrag(wxListEvent& event);
+        void OnButtonCancelStudentClick(wxCommandEvent& event);
+        void OnButtonDeleteStudentClick(wxCommandEvent& event);
+        void OnButtonSaveStudentClick(wxCommandEvent& event);
+        void OnTextCtrlStudentPeselText(wxCommandEvent& event);
+        void OnChangeInStudents(wxCommandEvent& event);
+        void OnDatePickerCtrlStudentBirthdayChanged(wxDateEvent& event);
         //*)
 
         void removeAllPages();
@@ -93,6 +101,16 @@ class dziennik_guiFrame: public wxFrame
         bool isTeacherInEditModde=false;
         std::string selectedTeacherId="0";
 
+
+        void refreshStudentList();
+        void OnStudentListItemClicked(wxListEvent &e);
+        void refreshStudentSelection();
+        bool isStudentSelected=true;
+        bool isStudentInEditModde=false;
+        std::string selectedStudentId="0";
+
+
+            void refreshMyGradeList();
 
 
         void checkVariables();

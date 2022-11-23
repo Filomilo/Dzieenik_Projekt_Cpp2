@@ -100,7 +100,7 @@ std::string  DziennikLib::getUserIdInDb()
 }
 student  DziennikLib::getUserStudentProfile()
 {
-		if (this->isUserLogged() && !(this->isUserStudent()))
+		if (this->isUserLogged() && (this->isUserStudent()))
 	{
 		user userAccount = findUsersById(this->LoginId)[0];
 		return findStudentByPesel(userAccount.getIdInDb())[0];
@@ -109,7 +109,7 @@ student  DziennikLib::getUserStudentProfile()
 }
 teacher  DziennikLib::getUserTeacherProfile()
 {
-	if (this->isUserLogged() && !(this->isUserTeacher()))
+	if (this->isUserLogged() && (this->isUserTeacher()))
 	{
 		user userAccount = findUsersById(this->LoginId)[0];
 		return findTeachersByPesel(userAccount.getIdInDb())[0];
