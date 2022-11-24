@@ -1010,5 +1010,6 @@ void dziennik_guiFrame::refreshMyGradeList()
     ListCtrlMyGrades->SetItem(counter++, subjectid, wxString::Format(wxT("%i"),it->getGrade()));
 
 }
+}
 
 
