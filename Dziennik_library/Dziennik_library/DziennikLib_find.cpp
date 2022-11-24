@@ -27,10 +27,19 @@ std::vector<grade>  DziennikLib::findGradesAll()
 std::vector<grade>  DziennikLib::findGradesByStudentId(std::string pesel)
 {
 	std::vector<grade> gradesRecords;
-	std::string sqlCommand = "SELECT * FROM Grades \n WHERE Student_id = '" + pesel + "'";
+	std::string sqlCommand = "SELECT * FROM Grades \n WHERE Student_id = '" + pesel + "' \n ORDER BY Subject_id";
 	gradesRecords = executeGetGrade(sqlCommand.c_str());
 	return gradesRecords;
 }
+
+int DziennikLib::findMaxGradesFromSubjectByStudentId(std::string pesel)
+{
+	int maxGrades;
+	std::string sqlCommand = "SELECT max(counter) FROM (SELECT Subject_id, count(Grade) counter FROM Grades GROUP BY Subject_id HAVING Student_id=\'"+pesel+"\')";
+	maxGrades = executeSqlValue(sqlCommand.c_str());
+	return maxGrades;
+}
+
 
 std::vector<attendance>  DziennikLib::findAttandanceAll()
 {

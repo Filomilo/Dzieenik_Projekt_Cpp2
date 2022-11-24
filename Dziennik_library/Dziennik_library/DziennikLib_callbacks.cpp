@@ -17,6 +17,14 @@
 	return 0;
 }
 
+
+ int DziennikLib::callbackGetValue(void* data, int argc, char** argv, char** azColName) {
+
+	int* amount = (int*)data;
+	*amount = atoi(argv[0]);
+	return 0;
+}
+
  int DziennikLib::callbackGetStudent(void* data, int argc, char** argv, char** azColName) {
 	 std::vector<student>* studentRecords = (std::vector<student>*)data;
 	 int i;

@@ -981,35 +981,34 @@ void dziennik_guiFrame::OnDatePickerCtrlStudentBirthdayChanged(wxDateEvent& even
 
 void dziennik_guiFrame::refreshMyGradeList()
 {
-    //Functoin in Progres do not touch
-    /*
+    int maxValue=dziennik->findMaxGradesFromSubjectByStudentId(dziennik->getUserIdInDb());
     ListCtrlStudents->ClearAll();
     std::vector<subject> subjectList=this->dziennik->findSubjectsAll();
-    std::vector<int> counter;
     for(auto it=subjectList.begin();it!=subjectList.end();it++)
     {
          ListCtrlMyGrades->AppendColumn(_(it->getName().c_str()));
-         counter.push_back(0);
     }
 
-    //ListCtrlStudents->AppendColumn(_("Name"));
-    //ListCtrlStudents->AppendColumn(_("Surname"));
-   // ListCtrlStudents->AppendColumn(_("Birthday"));
-    std::vector<grade> gradeList=this->dziennik->findGradesByStudentId(dziennik->getUserIdInDb());
-    int i=0;
-    for(auto it=gradeList.begin();it!=gradeList.end();it++)
+
+    for(int i=0;i<maxValue;i++)
     {
-        int subjectid=it->getSubjectId()-1;
-        if(counter.at(subjectid)>i)
-            {
-                ListCtrlMyGrades->InsertItem(0, "");
-                i++;
-            }
-
-      ListCtrlMyGrades->SetItem(counter.at(subjectid), subjectid, wxString::Format(wxT("%i"),it->getGrade()));
-      counter[subjectid]++;
+          ListCtrlMyGrades->InsertItem(0, "");
     }
-*/
+
+    std::vector<grade> gradeList=this->dziennik->findGradesByStudentId(dziennik->getUserIdInDb());
+
+    int prevSubject=-1;
+    int counter=0;
+      for(auto it=gradeList.begin();it!=gradeList.end();it++)
+    {
+    int subjectid=it->getSubjectId()-1;
+    if(subjectid!=prevSubject)
+    {
+        counter=0;
+        prevSubject=subjectid;
+    }
+    ListCtrlMyGrades->SetItem(counter++, subjectid, wxString::Format(wxT("%i"),it->getGrade()));
+
 }
 
 

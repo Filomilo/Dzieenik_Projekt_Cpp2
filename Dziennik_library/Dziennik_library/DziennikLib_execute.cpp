@@ -32,6 +32,17 @@ int DziennikLib::executeSqlAmount(std::string sqlCommand)
 	return amount;
 }
 
+int DziennikLib::executeSqlValue(std::string sqlCommand)
+{
+	char* errorMsg;
+	int amount;
+	if (sqlite3_exec(this->db, sqlCommand.c_str(), callbackGetValue, (void*)(&amount), &errorMsg) != SQLITE_OK)
+	{
+		warrningHandler(errorMsg);
+	}
+	return amount;
+}
+
 std::vector<student> DziennikLib::executeGetStudent(std::string sqlCommand)
 {
 	char* errorMsg;

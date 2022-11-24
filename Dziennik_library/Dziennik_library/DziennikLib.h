@@ -36,12 +36,14 @@ private:
 	//*********************************************************    callbacks
 	static int callbackPrint(void* data, int argc, char** argv, char** azColName);
 	static int callbackGetAmount(void* data, int argc, char** argv, char** azColName);
+	static int callbackGetValue(void* data, int argc, char** argv, char** azColName);
 	static int callbackGetStudent(void* data, int argc, char** argv, char** azColName);
 	static int callbackGetUser(void* data, int argc, char** argv, char** azColName);
 	static int callbackGetTeacher(void* data, int argc, char** argv, char** azColName);
 	static int callbackGetAttendacne(void* data, int argc, char** argv, char** azColName);
 	static int callbackGetGrade(void* data, int argc, char** argv, char** azColName);
 	static int callbackGetSubject(void* data, int argc, char** argv, char** azColName);
+	
 
 
 	//*********************************************************    communication
@@ -53,6 +55,7 @@ private:
 	void executeSqlInsert(std::string sqlCommand);
 	void executeSqlPrint(std::string sqlCommand);
 	int executeSqlAmount(std::string sqlCommand);
+	int executeSqlValue(std::string sqlCommand);
 	std::vector<student> executeGetStudent(std::string sqlCommand);
 	std::vector<user> executeGetUser(std::string sqlCommand);
 	std::vector<teacher> executeGetTeacher(std::string sqlCommand);
@@ -129,6 +132,7 @@ public:
 	std::vector<user>  findUsersAll();
 	std::vector<user>  findUsersById(int id);
 	std::vector<grade>findGradesByStudentId(std::string pesel);
+	int findMaxGradesFromSubjectByStudentId(std::string pesel); 
 
     //*********************************************************    remove
     void removeSubject(int subjectId);
