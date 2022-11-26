@@ -400,7 +400,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_LISTCTRLSUBJECTSLIST,wxEVT_LIST_ITEM_ACTIVATED,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlSubjectListBeginDrag);
     Connect(ID_LISTCTRLTEACHERS,wxEVT_LIST_ITEM_ACTIVATED,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlTeachersBeginDrag);
 
-    //removeAllPages();
+    removeAllPages();
     dziennik->loadDataBase("exampple.dznk");
     dziennik->login("STUDENT","STUDENT");
     std::cout<<"login: "<<dziennik->getUserStudentProfile()<<std::endl;
@@ -509,7 +509,9 @@ void dziennik_guiFrame::setViewAsAdmin()
             NotebookMain->AddPage(PanelStudents, _("Students"), true);
             NotebookMain->AddPage(PanelSubjects, _("Subjects"), false);
             NotebookMain->AddPage(PanelTeachers, _("Teachers"), false);
-
+            refreshStudentSelection();
+            refreshSubjectSelection();
+            refreshTeacherSelection();
         }
 
 void dziennik_guiFrame::OnTextCtrlRegisterReapeatPasswordText(wxCommandEvent& event)
