@@ -6,14 +6,24 @@
 
 int main()
 {
+    
     std::setlocale(LC_ALL, "");
+
     DziennikLib *db = new DziennikLib;
-    char* databaseName = (char*) "dataBsse2.db";
-    //db->loadDataBase(databaseName);
+    char* databaseName = (char*) "..\\..\\Dziennik_gui\\Dziennik-Gui\\exampple.dznk";
+    db->loadDataBase(databaseName);
+   //db->createNewDataBase(databaseName);
+   
+    //std::cout << "creting data base: " << databaseName << std::endl;
+    //sqlite3* db;
+   // sqlite3_open(databaseName, & db);
+
     //std::cout <<std::endl<< db->encrypt("admin");
-    //db->createNewDataBase(databaseName);
-   // db->insertDefaultData();
-//db->insertDefaultData();
+db->createNewDataBase(databaseName);
+    //db->insertDefaultData();
+    db->createBasictables();
+db->insertDefaultData();
+db->printDataBase();
 //db->printAttendacne();
 //db->updateAttandance("1", "7");
 //db->printAttendacne();
@@ -30,12 +40,5 @@ int main()
    db->addUser("adsadasda", "password", DziennikLib::Account_types::ADMIN);
    db->printDataBase();
    */
-    db->createNewDataBase(databaseName, "admin", "admin");
-    db->printDataBase();
-    std::cout << "logged as: " << db->getUserNick() << std::endl;
-    db->login("admin", "admin");
-    std::cout << "logged as: " << db->getUserNick() << std::endl;
-    std::cout << "is admin: " << db->isUserAdmin() << std::endl;
-    std::cout << "is teacher: " << db->isUserTeacher() << std::endl;
-    std::cout << "is student: " << db->isUserStudent() << std::endl;
+    
 }

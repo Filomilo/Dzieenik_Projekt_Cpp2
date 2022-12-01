@@ -100,5 +100,6 @@
     <None Include="res\BasicDataBaseTemplate.sql">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="BasicDataBaseTemplate.sql" />
   </ItemGroup>
 </Project>

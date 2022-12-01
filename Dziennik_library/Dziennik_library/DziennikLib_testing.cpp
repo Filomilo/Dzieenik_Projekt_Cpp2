@@ -86,9 +86,9 @@ void DziennikLib::insertDefaultData()
 	insertIntoAttendacne("2022-08-20", "4", "78112917806", "82011833851", "1");
 	insertIntoAttendacne("2022-08-20", "4", "78112917806", "86121110824", "0");
 
-	insertIntoUsers("admin", encrypt("admin"), "0");
-	insertIntoUsers("Marzena", encrypt("haslo"), "1", "98072068558");
-	insertIntoUsers("Kamin", encrypt("1234"), "2", "82011833851");
+	insertIntoUsers("ADMIN", encrypt("ADMIN"), "0");
+	insertIntoUsers("TEACHER", encrypt("TEACHER"), "1", "98072068558");
+	insertIntoUsers("STUDENT", encrypt("STUDENT"), "2", "82011833851");
 
 
 }

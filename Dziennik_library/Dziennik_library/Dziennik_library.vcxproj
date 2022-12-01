@@ -170,6 +170,7 @@
     <ClInclude Include="user.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BasicDataBaseTemplate.sql" />
     <None Include="res\BasicDataBaseTemplate.sql" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

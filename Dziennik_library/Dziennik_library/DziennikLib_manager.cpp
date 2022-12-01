@@ -33,7 +33,7 @@ void DziennikLib::createNewDataBase(char* fileDir)
 
 		}
 		actionMessage("opening DataBase");
-		if (sqlite3_open(DataBaseDir.c_str(), &this->db))
+		if (sqlite3_open(DataBaseDir.c_str(), &this->db)==-1)
 		{
 			errorHandler("could not open data base");
 		}

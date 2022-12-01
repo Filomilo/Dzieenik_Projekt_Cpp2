@@ -77,7 +77,7 @@ private:
 	void insertIntoUsers(std::string nick, std::string Password, std::string Account_type);
 
 	//*********************************************************    manager
-	void createBasictables();
+
 	void removeDataBaseFile();
 
 	//*********************************************************    print
@@ -144,6 +144,7 @@ public:
 
 	//*********************************************************    manager
 	void createNewDataBase(char* fileDir);
+	void createBasictables();
 	void createNewDataBase(std::string fileDir);
 	void createNewDataBase(std::string fileDir,std::string adminLogin, std::string adminPass);
 	void loadDataBase(char* fileDir);
@@ -170,7 +171,9 @@ public:
 	void updateSubject(int subjectId,std::string Name);
 	void updateTeacher(std::string Pesel, std::string Name, std::string Surname, std::string Birthday, int subject_id);
 	void updateStudent(std::string Pesel, std::string Name, std::string Surname, std::string Birthday);
-
+	void updateGrade(std::string Sudent_pesel, int Subject_id, int grade);
+	void updateAttendacne(std::string Date, int Lesson_num, std::string Teacher_pesel, std::string Sudent_pesel, int Status);
+	void updateUser(std::string Nick, std::string Passowrd, int Account_Type, std::string Id_in_db);
 
 	//*********************************************************    validators
 
