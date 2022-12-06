@@ -176,12 +176,14 @@ class dziennik_guiFrame: public wxFrame
         static const long ID_BUTTONDELTETSUBJCECT;
         static const long ID_BUTTONLOGINCANCLE;
         static const long ID_PANELSUBJECTS;
-        static const long ID_GRID2;
+        static const long ID_GRIDATTANDANCEMANAER;
         static const long ID_LISTBOXATTANDANCEDATES;
         static const long ID_DATEPICKERCTRLATTANDANCECONTORL;
         static const long ID_BUTTONADDDATEATTADNACECOTROL;
         static const long ID_BUTTONREMOVEDATEATTANDANCECONTROL;
         static const long ID_PANEL1;
+        static const long ID_GRIDATTANDANCE;
+        static const long ID_PANELAttandacne;
         static const long ID_NOTEBOOKMAIN;
         static const long idMenuNewFIle;
         static const long idMenuOpenFile;
@@ -210,7 +212,8 @@ class dziennik_guiFrame: public wxFrame
         wxDatePickerCtrl* DatePickerCtrlStudentBirthday;
         wxDatePickerCtrl* DatePickerCtrlTeacherBirthday;
         wxFileDialog* FileDialog1;
-        wxGrid* Grid1;
+        wxGrid* GridAttandanceManager;
+        wxGrid* GridAttendance;
         wxGrid* GridYourStudentList;
         wxListBox* ListBoxAtanndacneDates;
         wxListCtrl* ListCtrlMyGrades;
@@ -221,6 +224,7 @@ class dziennik_guiFrame: public wxFrame
         wxMenuItem* MenuItem3;
         wxMenuItem* MenuItem4;
         wxNotebook* NotebookMain;
+        wxPanel* PanelAttandance;
         wxPanel* PanelCreateAdmin;
         wxPanel* PanelLogin;
         wxPanel* PanelMyGrades;

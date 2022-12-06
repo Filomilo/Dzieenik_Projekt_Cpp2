@@ -674,9 +674,22 @@
 					<pos>816,13</pos>
 					<object class="wxBoxSizer" variable="BoxSizer25" member="no">
 						<object class="sizeritem">
-							<object class="wxGrid" name="ID_GRID2" variable="Grid1" member="yes">
-								<cols>1</cols>
+							<object class="wxGrid" name="ID_GRIDATTANDANCEMANAER" variable="GridAttandanceManager" member="yes">
+								<cols>10</cols>
 								<rows>1</rows>
+								<readonly>1</readonly>
+								<collabels>
+									<item>1</item>
+									<item>2</item>
+									<item>3</item>
+									<item>4</item>
+									<item>5</item>
+									<item>6</item>
+									<item>7</item>
+									<item>8</item>
+									<item>9</item>
+									<item>10</item>
+								</collabels>
 							</object>
 							<flag>wxALL|wxEXPAND</flag>
 							<border>5</border>
@@ -687,11 +700,6 @@
 								<orient>wxVERTICAL</orient>
 								<object class="sizeritem">
 									<object class="wxListBox" name="ID_LISTBOXATTANDANCEDATES" variable="ListBoxAtanndacneDates" member="yes">
-										<content>
-											<item>k</item>
-											<item></item>
-											<item>k</item>
-										</content>
 										<default>-1</default>
 									</object>
 									<flag>wxALL|wxEXPAND</flag>
@@ -735,6 +743,35 @@
 					</object>
 				</object>
 				<label>students Attadance</label>
+			</object>
+			<object class="notebookpage">
+				<object class="wxPanel" name="ID_PANELAttandacne" variable="PanelAttandance" member="yes">
+					<pos>908,14</pos>
+					<object class="wxBoxSizer" variable="BoxSizer29" member="no">
+						<object class="sizeritem">
+							<object class="wxGrid" name="ID_GRIDATTANDANCE" variable="GridAttendance" member="yes">
+								<cols>10</cols>
+								<rows>1</rows>
+								<collabels>
+									<item>1</item>
+									<item>2</item>
+									<item>3</item>
+									<item>4</item>
+									<item>5</item>
+									<item>6</item>
+									<item>7</item>
+									<item>8</item>
+									<item>9</item>
+									<item>10</item>
+								</collabels>
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+					</object>
+				</object>
+				<label>Attandance</label>
 			</object>
 		</object>
 		<object class="wxMenuBar" variable="MenuBar1" member="no">
