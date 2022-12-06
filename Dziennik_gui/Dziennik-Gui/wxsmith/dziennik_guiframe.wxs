@@ -669,6 +669,73 @@
 				</object>
 				<label>Subjects</label>
 			</object>
+			<object class="notebookpage">
+				<object class="wxPanel" name="ID_PANEL1" variable="PanelStudentAttandnace" member="yes">
+					<pos>816,13</pos>
+					<object class="wxBoxSizer" variable="BoxSizer25" member="no">
+						<object class="sizeritem">
+							<object class="wxGrid" name="ID_GRID2" variable="Grid1" member="yes">
+								<cols>1</cols>
+								<rows>1</rows>
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+							<option>6</option>
+						</object>
+						<object class="sizeritem">
+							<object class="wxBoxSizer" variable="BoxSizer27" member="no">
+								<orient>wxVERTICAL</orient>
+								<object class="sizeritem">
+									<object class="wxListBox" name="ID_LISTBOXATTANDANCEDATES" variable="ListBoxAtanndacneDates" member="yes">
+										<content>
+											<item>k</item>
+											<item></item>
+											<item>k</item>
+										</content>
+										<default>-1</default>
+									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+									<option>20</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxDatePickerCtrl" name="ID_DATEPICKERCTRLATTANDANCECONTORL" variable="DatePickerCtrlAttandanceControl" member="yes" />
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+								<object class="sizeritem">
+									<object class="wxBoxSizer" variable="BoxSizer28" member="no">
+										<object class="sizeritem">
+											<object class="wxButton" name="ID_BUTTONADDDATEATTADNACECOTROL" variable="ButtonDateAttandadnceControl" member="yes">
+												<label>add</label>
+											</object>
+											<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+										<object class="sizeritem">
+											<object class="wxButton" name="ID_BUTTONREMOVEDATEATTANDANCECONTROL" variable="Button2" member="yes">
+												<label>remove</label>
+											</object>
+											<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<option>1</option>
+										</object>
+									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
+							</object>
+							<flag>wxALL|wxEXPAND</flag>
+							<border>5</border>
+							<option>1</option>
+						</object>
+					</object>
+				</object>
+				<label>students Attadance</label>
+			</object>
 		</object>
 		<object class="wxMenuBar" variable="MenuBar1" member="no">
 			<object class="wxMenu" variable="Menu1" member="no">

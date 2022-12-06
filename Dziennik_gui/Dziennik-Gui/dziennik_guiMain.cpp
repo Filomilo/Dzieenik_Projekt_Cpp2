@@ -100,6 +100,12 @@ const long dziennik_guiFrame::ID_BUTTONSAVESUBJECT = wxNewId();
 const long dziennik_guiFrame::ID_BUTTONDELTETSUBJCECT = wxNewId();
 const long dziennik_guiFrame::ID_BUTTONLOGINCANCLE = wxNewId();
 const long dziennik_guiFrame::ID_PANELSUBJECTS = wxNewId();
+const long dziennik_guiFrame::ID_GRID2 = wxNewId();
+const long dziennik_guiFrame::ID_LISTBOXATTANDANCEDATES = wxNewId();
+const long dziennik_guiFrame::ID_DATEPICKERCTRLATTANDANCECONTORL = wxNewId();
+const long dziennik_guiFrame::ID_BUTTONADDDATEATTADNACECOTROL = wxNewId();
+const long dziennik_guiFrame::ID_BUTTONREMOVEDATEATTANDANCECONTROL = wxNewId();
+const long dziennik_guiFrame::ID_PANEL1 = wxNewId();
 const long dziennik_guiFrame::ID_NOTEBOOKMAIN = wxNewId();
 const long dziennik_guiFrame::idMenuNewFIle = wxNewId();
 const long dziennik_guiFrame::idMenuOpenFile = wxNewId();
@@ -136,7 +142,10 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     wxBoxSizer* BoxSizer22;
     wxBoxSizer* BoxSizer23;
     wxBoxSizer* BoxSizer24;
+    wxBoxSizer* BoxSizer25;
     wxBoxSizer* BoxSizer26;
+    wxBoxSizer* BoxSizer27;
+    wxBoxSizer* BoxSizer28;
     wxBoxSizer* BoxSizer2;
     wxBoxSizer* BoxSizer3;
     wxBoxSizer* BoxSizer4;
@@ -339,6 +348,33 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     PanelSubjects->SetSizer(BoxSizer5);
     BoxSizer5->Fit(PanelSubjects);
     BoxSizer5->SetSizeHints(PanelSubjects);
+    PanelStudentAttandnace = new wxPanel(NotebookMain, ID_PANEL1, wxPoint(816,13), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANEL1"));
+    BoxSizer25 = new wxBoxSizer(wxHORIZONTAL);
+    Grid1 = new wxGrid(PanelStudentAttandnace, ID_GRID2, wxDefaultPosition, wxDefaultSize, 0, _T("ID_GRID2"));
+    Grid1->CreateGrid(1,1);
+    Grid1->EnableEditing(true);
+    Grid1->EnableGridLines(true);
+    Grid1->SetDefaultCellFont( Grid1->GetFont() );
+    Grid1->SetDefaultCellTextColour( Grid1->GetForegroundColour() );
+    BoxSizer25->Add(Grid1, 6, wxALL|wxEXPAND, 5);
+    BoxSizer27 = new wxBoxSizer(wxVERTICAL);
+    ListBoxAtanndacneDates = new wxListBox(PanelStudentAttandnace, ID_LISTBOXATTANDANCEDATES, wxDefaultPosition, wxDefaultSize, 0, 0, 0, wxDefaultValidator, _T("ID_LISTBOXATTANDANCEDATES"));
+    ListBoxAtanndacneDates->Append(_("k"));
+    ListBoxAtanndacneDates->Append(wxEmptyString);
+    ListBoxAtanndacneDates->Append(_("k"));
+    BoxSizer27->Add(ListBoxAtanndacneDates, 20, wxALL|wxEXPAND, 5);
+    DatePickerCtrlAttandanceControl = new wxDatePickerCtrl(PanelStudentAttandnace, ID_DATEPICKERCTRLATTANDANCECONTORL, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT|wxDP_SHOWCENTURY, wxDefaultValidator, _T("ID_DATEPICKERCTRLATTANDANCECONTORL"));
+    BoxSizer27->Add(DatePickerCtrlAttandanceControl, 1, wxALL|wxEXPAND, 5);
+    BoxSizer28 = new wxBoxSizer(wxHORIZONTAL);
+    ButtonDateAttandadnceControl = new wxButton(PanelStudentAttandnace, ID_BUTTONADDDATEATTADNACECOTROL, _("add"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONADDDATEATTADNACECOTROL"));
+    BoxSizer28->Add(ButtonDateAttandadnceControl, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    Button2 = new wxButton(PanelStudentAttandnace, ID_BUTTONREMOVEDATEATTANDANCECONTROL, _("remove"), wxDefaultPosition, wxDefaultSize, 0, wxDefaultValidator, _T("ID_BUTTONREMOVEDATEATTANDANCECONTROL"));
+    BoxSizer28->Add(Button2, 1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
+    BoxSizer27->Add(BoxSizer28, 1, wxALL|wxEXPAND, 5);
+    BoxSizer25->Add(BoxSizer27, 1, wxALL|wxEXPAND, 5);
+    PanelStudentAttandnace->SetSizer(BoxSizer25);
+    BoxSizer25->Fit(PanelStudentAttandnace);
+    BoxSizer25->SetSizeHints(PanelStudentAttandnace);
     NotebookMain->AddPage(PanelCreateAdmin, _("Create admin"), false);
     NotebookMain->AddPage(PanelLogin, _("Login"), false);
     NotebookMain->AddPage(PanelStudents, _("Students"), false);
@@ -346,6 +382,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     NotebookMain->AddPage(PanelYourStudentes, _("Your Students"), false);
     NotebookMain->AddPage(PanelTeachers, _("Teachers"), false);
     NotebookMain->AddPage(PanelSubjects, _("Subjects"), false);
+    NotebookMain->AddPage(PanelStudentAttandnace, _("students Attadance"), false);
     MenuBar1 = new wxMenuBar();
     Menu1 = new wxMenu();
     MenuItem3 = new wxMenuItem(Menu1, idMenuNewFIle, _("New File\tctrl+n"), wxEmptyString, wxITEM_NORMAL);
@@ -1070,10 +1107,7 @@ void dziennik_guiFrame::refreshYourStudentGrid()
 
 void dziennik_guiFrame::OnGridYourStudentListCellChanged(wxGridEvent& event)
 {
-    //std::cout<<"Grid changed\n";
     std::vector<student> studentList=this->dziennik->findSstudentAll();
-
-    //std::cout<<studentList.at(event.GetRow()).getPesel()<<std::endl;
     std::string StudentPesel=studentList.at(event.GetRow()).getPesel();
     int SubjectId=this->dziennik->getUserTeacherProfile().getSubjectId();
     std::vector<grade> gradeList=this->dziennik->findGradesByStudentIdAndSubject(StudentPesel,SubjectId);
@@ -1089,3 +1123,4 @@ void dziennik_guiFrame::OnGridYourStudentListCellChanged(wxGridEvent& event)
       }
     refreshYourStudentGrid();
 }
+

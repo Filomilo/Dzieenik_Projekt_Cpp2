@@ -18,6 +18,7 @@
 #include <wx/filedlg.h>
 #include <wx/frame.h>
 #include <wx/grid.h>
+#include <wx/listbox.h>
 #include <wx/listctrl.h>
 #include <wx/menu.h>
 #include <wx/notebook.h>
@@ -175,6 +176,12 @@ class dziennik_guiFrame: public wxFrame
         static const long ID_BUTTONDELTETSUBJCECT;
         static const long ID_BUTTONLOGINCANCLE;
         static const long ID_PANELSUBJECTS;
+        static const long ID_GRID2;
+        static const long ID_LISTBOXATTANDANCEDATES;
+        static const long ID_DATEPICKERCTRLATTANDANCECONTORL;
+        static const long ID_BUTTONADDDATEATTADNACECOTROL;
+        static const long ID_BUTTONREMOVEDATEATTANDANCECONTROL;
+        static const long ID_PANEL1;
         static const long ID_NOTEBOOKMAIN;
         static const long idMenuNewFIle;
         static const long idMenuOpenFile;
@@ -185,8 +192,10 @@ class dziennik_guiFrame: public wxFrame
         //*)
 
         //(*Declarations(dziennik_guiFrame)
+        wxButton* Button2;
         wxButton* ButtonCancelStudent;
         wxButton* ButtonCancelTeacher;
+        wxButton* ButtonDateAttandadnceControl;
         wxButton* ButtonDeleteStudent;
         wxButton* ButtonDeleteSubject;
         wxButton* ButtonDeleteTeacher;
@@ -197,10 +206,13 @@ class dziennik_guiFrame: public wxFrame
         wxButton* ButtonSaveSubject;
         wxButton* ButtonSaveTeacher;
         wxChoice* ComboBoxTeacherSubject;
+        wxDatePickerCtrl* DatePickerCtrlAttandanceControl;
         wxDatePickerCtrl* DatePickerCtrlStudentBirthday;
         wxDatePickerCtrl* DatePickerCtrlTeacherBirthday;
         wxFileDialog* FileDialog1;
+        wxGrid* Grid1;
         wxGrid* GridYourStudentList;
+        wxListBox* ListBoxAtanndacneDates;
         wxListCtrl* ListCtrlMyGrades;
         wxListCtrl* ListCtrlStudents;
         wxListCtrl* ListCtrlSubjectList;
@@ -212,6 +224,7 @@ class dziennik_guiFrame: public wxFrame
         wxPanel* PanelCreateAdmin;
         wxPanel* PanelLogin;
         wxPanel* PanelMyGrades;
+        wxPanel* PanelStudentAttandnace;
         wxPanel* PanelStudents;
         wxPanel* PanelSubjects;
         wxPanel* PanelTeachers;
