@@ -136,7 +136,6 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     wxBoxSizer* BoxSizer22;
     wxBoxSizer* BoxSizer23;
     wxBoxSizer* BoxSizer24;
-    wxBoxSizer* BoxSizer25;
     wxBoxSizer* BoxSizer26;
     wxBoxSizer* BoxSizer2;
     wxBoxSizer* BoxSizer3;
@@ -264,9 +263,6 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     GridYourStudentList->SetDefaultCellTextColour( GridYourStudentList->GetForegroundColour() );
     BoxSizer26->Add(GridYourStudentList, 1, wxALL|wxEXPAND, 5);
     BoxSizer24->Add(BoxSizer26, 3, wxALL|wxEXPAND, 5);
-    BoxSizer25 = new wxBoxSizer(wxVERTICAL);
-    BoxSizer25->Add(142,144,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
-    BoxSizer24->Add(BoxSizer25, 1, wxALL|wxEXPAND, 5);
     PanelYourStudentes->SetSizer(BoxSizer24);
     BoxSizer24->Fit(PanelYourStudentes);
     BoxSizer24->SetSizeHints(PanelYourStudentes);
@@ -387,6 +383,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_BUTTONSAVESTUDENT,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonSaveStudentClick);
     Connect(ID_BUTTONDELETESTUDENT,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonDeleteStudentClick);
     Connect(ID_BUTTONCANCELSTUDENT,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonCancelStudentClick);
+    Connect(ID_GRID1,wxEVT_GRID_CELL_CHANGED,(wxObjectEventFunction)&dziennik_guiFrame::OnGridYourStudentListCellChanged);
     Connect(ID_LISTCTRLTEACHERS,wxEVT_COMMAND_LIST_BEGIN_DRAG,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlTeachersBeginDrag);
     Connect(ID_TEXTCTRLTEACHERPESEL,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnChangeInTeachers);
     Connect(ID_TEXTCTRL2,wxEVT_COMMAND_TEXT_UPDATED,(wxObjectEventFunction)&dziennik_guiFrame::OnChangeInTeachers);
@@ -1041,6 +1038,8 @@ void dziennik_guiFrame::refreshMyGradeList()
 
 void dziennik_guiFrame::refreshYourStudentGrid()
 {
+    if(this->GridYourStudentList->GetNumberRows()!=0)
+    this->GridYourStudentList->DeleteRows(0,  this->GridYourStudentList->GetNumberRows());
     this->GridYourStudentList->SetColLabelSize(0);
     std::vector<student> studentList=this->dziennik->findSstudentAll();
     int row=0;
@@ -1049,7 +1048,8 @@ void dziennik_guiFrame::refreshYourStudentGrid()
       GridYourStudentList->AppendRows();
       GridYourStudentList->SetRowLabelValue(row,(wxString)_((it->getName()+" "+it->getSurname()).c_str()));
     int col=0;
-      std::vector<grade> studentList=this->dziennik->findGradesByStudentIdAndSubject(it->getPesel(),this->dziennik->getUserTeacherProfile().getSubjectId());    for(auto iter=studentList.begin();iter!=studentList.end();iter++)
+      std::vector<grade> studentList=this->dziennik->findGradesByStudentIdAndSubject(it->getPesel(),this->dziennik->getUserTeacherProfile().getSubjectId());
+        for(auto iter=studentList.begin();iter!=studentList.end();iter++)
     {
         std::cout<<*iter<<std::endl;
         wxString GradeVal;
@@ -1067,3 +1067,25 @@ void dziennik_guiFrame::refreshYourStudentGrid()
 }
 
 
+
+void dziennik_guiFrame::OnGridYourStudentListCellChanged(wxGridEvent& event)
+{
+    //std::cout<<"Grid changed\n";
+    std::vector<student> studentList=this->dziennik->findSstudentAll();
+
+    //std::cout<<studentList.at(event.GetRow()).getPesel()<<std::endl;
+    std::string StudentPesel=studentList.at(event.GetRow()).getPesel();
+    int SubjectId=this->dziennik->getUserTeacherProfile().getSubjectId();
+    std::vector<grade> gradeList=this->dziennik->findGradesByStudentIdAndSubject(StudentPesel,SubjectId);
+     std::string  gradeVal=std::string(GridYourStudentList->GetCellValue(event.GetRow(),event.GetCol()));
+    if(gradeList.size()>event.GetCol())
+    {
+
+    this->dziennik->updateGrade(std::to_string(gradeList.at(event.GetCol()).getGradeId()),gradeVal);
+      }
+      else
+      {
+          this->dziennik->addGrade(StudentPesel,SubjectId,std::stoi(gradeVal));
+      }
+    refreshYourStudentGrid();
+}

@@ -2,7 +2,7 @@
 
 void DziennikLib::updateGrade(std::string gradeId, std::string newGrade)
 {
-	std::string sqlCode = "UPDATE Grades \n SET Grade_Id = " + newGrade + "\n WHERE `Id` = " + gradeId + ";";
+	std::string sqlCode = "UPDATE Grades \n SET Grade = " + newGrade + "\n WHERE `Grade_Id` = " + gradeId + ";";
 	std::cout << std::endl << sqlCode;
 	executeSqlInsert(sqlCode);
 }

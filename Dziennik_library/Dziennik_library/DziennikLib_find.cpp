@@ -11,7 +11,7 @@ std::vector<student> DziennikLib::findStudentByPesel(std::string pesel)
 std::vector<student> DziennikLib::findSstudentAll()
 {
 	std::vector<student> studentRecords;
-	std::string sqlCommand = "SELECT * FROM Students";
+	std::string sqlCommand = "SELECT * FROM Students ORDER BY SURNAME, Name";
 	studentRecords = executeGetStudent(sqlCommand.c_str());
 	return studentRecords;
 }
@@ -112,7 +112,9 @@ std::vector<user>  DziennikLib::findUsersById(int UserId)
 	{
 		std::vector<grade> gradesRecords;
 	std::string sqlCommand = "SELECT * FROM Grades \n WHERE Student_id = '" + pesel +"'\n";
-	sqlCommand +=  "AND Subject_id = "  + std::to_string(subjectId)+ ";";
+	sqlCommand +=  "AND Subject_id = "  + std::to_string(subjectId)+ "\n";
+	sqlCommand += "ORDER BY Grade_Id";
+	sqlCommand +=";";
 	gradesRecords = executeGetGrade(sqlCommand.c_str());
 	return gradesRecords;
 	}

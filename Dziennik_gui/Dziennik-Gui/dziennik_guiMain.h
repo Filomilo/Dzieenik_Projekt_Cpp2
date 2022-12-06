@@ -78,6 +78,7 @@ class dziennik_guiFrame: public wxFrame
         void OnTextCtrlStudentPeselText(wxCommandEvent& event);
         void OnChangeInStudents(wxCommandEvent& event);
         void OnDatePickerCtrlStudentBirthdayChanged(wxDateEvent& event);
+        void OnGridYourStudentListCellChanged(wxGridEvent& event);
         //*)
 
         void removeAllPages();

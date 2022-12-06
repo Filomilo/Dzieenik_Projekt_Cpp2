@@ -87,8 +87,7 @@ private:
 	//*********************************************************    tools
 
 	//*********************************************************    update
-	void updateGrade(std::string gradeId, std::string newGrade);
-	void updateAttandance(std::string attandanceId, std::string newStatus);
+
 
 	//*********************************************************    validators
 	bool validateLogin(std::string nick, std::string password);
@@ -172,7 +171,8 @@ public:
 	void updateSubject(int subjectId,std::string Name);
 	void updateTeacher(std::string Pesel, std::string Name, std::string Surname, std::string Birthday, int subject_id);
 	void updateStudent(std::string Pesel, std::string Name, std::string Surname, std::string Birthday);
-
+	void updateGrade(std::string gradeId, std::string newGrade);
+	void updateAttandance(std::string attandanceId, std::string newStatus);
 
 	//*********************************************************    validators
 
