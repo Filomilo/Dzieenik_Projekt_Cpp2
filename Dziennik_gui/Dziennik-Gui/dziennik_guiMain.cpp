@@ -488,6 +488,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     refreshStudentSelection();
     refreshMyGradeList();
     refreshYourStudentGrid();
+    refreshAttendanceManager();
 }
 
 dziennik_guiFrame::~dziennik_guiFrame()
@@ -1157,3 +1158,28 @@ void dziennik_guiFrame::OnGridYourStudentListCellChanged(wxGridEvent& event)
     refreshYourStudentGrid();
 }
 
+void dziennik_guiFrame::refreshAttendanceManager()
+{
+    std::vector<attendance> attendnceList=this->dziennik->findAttandanceAll();
+    std::string prevData="";
+    for(auto it=attendnceList.begin();it!=attendnceList.end();it++)
+    {
+        std::cout<<*it;
+        if(it->getDate()!=prevData )
+        {
+            prevData=it->getDate();
+            ListBoxAtanndacneDates->AppendAndEnsureVisible(_(prevData.c_str()));
+        }
+    }
+
+    std::vector<student> studentList=this->dziennik->findSstudentAll();
+    int row=0;
+    for(auto it=studentList.begin();it!=studentList.end();it++)
+    {
+      GridAttandanceManager->AppendRows();
+      GridAttandanceManager->SetRowLabelValue(row,(wxString)_((it->getName()+" "+it->getSurname()).c_str()));
+      row++;
+    }
+
+
+}

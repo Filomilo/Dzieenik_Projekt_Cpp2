@@ -11,7 +11,7 @@ std::vector<student> DziennikLib::findStudentByPesel(std::string pesel)
 std::vector<student> DziennikLib::findSstudentAll()
 {
 	std::vector<student> studentRecords;
-	std::string sqlCommand = "SELECT * FROM Students ORDER BY SURNAME, Name";
+	std::string sqlCommand = "SELECT * FROM Students";
 	studentRecords = executeGetStudent(sqlCommand.c_str());
 	return studentRecords;
 }
@@ -32,6 +32,14 @@ std::vector<grade>  DziennikLib::findGradesByStudentId(std::string pesel)
 	return gradesRecords;
 }
 
+std::vector<grade>  DziennikLib::findGradesByStudentIdAndSubject(std::string pesel, int subjectId)
+{
+	std::vector<grade> gradesRecords;
+	std::string sqlCommand = "SELECT * FROM Grades \n WHERE Student_id = '" + pesel + "' \n ORDER BY Subject_id";
+	gradesRecords = executeGetGrade(sqlCommand.c_str());
+	return gradesRecords;
+}
+
 int DziennikLib::findMaxGradesFromSubjectByStudentId(std::string pesel)
 {
 	int maxGrades;
@@ -44,7 +52,7 @@ int DziennikLib::findMaxGradesFromSubjectByStudentId(std::string pesel)
 std::vector<attendance>  DziennikLib::findAttandanceAll()
 {
 	std::vector<attendance> attendancesRecords;
-	std::string sqlCommand = "SELECT * FROM Attendacne";
+	std::string sqlCommand = "SELECT * FROM Attendacne ORDER BY Date";
 	attendancesRecords = executeGetAttendace(sqlCommand.c_str());
 	return attendancesRecords;
 }
@@ -102,19 +110,4 @@ std::vector<user>  DziennikLib::findUsersById(int UserId)
 	std::string sqlCommand = "SELECT * FROM Subjects  WHERE Suvject_id=" +std::to_string(SubjectId)+";" ;
 	subjectsRecords = this->executeGetSubject(sqlCommand.c_str());
 	return subjectsRecords;
-	}
-
-	int findMaxGradesFromSubjectBySubject(int subjectId)
-	{
-
-	}
-	std::vector<grade>  DziennikLib::findGradesByStudentIdAndSubject(std::string pesel, int subjectId)
-	{
-		std::vector<grade> gradesRecords;
-	std::string sqlCommand = "SELECT * FROM Grades \n WHERE Student_id = '" + pesel +"'\n";
-	sqlCommand +=  "AND Subject_id = "  + std::to_string(subjectId)+ "\n";
-	sqlCommand += "ORDER BY Grade_Id";
-	sqlCommand +=";";
-	gradesRecords = executeGetGrade(sqlCommand.c_str());
-	return gradesRecords;
 	}

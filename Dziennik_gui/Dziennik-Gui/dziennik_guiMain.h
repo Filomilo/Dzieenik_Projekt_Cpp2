@@ -120,6 +120,7 @@ class dziennik_guiFrame: public wxFrame
 
         void refreshYourStudentGrid();
 
+        void refreshAttendanceManager();
 
         void checkVariables();
         //(*Identifiers(dziennik_guiFrame)
