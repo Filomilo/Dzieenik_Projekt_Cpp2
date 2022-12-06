@@ -76,7 +76,7 @@ const long dziennik_guiFrame::ID_BUTTONCANCELSTUDENT = wxNewId();
 const long dziennik_guiFrame::ID_PANELStudents = wxNewId();
 const long dziennik_guiFrame::ID_LISTCTRL2 = wxNewId();
 const long dziennik_guiFrame::ID_PANELMYGRADES = wxNewId();
-const long dziennik_guiFrame::ID_LISTCTRL3 = wxNewId();
+const long dziennik_guiFrame::ID_GRID1 = wxNewId();
 const long dziennik_guiFrame::ID_PANELYOURSTUdNETS = wxNewId();
 const long dziennik_guiFrame::ID_LISTCTRLTEACHERS = wxNewId();
 const long dziennik_guiFrame::ID_TEXTCTRLTEACHERPESEL = wxNewId();
@@ -137,6 +137,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     wxBoxSizer* BoxSizer23;
     wxBoxSizer* BoxSizer24;
     wxBoxSizer* BoxSizer25;
+    wxBoxSizer* BoxSizer26;
     wxBoxSizer* BoxSizer2;
     wxBoxSizer* BoxSizer3;
     wxBoxSizer* BoxSizer4;
@@ -250,8 +251,19 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     BoxSizer23->SetSizeHints(PanelMyGrades);
     PanelYourStudentes = new wxPanel(NotebookMain, ID_PANELYOURSTUdNETS, wxPoint(439,24), wxDefaultSize, wxTAB_TRAVERSAL, _T("ID_PANELYOURSTUdNETS"));
     BoxSizer24 = new wxBoxSizer(wxVERTICAL);
-    ListCtrlYourStudent = new wxListCtrl(PanelYourStudentes, ID_LISTCTRL3, wxDefaultPosition, wxDefaultSize, wxLC_REPORT, wxDefaultValidator, _T("ID_LISTCTRL3"));
-    BoxSizer24->Add(ListCtrlYourStudent, 12, wxALL|wxEXPAND, 5);
+    BoxSizer26 = new wxBoxSizer(wxHORIZONTAL);
+    GridYourStudentList = new wxGrid(PanelYourStudentes, ID_GRID1, wxDefaultPosition, wxDefaultSize, 0, _T("ID_GRID1"));
+    GridYourStudentList->CreateGrid(0,1);
+    GridYourStudentList->EnableEditing(true);
+    GridYourStudentList->EnableGridLines(true);
+    GridYourStudentList->SetColLabelSize(10);
+    GridYourStudentList->SetRowLabelSize(200);
+    GridYourStudentList->SetDefaultRowSize(20, true);
+    GridYourStudentList->SetDefaultColSize(10, true);
+    GridYourStudentList->SetDefaultCellFont( GridYourStudentList->GetFont() );
+    GridYourStudentList->SetDefaultCellTextColour( GridYourStudentList->GetForegroundColour() );
+    BoxSizer26->Add(GridYourStudentList, 1, wxALL|wxEXPAND, 5);
+    BoxSizer24->Add(BoxSizer26, 3, wxALL|wxEXPAND, 5);
     BoxSizer25 = new wxBoxSizer(wxVERTICAL);
     BoxSizer25->Add(142,144,1, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5);
     BoxSizer24->Add(BoxSizer25, 1, wxALL|wxEXPAND, 5);
@@ -400,14 +412,15 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_LISTCTRLSUBJECTSLIST,wxEVT_LIST_ITEM_ACTIVATED,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlSubjectListBeginDrag);
     Connect(ID_LISTCTRLTEACHERS,wxEVT_LIST_ITEM_ACTIVATED,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlTeachersBeginDrag);
 
-    removeAllPages();
+  //  removeAllPages();
     dziennik->loadDataBase("exampple.dznk");
-    dziennik->login("STUDENT","STUDENT");
+    dziennik->login("TEACHER","TEACHER");
     std::cout<<"login: "<<dziennik->getUserStudentProfile()<<std::endl;
-    refreshStudentSelection();
+    refreshSubjectSelection();
     refreshTeacherSelection();
     refreshStudentSelection();
     refreshMyGradeList();
+    refreshYourStudentGrid();
 }
 
 dziennik_guiFrame::~dziennik_guiFrame()
@@ -419,6 +432,15 @@ dziennik_guiFrame::~dziennik_guiFrame()
 void dziennik_guiFrame::OnQuit(wxCommandEvent& event)
 {
     Close();
+}
+void dziennik_guiFrame::clearLoginData()
+{
+        TextCtrlLoginNick->Clear();
+      TextCtrlLoginPassword->Clear();
+      TextCtrlRegisterReapeatPassword->Clear();
+      TextCtrlPassRegister->Clear();
+      TextCtrlNick->Clear();
+
 }
 
 void dziennik_guiFrame::OnAbout(wxCommandEvent& event)
@@ -435,6 +457,7 @@ void dziennik_guiFrame::OnNewFile(wxCommandEvent& event)
   std::cout<<saveFileDialog.GetPath()<<std::endl;
   this->dziennik->createNewDataBase(std::string(saveFileDialog.GetPath().mbc_str()));
   setViewAsNewDb();
+  clearLoginData();
 }
 
 void dziennik_guiFrame::OnOpenFile(wxCommandEvent& event)
@@ -446,6 +469,7 @@ void dziennik_guiFrame::OnOpenFile(wxCommandEvent& event)
     this->dziennik->loadDataBase(std::string(openFileDialog.GetPath().mbc_str()));
     this->dziennik->printDataBase();
     setViewAsNoLogged();
+      clearLoginData();
 }
 
 void dziennik_guiFrame::removeAllPages()
@@ -481,6 +505,7 @@ void dziennik_guiFrame::OnButtonRegisterClick(wxCommandEvent& event)
      std::cout<<nick<<std::endl;
      this->dziennik->addUser(nick,pass,DziennikLib::Account_types::ADMIN);
      setViewAsNoLogged();
+       clearLoginData();
 }
 void dziennik_guiFrame::setViewAsNewDb()
         {
@@ -535,6 +560,7 @@ void dziennik_guiFrame::OnButtonLoginClick(wxCommandEvent& event)
          case DziennikLib::Account_types::TEACHER: setViewAsTeacher(); break;
          case DziennikLib::Account_types::STUDNET: setViewAsStudent(); break;
      }
+  clearLoginData();
 }
 
 void dziennik_guiFrame::refreshSubjectList()
@@ -684,10 +710,10 @@ void dziennik_guiFrame::refreshTeacherList()
       ListCtrlTeachers->SetItem(i, 3, (*it).getBirthday());
       ListCtrlTeachers->SetItem(i, 4, dziennik->findSubjectsById((*it).getSubjectId())[0].getName());
     }
-
      std::vector<subject> subjectList=this->dziennik->findSubjectsAll();
     for(auto it=subjectList.begin();it!=subjectList.end();it++)
     {
+
       ComboBoxTeacherSubject->Append((*it).getName());
 
     }
@@ -844,7 +870,6 @@ void dziennik_guiFrame::OnButtonDeleteTeacherClick(wxCommandEvent& event)
     ListCtrlStudents->AppendColumn(_("Birthday"));
     std::vector<student> studentList=this->dziennik->findSstudentAll();
     int i=0;
-    ComboBoxTeacherSubject->Clear();
     for(auto it=studentList.begin();it!=studentList.end();it++)
     {
       ListCtrlStudents->InsertItem(i, (*it).getPesel());
@@ -1012,6 +1037,33 @@ void dziennik_guiFrame::refreshMyGradeList()
     ListCtrlMyGrades->SetItem(counter++, subjectid, wxString::Format(wxT("%i"),it->getGrade()));
 
 }
+}
+
+void dziennik_guiFrame::refreshYourStudentGrid()
+{
+    this->GridYourStudentList->SetColLabelSize(0);
+    std::vector<student> studentList=this->dziennik->findSstudentAll();
+    int row=0;
+    for(auto it=studentList.begin();it!=studentList.end();it++)
+    {
+      GridYourStudentList->AppendRows();
+      GridYourStudentList->SetRowLabelValue(row,(wxString)_((it->getName()+" "+it->getSurname()).c_str()));
+    int col=0;
+      std::vector<grade> studentList=this->dziennik->findGradesByStudentIdAndSubject(it->getPesel(),this->dziennik->getUserTeacherProfile().getSubjectId());    for(auto iter=studentList.begin();iter!=studentList.end();iter++)
+    {
+        std::cout<<*iter<<std::endl;
+        wxString GradeVal;
+        GradeVal << iter->getGrade();
+       GridYourStudentList->SetCellValue(row,col++,GradeVal);
+       if(col>=GridYourStudentList->GetNumberCols())
+       {
+           GridYourStudentList->AppendCols(1);
+       }
+    }
+    row++;
+    }
+
+
 }
 
 

@@ -7511,13 +7511,14 @@
 1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\univ\theme.h
 	"wx/string.h"
 
-1669229441 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
+1669961620 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
 	<wx/button.h>
 	<wx/choice.h>
 	<wx/datectrl.h>
 	<wx/dateevt.h>
 	<wx/filedlg.h>
 	<wx/frame.h>
+	<wx/grid.h>
 	<wx/listctrl.h>
 	<wx/menu.h>
 	<wx/notebook.h>
@@ -8117,7 +8118,7 @@
 	"wx/defs.h"
 	"wx/validate.h"
 
-1669314402 source:d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
+1670336763 source:d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
 	"dziennik_guiMain.h"
 	<wx/msgdlg.h>
 	<iostream>
@@ -8171,7 +8172,7 @@
 1668514907 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\sqlite\sqlite3.h
 	<stdarg.h>
 
-1669316205 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib.h
+1670335097 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib.h
 	<sqlite3.h>
 	<iostream>
 	<fstream>
@@ -8230,7 +8231,7 @@
 1669315815 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_execute.cpp
 	"DziennikLib.h"
 
-1669316236 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_find.cpp
+1670336061 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_find.cpp
 	"DziennikLib.h"
 
 1668514906 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_insert.cpp
@@ -10689,4 +10690,23 @@
 	"wx/msw/rcdefs.h"
 
 1662399371 d:\proejcts\dzinenk\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\rcdefs.h
+
+1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\grid.h
+	"wx/generic/grid.h"
+	"wx/generic/grideditors.h"
+	"wx/generic/gridctrl.h"
+
+1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\generic\grid.h
+	"wx/defs.h"
+	"wx/hashmap.h"
+	"wx/scrolwin.h"
+	<iterator>
+
+1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\generic\grideditors.h
+	"wx/defs.h"
+	"wx/scopedptr.h"
+
+1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\generic\gridctrl.h
+	"wx/grid.h"
+	"wx/datetime.h"
 

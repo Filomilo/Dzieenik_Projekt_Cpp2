@@ -103,3 +103,16 @@ std::vector<user>  DziennikLib::findUsersById(int UserId)
 	subjectsRecords = this->executeGetSubject(sqlCommand.c_str());
 	return subjectsRecords;
 	}
+
+	int findMaxGradesFromSubjectBySubject(int subjectId)
+	{
+
+	}
+	std::vector<grade>  DziennikLib::findGradesByStudentIdAndSubject(std::string pesel, int subjectId)
+	{
+		std::vector<grade> gradesRecords;
+	std::string sqlCommand = "SELECT * FROM Grades \n WHERE Student_id = '" + pesel +"'\n";
+	sqlCommand +=  "AND Subject_id = "  + std::to_string(subjectId)+ ";";
+	gradesRecords = executeGetGrade(sqlCommand.c_str());
+	return gradesRecords;
+	}

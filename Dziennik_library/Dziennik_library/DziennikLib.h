@@ -43,7 +43,7 @@ private:
 	static int callbackGetAttendacne(void* data, int argc, char** argv, char** azColName);
 	static int callbackGetGrade(void* data, int argc, char** argv, char** azColName);
 	static int callbackGetSubject(void* data, int argc, char** argv, char** azColName);
-	
+
 
 
 	//*********************************************************    communication
@@ -132,7 +132,9 @@ public:
 	std::vector<user>  findUsersAll();
 	std::vector<user>  findUsersById(int id);
 	std::vector<grade>findGradesByStudentId(std::string pesel);
-	int findMaxGradesFromSubjectByStudentId(std::string pesel); 
+	int findMaxGradesFromSubjectByStudentId(std::string pesel);
+	int findMaxGradesFromSubjectBySubject(int subjectId);
+	std::vector<grade> findGradesByStudentIdAndSubject(std::string pesel, int subjectId);
 
     //*********************************************************    remove
     void removeSubject(int subjectId);

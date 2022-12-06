@@ -17,6 +17,7 @@
 #include <wx/dateevt.h>
 #include <wx/filedlg.h>
 #include <wx/frame.h>
+#include <wx/grid.h>
 #include <wx/listctrl.h>
 #include <wx/menu.h>
 #include <wx/notebook.h>
@@ -86,6 +87,8 @@ class dziennik_guiFrame: public wxFrame
         void setViewAsStudent();
         void setViewAsAdmin();
 
+        void clearLoginData();
+
         void refreshSubjectList();
         void OnSubjectListItemClicked(wxListEvent &e);
         void refreshSubjectSelection();
@@ -110,7 +113,10 @@ class dziennik_guiFrame: public wxFrame
         std::string selectedStudentId="0";
 
 
-            void refreshMyGradeList();
+        void refreshMyGradeList();
+
+
+        void refreshYourStudentGrid();
 
 
         void checkVariables();
@@ -144,7 +150,7 @@ class dziennik_guiFrame: public wxFrame
         static const long ID_PANELStudents;
         static const long ID_LISTCTRL2;
         static const long ID_PANELMYGRADES;
-        static const long ID_LISTCTRL3;
+        static const long ID_GRID1;
         static const long ID_PANELYOURSTUdNETS;
         static const long ID_LISTCTRLTEACHERS;
         static const long ID_TEXTCTRLTEACHERPESEL;
@@ -193,11 +199,11 @@ class dziennik_guiFrame: public wxFrame
         wxDatePickerCtrl* DatePickerCtrlStudentBirthday;
         wxDatePickerCtrl* DatePickerCtrlTeacherBirthday;
         wxFileDialog* FileDialog1;
+        wxGrid* GridYourStudentList;
         wxListCtrl* ListCtrlMyGrades;
         wxListCtrl* ListCtrlStudents;
         wxListCtrl* ListCtrlSubjectList;
         wxListCtrl* ListCtrlTeachers;
-        wxListCtrl* ListCtrlYourStudent;
         wxMenu Menu3;
         wxMenuItem* MenuItem3;
         wxMenuItem* MenuItem4;

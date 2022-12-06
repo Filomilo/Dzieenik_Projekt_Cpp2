@@ -364,12 +364,23 @@
 					<object class="wxBoxSizer" variable="BoxSizer24" member="no">
 						<orient>wxVERTICAL</orient>
 						<object class="sizeritem">
-							<object class="wxListCtrl" name="ID_LISTCTRL3" variable="ListCtrlYourStudent" member="yes">
-								<style>wxLC_REPORT</style>
+							<object class="wxBoxSizer" variable="BoxSizer26" member="no">
+								<object class="sizeritem">
+									<object class="wxGrid" name="ID_GRID1" variable="GridYourStudentList" member="yes">
+										<cols>1</cols>
+										<labelrowheight>10</labelrowheight>
+										<labelcolwidth>200</labelcolwidth>
+										<defaultrowsize>20</defaultrowsize>
+										<defaultcolsize>10</defaultcolsize>
+									</object>
+									<flag>wxALL|wxEXPAND</flag>
+									<border>5</border>
+									<option>1</option>
+								</object>
 							</object>
 							<flag>wxALL|wxEXPAND</flag>
 							<border>5</border>
-							<option>12</option>
+							<option>3</option>
 						</object>
 						<object class="sizeritem">
 							<object class="wxBoxSizer" variable="BoxSizer25" member="no">
