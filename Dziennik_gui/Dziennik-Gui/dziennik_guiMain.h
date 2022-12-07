@@ -80,6 +80,8 @@ class dziennik_guiFrame: public wxFrame
         void OnChangeInStudents(wxCommandEvent& event);
         void OnDatePickerCtrlStudentBirthdayChanged(wxDateEvent& event);
         void OnGridYourStudentListCellChanged(wxGridEvent& event);
+        void OnGridAttandanceManagerCellLeftClick(wxGridEvent& event);
+        void OnListBoxAtanndacneDatesSelect(wxCommandEvent& event);
         //*)
 
         void removeAllPages();
@@ -121,7 +123,7 @@ class dziennik_guiFrame: public wxFrame
         void refreshYourStudentGrid();
 
         void refreshAttendanceManager();
-
+        void fillAttendanceManagerByDate();
         void checkVariables();
         //(*Identifiers(dziennik_guiFrame)
         static const long ID_TEXTCTRLNICK;

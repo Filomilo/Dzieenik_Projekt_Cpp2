@@ -690,6 +690,7 @@
 									<item>9</item>
 									<item>10</item>
 								</collabels>
+								<handler function="OnGridAttandanceManagerCellLeftClick" entry="EVT_CMD_GRID_SELECT_CELL" />
 							</object>
 							<flag>wxALL|wxEXPAND</flag>
 							<border>5</border>
@@ -701,6 +702,7 @@
 								<object class="sizeritem">
 									<object class="wxListBox" name="ID_LISTBOXATTANDANCEDATES" variable="ListBoxAtanndacneDates" member="yes">
 										<default>-1</default>
+										<handler function="OnListBoxAtanndacneDatesSelect" entry="EVT_LISTBOX" />
 									</object>
 									<flag>wxALL|wxEXPAND</flag>
 									<border>5</border>

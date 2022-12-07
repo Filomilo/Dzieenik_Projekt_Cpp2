@@ -7511,7 +7511,7 @@
 1662399371 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\univ\theme.h
 	"wx/string.h"
 
-1670359522 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
+1670427731 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
 	<wx/button.h>
 	<wx/choice.h>
 	<wx/datectrl.h>
@@ -8119,7 +8119,7 @@
 	"wx/defs.h"
 	"wx/validate.h"
 
-1670360924 source:d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
+1670432343 source:d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
 	"dziennik_guiMain.h"
 	<wx/msgdlg.h>
 	<iostream>
@@ -8173,7 +8173,7 @@
 1668514907 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\sqlite\sqlite3.h
 	<stdarg.h>
 
-1670340374 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib.h
+1670428897 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib.h
 	<sqlite3.h>
 	<iostream>
 	<fstream>
@@ -8232,7 +8232,7 @@
 1669315815 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_execute.cpp
 	"DziennikLib.h"
 
-1670361401 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_find.cpp
+1670429699 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_find.cpp
 	"DziennikLib.h"
 
 1668514906 d:\temp\dziebik2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_insert.cpp

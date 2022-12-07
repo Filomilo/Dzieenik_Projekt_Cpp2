@@ -11,7 +11,7 @@ std::vector<student> DziennikLib::findStudentByPesel(std::string pesel)
 std::vector<student> DziennikLib::findSstudentAll()
 {
 	std::vector<student> studentRecords;
-	std::string sqlCommand = "SELECT * FROM Students";
+	std::string sqlCommand = "SELECT * FROM Students ORDER BY Surname DESC, Name";
 	studentRecords = executeGetStudent(sqlCommand.c_str());
 	return studentRecords;
 }
@@ -56,6 +56,27 @@ std::vector<attendance>  DziennikLib::findAttandanceAll()
 	attendancesRecords = executeGetAttendace(sqlCommand.c_str());
 	return attendancesRecords;
 }
+
+std::vector<attendance>  DziennikLib::findAttandanceByDate(std::string date)
+{
+	std::vector<attendance> attendancesRecords;
+	std::string sqlCommand = "SELECT * FROM Attendacne WHERE DATE = '" + date + "' ORDER BY Date";
+	std::cout<<sqlCommand<<std::endl;
+	attendancesRecords = executeGetAttendace(sqlCommand.c_str());
+	return attendancesRecords;
+}
+
+std::vector<attendance>  DziennikLib::findAttandanceByDateAndPesel(std::string date,std::string pesel)
+{
+	std::vector<attendance> attendancesRecords;
+	std::string sqlCommand = "SELECT * FROM Attendacne WHERE DATE = '"+ date+"' And Student_id = '"+ pesel +"' ";
+	std::cout<<sqlCommand<<std::endl;
+	attendancesRecords = executeGetAttendace(sqlCommand.c_str());
+	return attendancesRecords;
+}
+
+
+
 std::vector<subject>  DziennikLib::findSubjectsAll()
 {
 	std::vector<subject> subjectsRecords;

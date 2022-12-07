@@ -134,6 +134,8 @@ public:
 	int findMaxGradesFromSubjectByStudentId(std::string pesel);
 	int findMaxGradesFromSubjectBySubject(int subjectId);
 	std::vector<grade> findGradesByStudentIdAndSubject(std::string pesel, int subjectId);
+	std::vector<attendance> findAttandanceByDate(std::string date);
+	std::vector<attendance> findAttandanceByDateAndPesel(std::string date, std::string pesel);
 
     //*********************************************************    remove
     void removeSubject(int subjectId);

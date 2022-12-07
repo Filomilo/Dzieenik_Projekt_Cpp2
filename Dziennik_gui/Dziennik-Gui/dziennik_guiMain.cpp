@@ -469,6 +469,8 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_BUTTONSAVESUBJECT,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonSaveSubjectClick);
     Connect(ID_BUTTONDELTETSUBJCECT,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButton1Click1);
     Connect(ID_BUTTONLOGINCANCLE,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonLoginCancelClick);
+    Connect(ID_GRIDATTANDANCEMANAER,wxEVT_GRID_SELECT_CELL,(wxObjectEventFunction)&dziennik_guiFrame::OnGridAttandanceManagerCellLeftClick);
+    Connect(ID_LISTBOXATTANDANCEDATES,wxEVT_COMMAND_LISTBOX_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnListBoxAtanndacneDatesSelect);
     Connect(ID_NOTEBOOKMAIN,wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGED,(wxObjectEventFunction)&dziennik_guiFrame::OnNotebookMainPageChanged);
     Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnAbout);
@@ -1160,6 +1162,7 @@ void dziennik_guiFrame::OnGridYourStudentListCellChanged(wxGridEvent& event)
 
 void dziennik_guiFrame::refreshAttendanceManager()
 {
+    GridAttandanceManager->DeleteRows(0,GridAttandanceManager->GetNumberRows());
     std::vector<attendance> attendnceList=this->dziennik->findAttandanceAll();
     std::string prevData="";
     for(auto it=attendnceList.begin();it!=attendnceList.end();it++)
@@ -1180,6 +1183,44 @@ void dziennik_guiFrame::refreshAttendanceManager()
       GridAttandanceManager->SetRowLabelValue(row,(wxString)_((it->getName()+" "+it->getSurname()).c_str()));
       row++;
     }
+    if(ListBoxAtanndacneDates->GetCount()>0)
+    {
+         ListBoxAtanndacneDates->SetSelection(0);
+         fillAttendanceManagerByDate();
+    }
 
 
+}
+
+void dziennik_guiFrame::OnGridAttandanceManagerCellLeftClick(wxGridEvent& event)
+{
+    std::cout<<"left click\n";
+    std::cout<<event.GetRow()<<"   "<<event.GetCol()<<std::endl;
+
+
+    GridAttandanceManager->ClearSelection();
+}
+
+void dziennik_guiFrame::fillAttendanceManagerByDate()
+{
+    GridAttandanceManager->ClearGrid();
+       std::vector<student> studentList=this->dziennik->findSstudentAll();
+    int row=0;
+    for(auto it=studentList.begin();it!=studentList.end();it++)
+    {
+    std::vector<attendance> attendanceList= this->dziennik->findAttandanceByDateAndPesel(std::string(this->ListBoxAtanndacneDates->GetString(this->ListBoxAtanndacneDates->GetSelection())),it->getPesel());
+        for(auto iter=attendanceList.begin();iter!=attendanceList.end();iter++)
+        {
+            std::cout<<"asdad\n";
+            GridAttandanceManager->SetCellValue(row, iter->getLessonNum()-1,std::to_string(iter->getStatus()));
+        }
+
+      row++;
+    }
+}
+
+void dziennik_guiFrame::OnListBoxAtanndacneDatesSelect(wxCommandEvent& event)
+{
+    std::cout<<"Click listox\n";
+    fillAttendanceManagerByDate();
 }
