@@ -491,6 +491,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     refreshMyGradeList();
     refreshYourStudentGrid();
     refreshAttendanceManager();
+    isLoaded=true;
 }
 
 dziennik_guiFrame::~dziennik_guiFrame()
@@ -505,12 +506,11 @@ void dziennik_guiFrame::OnQuit(wxCommandEvent& event)
 }
 void dziennik_guiFrame::clearLoginData()
 {
-        TextCtrlLoginNick->Clear();
+      TextCtrlLoginNick->Clear();
       TextCtrlLoginPassword->Clear();
       TextCtrlRegisterReapeatPassword->Clear();
       TextCtrlPassRegister->Clear();
       TextCtrlNick->Clear();
-
 }
 
 void dziennik_guiFrame::OnAbout(wxCommandEvent& event)
@@ -1194,12 +1194,28 @@ void dziennik_guiFrame::refreshAttendanceManager()
 
 void dziennik_guiFrame::OnGridAttandanceManagerCellLeftClick(wxGridEvent& event)
 {
+if(isLoaded){
+    std::vector<student> studentList=this->dziennik->findSstudentAll();
     std::cout<<"left click\n";
     std::cout<<event.GetRow()<<"   "<<event.GetCol()<<std::endl;
+    std::cout<<studentList[event.GetRow()].getName()<<std::endl;
+    std::string dataActive=std::string(this->ListBoxAtanndacneDates->GetString(this->ListBoxAtanndacneDates->GetSelection()));
+    std::vector<attendance> attendanceList= this->dziennik->findAttandanceByDateByPeselByLessonNum(dataActive,studentList[event.GetRow()].getPesel(),event.GetCol()+1);
+    if(attendanceList.size()==0)
+    {
+        std::cout<<"none\n";
+    this->dziennik->addAttendacne(dataActive,event.GetCol()+1, this->dziennik->getUserTeacherProfile().getPesel(), studentList[event.GetRow()].getPesel(),1);
+  }
+    else
+    {
+         std::cout<<"exist\n";
+       	this->dziennik->updateAttandanceIterate(attendanceList[0].getAttendacneId());
 
-
+    }
     GridAttandanceManager->ClearSelection();
+    fillAttendanceManagerByDate();
 }
+    }
 
 void dziennik_guiFrame::fillAttendanceManagerByDate()
 {
@@ -1212,7 +1228,7 @@ void dziennik_guiFrame::fillAttendanceManagerByDate()
         for(auto iter=attendanceList.begin();iter!=attendanceList.end();iter++)
         {
             std::cout<<"asdad\n";
-            GridAttandanceManager->SetCellValue(row, iter->getLessonNum()-1,std::to_string(iter->getStatus()));
+            GridAttandanceManager->SetCellValue(row, iter->getLessonNum()-1,std::string((char*)iter->getStatusText()));
         }
 
       row++;

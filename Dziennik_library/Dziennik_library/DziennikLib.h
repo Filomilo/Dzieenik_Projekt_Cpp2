@@ -136,6 +136,7 @@ public:
 	std::vector<grade> findGradesByStudentIdAndSubject(std::string pesel, int subjectId);
 	std::vector<attendance> findAttandanceByDate(std::string date);
 	std::vector<attendance> findAttandanceByDateAndPesel(std::string date, std::string pesel);
+	std::vector<attendance>  findAttandanceByDateByPeselByLessonNum(std::string date, std::string Pesel, int lessonNum );
 
     //*********************************************************    remove
     void removeSubject(int subjectId);
@@ -175,6 +176,9 @@ public:
 	void updateStudent(std::string Pesel, std::string Name, std::string Surname, std::string Birthday);
 	void updateGrade(std::string gradeId, std::string newGrade);
 	void updateAttandance(std::string attandanceId, std::string newStatus);
+	void updateAttandanceIterate(std::string attandanceId);
+	void updateAttandanceIterate(int id);
+
 
 	//*********************************************************    validators
 

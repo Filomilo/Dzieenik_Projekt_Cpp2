@@ -41,6 +41,9 @@ class dziennik_guiFrame: public wxFrame
         dziennik_guiFrame(wxWindow* parent,wxWindowID id = -1);
         virtual ~dziennik_guiFrame();
 
+
+
+
     private:
 
         //(*Handlers(dziennik_guiFrame)
@@ -83,6 +86,7 @@ class dziennik_guiFrame: public wxFrame
         void OnGridAttandanceManagerCellLeftClick(wxGridEvent& event);
         void OnListBoxAtanndacneDatesSelect(wxCommandEvent& event);
         //*)
+        bool isLoaded=false;
 
         void removeAllPages();
         void setViewAsNewDb();

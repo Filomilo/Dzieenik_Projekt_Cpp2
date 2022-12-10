@@ -60,6 +60,12 @@ private:
 		Student_id = student_id;
 	}
 
+	      enum ATTENDANCE_STATUS{
+        NOTSET=0,
+        PRESENT,
+        ABSENT,
+        LATE
+        };
 
 
 
@@ -80,6 +86,22 @@ public:
 	{
 		return Status;
 	}
+
+
+
+		const char* getStatusText()
+	{
+
+		switch(getStatus())
+		{
+			case ATTENDANCE_STATUS::NOTSET: return "none";
+			case ATTENDANCE_STATUS::PRESENT: return "present";
+			case ATTENDANCE_STATUS::ABSENT: return "absent";
+			case ATTENDANCE_STATUS::LATE: return "late";
+		}
+		return "error";
+	}
+
 
 	std::string getDate()
 	{
