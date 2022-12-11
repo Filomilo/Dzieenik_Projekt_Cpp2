@@ -690,7 +690,7 @@
 									<item>9</item>
 									<item>10</item>
 								</collabels>
-								<handler function="OnGridAttandanceManagerCellLeftClick" entry="EVT_CMD_GRID_SELECT_CELL" />
+								<handler function="OnGridAttandanceManagerCellLeftClick" entry="EVT_CMD_GRID_CELL_LEFT_CLICK" />
 							</object>
 							<flag>wxALL|wxEXPAND</flag>
 							<border>5</border>

@@ -85,6 +85,8 @@ class dziennik_guiFrame: public wxFrame
         void OnGridYourStudentListCellChanged(wxGridEvent& event);
         void OnGridAttandanceManagerCellLeftClick(wxGridEvent& event);
         void OnListBoxAtanndacneDatesSelect(wxCommandEvent& event);
+        void OnButtonDateAttandadnceControlClick(wxCommandEvent& event);
+        void OnButtonDateAttandadnceControlClick1(wxCommandEvent& event);
         //*)
         bool isLoaded=false;
 
@@ -201,7 +203,6 @@ class dziennik_guiFrame: public wxFrame
         //*)
 
         //(*Declarations(dziennik_guiFrame)
-        wxButton* Button2;
         wxButton* ButtonCancelStudent;
         wxButton* ButtonCancelTeacher;
         wxButton* ButtonDateAttandadnceControl;
@@ -211,6 +212,7 @@ class dziennik_guiFrame: public wxFrame
         wxButton* ButtonLogin;
         wxButton* ButtonLoginCancel;
         wxButton* ButtonRegister;
+        wxButton* ButtonRemoveStudenyAttendanceDate;
         wxButton* ButtonSaveStudent;
         wxButton* ButtonSaveSubject;
         wxButton* ButtonSaveTeacher;

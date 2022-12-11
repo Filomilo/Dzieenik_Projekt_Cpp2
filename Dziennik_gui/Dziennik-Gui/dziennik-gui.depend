@@ -12432,7 +12432,7 @@
 1669413064 d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dziennklib_remove.cpp
 	"DziennikLib.h"
 
-1670668805 d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
+1670750967 d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
 	<wx/button.h>
 	<wx/choice.h>
 	<wx/datectrl.h>
@@ -13129,7 +13129,7 @@
 	"wx/defs.h"
 	"wx/validate.h"
 
-1670668794 source:d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
+1670753319 source:d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
 	"dziennik_guiMain.h"
 	<wx/msgdlg.h>
 	<iostream>
