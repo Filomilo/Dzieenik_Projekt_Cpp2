@@ -472,6 +472,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_GRIDATTANDANCEMANAER,wxEVT_GRID_CELL_LEFT_CLICK,(wxObjectEventFunction)&dziennik_guiFrame::OnGridAttandanceManagerCellLeftClick);
     Connect(ID_LISTBOXATTANDANCEDATES,wxEVT_COMMAND_LISTBOX_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnListBoxAtanndacneDatesSelect);
     Connect(ID_BUTTONADDDATEATTADNACECOTROL,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonDateAttandadnceControlClick);
+    Connect(ID_BUTTONREMOVEDATEATTANDANCECONTROL,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonRemoveStudenyAttendanceDateClick);
     Connect(ID_NOTEBOOKMAIN,wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGED,(wxObjectEventFunction)&dziennik_guiFrame::OnNotebookMainPageChanged);
     Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnQuit);
     Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnAbout);
@@ -1266,4 +1267,16 @@ void dziennik_guiFrame::OnButtonDateAttandadnceControlClick(wxCommandEvent& even
 
 void dziennik_guiFrame::OnButtonDateAttandadnceControlClick1(wxCommandEvent& event)
 {
+}
+
+void dziennik_guiFrame::OnButtonRemoveStudenyAttendanceDateClick(wxCommandEvent& event)
+{
+
+    wxString data=ListBoxAtanndacneDates->GetString(ListBoxAtanndacneDates->GetSelection());
+     std::string date=std::string(data.mbc_str());
+    StatusBar1->PushStatusText(_(date.c_str()));
+    this->dziennik->removeAttendanceByDate(date);
+    refreshAttendanceManager();
+
+    //StatusBar1->PopStatusText();
 }

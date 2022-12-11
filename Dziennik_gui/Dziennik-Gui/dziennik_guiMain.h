@@ -87,6 +87,7 @@ class dziennik_guiFrame: public wxFrame
         void OnListBoxAtanndacneDatesSelect(wxCommandEvent& event);
         void OnButtonDateAttandadnceControlClick(wxCommandEvent& event);
         void OnButtonDateAttandadnceControlClick1(wxCommandEvent& event);
+        void OnButtonRemoveStudenyAttendanceDateClick(wxCommandEvent& event);
         //*)
         bool isLoaded=false;
 

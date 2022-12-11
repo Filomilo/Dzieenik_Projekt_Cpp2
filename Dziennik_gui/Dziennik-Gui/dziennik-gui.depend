@@ -12340,7 +12340,7 @@
 1670667580 d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\sqlite\sqlite3.h
 	<stdarg.h>
 
-1670668512 d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib.h
+1670757691 d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib.h
 	<sqlite3.h>
 	<iostream>
 	<fstream>
@@ -12429,10 +12429,10 @@
 1669413064 d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dziennklib_account.cpp
 	"DziennikLib.h"
 
-1669413064 d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dziennklib_remove.cpp
+1670757705 d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dziennklib_remove.cpp
 	"DziennikLib.h"
 
-1670750967 d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
+1670756666 d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
 	<wx/button.h>
 	<wx/choice.h>
 	<wx/datectrl.h>
@@ -13129,7 +13129,7 @@
 	"wx/defs.h"
 	"wx/validate.h"
 
-1670753319 source:d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
+1670759077 source:d:\proejcts\dzinenk\2\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
 	"dziennik_guiMain.h"
 	<wx/msgdlg.h>
 	<iostream>

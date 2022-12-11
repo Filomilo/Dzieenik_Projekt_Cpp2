@@ -719,14 +719,16 @@
 										<object class="sizeritem">
 											<object class="wxButton" name="ID_BUTTONADDDATEATTADNACECOTROL" variable="ButtonDateAttandadnceControl" member="yes">
 												<label>add</label>
+												<handler function="OnButtonDateAttandadnceControlClick" entry="EVT_BUTTON" />
 											</object>
 											<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 											<border>5</border>
 											<option>1</option>
 										</object>
 										<object class="sizeritem">
-											<object class="wxButton" name="ID_BUTTONREMOVEDATEATTANDANCECONTROL" variable="Button2" member="yes">
+											<object class="wxButton" name="ID_BUTTONREMOVEDATEATTANDANCECONTROL" variable="ButtonRemoveStudenyAttendanceDate" member="yes">
 												<label>remove</label>
+												<handler function="OnButtonRemoveStudenyAttendanceDateClick" entry="EVT_BUTTON" />
 											</object>
 											<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
 											<border>5</border>

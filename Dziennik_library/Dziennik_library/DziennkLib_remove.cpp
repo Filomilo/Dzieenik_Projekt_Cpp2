@@ -19,3 +19,10 @@
 	std::cout << std::endl << sqlCode;
 	executeSqlInsert(sqlCode);
    }
+
+   void DziennikLib::removeAttendanceByDate(std::string date)
+   {
+   std::string sqlCode = "DELETE FROM Attendacne \n WHERE Date = \'" + date + "\';";
+	std::cout << std::endl << sqlCode;
+	executeSqlInsert(sqlCode);
+   }

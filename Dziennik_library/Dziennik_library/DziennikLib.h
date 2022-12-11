@@ -141,7 +141,9 @@ public:
     //*********************************************************    remove
     void removeSubject(int subjectId);
 	void removeTeacher(std::string teacherPesel);
-	void removeStudent(std::string studentPesel);
+	void removeStudent(std::string studentPesel);	
+	void removeAttendanceByDate(std::string date);
+
 
 	//*********************************************************    insert
 
