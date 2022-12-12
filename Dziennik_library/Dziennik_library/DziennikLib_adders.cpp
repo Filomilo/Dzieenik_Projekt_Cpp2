@@ -4,6 +4,7 @@
 void DziennikLib::addStudent(std::string Pesel, std::string Name, std::string Surname, std::string Birthday)
 {
 	this->insertIntoStudnets(Pesel, Name, Surname, Birthday);
+	this->addUser(Name + Surname + Birthday.substr(0,4), Pesel,(int)Account_types::STUDNET,Pesel);
 }
 void DziennikLib::addAttendacne(std::string Date, int Lesson_num, std::string Teacher_pesel, std::string Sudent_pesel, int Status)
 {
@@ -26,6 +27,7 @@ void DziennikLib::addTeacher(std::string Pesel, std::string Name, std::string Su
 {
 	std::string subjectId = std::to_string(subject_id);
 	this->insertIntoTeachers(Pesel, Name, Surname, Birthday, subjectId);
+	this->addUser(Name + Surname + Birthday.substr(0,4), Pesel,(int)Account_types::TEACHER,Pesel);
 }
 void DziennikLib::addUser(std::string Nick, std::string Passowrd, int Account_Type, std::string Id_in_db)
 {
