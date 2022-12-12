@@ -1,5 +1,6 @@
 #include "DziennikLib.h"
 #include "user.h"
+#include <iostream>
 
  int DziennikLib::callbackPrint(void* data, int argc, char** argv, char** azColName) {
 	int i;
@@ -21,7 +22,7 @@
  int DziennikLib::callbackGetValue(void* data, int argc, char** argv, char** azColName) {
 
 	int* amount = (int*)data;
-	*amount = atoi(argv[0]);
+	*amount =std::stoi(argv[0]);
 	return 0;
 }
 
@@ -53,7 +54,7 @@
 		 userRecord.setPassword(argv[(i + 2) % rows]);
 		 userRecord.setAccountType(argv[(i + 3) % rows]);
 		 userRecord.setIdInDb(argv[(i + 4) % rows] ? argv[(i + 4) % rows] : "NULL");
-	
+
 		 userRecords->push_back(userRecord);
 	 }
 	 return 0;

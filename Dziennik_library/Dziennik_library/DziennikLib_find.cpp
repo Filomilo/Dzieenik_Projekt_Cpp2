@@ -43,7 +43,7 @@ std::vector<grade>  DziennikLib::findGradesByStudentIdAndSubject(std::string pes
 int DziennikLib::findMaxGradesFromSubjectByStudentId(std::string pesel)
 {
 	int maxGrades;
-	std::string sqlCommand = "SELECT max(counter) FROM (SELECT Subject_id, count(Grade) counter FROM Grades GROUP BY Subject_id HAVING Student_id=\'"+pesel+"\')";
+	std::string sqlCommand = "SELECT max(counter) FROM (SELECT Subject_id, Student_id, count(*) counter FROM Grades GROUP BY Subject_id, Student_id) WHERE Student_id=\'"+pesel+"\'";
 	maxGrades = executeSqlValue(sqlCommand.c_str());
 	return maxGrades;
 }

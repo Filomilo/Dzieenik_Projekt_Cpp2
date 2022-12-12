@@ -485,17 +485,18 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_LISTCTRLSUBJECTSLIST,wxEVT_LIST_ITEM_ACTIVATED,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlSubjectListBeginDrag);
     Connect(ID_LISTCTRLTEACHERS,wxEVT_LIST_ITEM_ACTIVATED,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlTeachersBeginDrag);
 
-    //  removeAllPages();
+      removeAllPages();
     dziennik->loadDataBase("exampple.dznk");
     dziennik->login("STUDENT","STUDENT");
-    //std::cout<<"login: "<<dziennik->getUserStudentProfile()<<std::endl;
-    refreshSubjectSelection();
-    refreshTeacherSelection();
-    refreshStudentSelection();
-    refreshMyGradeList();
-    refreshYourStudentGrid();
+    setViewAsStudent();
+   // //std::cout<<"login: "<<dziennik->getUserStudentProfile()<<std::endl;
+    //refreshSubjectSelection();
+    //refreshTeacherSelection();
+    //refreshStudentSelection();
+    //refreshMyGradeList();
+    //refreshYourStudentGrid();
     //efreshAttendanceManager();
-    refreshMyAttendance();
+    //refreshMyAttendance();
     isLoaded=true;
 }
 
@@ -606,7 +607,9 @@ void dziennik_guiFrame::setViewAsStudent()
 {
     removeAllPages();
     NotebookMain->AddPage(PanelMyGrades, _("My Grades"), true);
-
+    NotebookMain->AddPage(PanelAttandance, _("My Grades"), true);
+    refreshMyAttendance();
+    refreshMyGradeList();
 }
 void dziennik_guiFrame::setViewAsAdmin()
 {
@@ -1105,10 +1108,14 @@ void dziennik_guiFrame::refreshMyGradeList()
         ListCtrlMyGrades->AppendColumn(_(it->getName().c_str()));
     }
 
+    wxString txt;
+    txt<<maxValue;
+    StatusBar1->PushStatusText(txt);
+
 
     for(int i=0; i<maxValue; i++)
     {
-        ListCtrlMyGrades->InsertItem(0, "");
+       ListCtrlMyGrades->InsertItem(i, "");
     }
 
     std::vector<grade> gradeList=this->dziennik->findGradesByStudentId(dziennik->getUserIdInDb());
@@ -1117,12 +1124,15 @@ void dziennik_guiFrame::refreshMyGradeList()
     int counter=0;
     for(auto it=gradeList.begin(); it!=gradeList.end(); it++)
     {
+
         int subjectid=it->getSubjectId()-1;
         if(subjectid!=prevSubject)
         {
             counter=0;
             prevSubject=subjectid;
         }
+
+
         ListCtrlMyGrades->SetItem(counter++, subjectid, wxString::Format(wxT("%i"),it->getGrade()));
 
     }
