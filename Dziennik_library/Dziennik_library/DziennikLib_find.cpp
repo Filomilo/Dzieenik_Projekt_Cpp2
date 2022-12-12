@@ -84,6 +84,14 @@ std::vector<attendance>  DziennikLib::findAttandanceByDateAndPesel(std::string d
 	return attendancesRecords;
 }
 
+std::vector<attendance>  DziennikLib::findAttandanceByPesel(std::string pesel)
+{
+	std::vector<attendance> attendancesRecords;
+	std::string sqlCommand = "SELECT * FROM Attendacne WHERE Student_id = '"+ pesel + "' ORDER BY Date";;
+//	std::cout<<sqlCommand<<std::endl;
+	attendancesRecords = executeGetAttendace(sqlCommand.c_str());
+	return attendancesRecords;
+}
 
 
 std::vector<subject>  DziennikLib::findSubjectsAll()

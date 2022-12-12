@@ -137,11 +137,12 @@ public:
 	std::vector<attendance> findAttandanceByDate(std::string date);
 	std::vector<attendance> findAttandanceByDateAndPesel(std::string date, std::string pesel);
 	std::vector<attendance>  findAttandanceByDateByPeselByLessonNum(std::string date, std::string Pesel, int lessonNum );
+	std::vector<attendance>  findAttandanceByPesel(std::string pesel);
 
     //*********************************************************    remove
     void removeSubject(int subjectId);
 	void removeTeacher(std::string teacherPesel);
-	void removeStudent(std::string studentPesel);	
+	void removeStudent(std::string studentPesel);
 	void removeAttendanceByDate(std::string date);
 
 

@@ -131,6 +131,9 @@ class dziennik_guiFrame: public wxFrame
 
         void refreshAttendanceManager();
         void fillAttendanceManagerByDate();
+
+        void fillMyAttendanceGrid();
+        void refreshMyAttendance();
         void checkVariables();
         //(*Identifiers(dziennik_guiFrame)
         static const long ID_TEXTCTRLNICK;

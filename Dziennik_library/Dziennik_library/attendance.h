@@ -94,7 +94,7 @@ public:
 
 		switch(getStatus())
 		{
-			case ATTENDANCE_STATUS::NOTSET: return "none";
+			case ATTENDANCE_STATUS::NOTSET: return "";
 			case ATTENDANCE_STATUS::PRESENT: return "present";
 			case ATTENDANCE_STATUS::ABSENT: return "absent";
 			case ATTENDANCE_STATUS::LATE: return "late";
