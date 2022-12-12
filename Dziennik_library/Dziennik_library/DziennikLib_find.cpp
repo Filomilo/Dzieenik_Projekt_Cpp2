@@ -35,7 +35,7 @@ std::vector<grade>  DziennikLib::findGradesByStudentId(std::string pesel)
 std::vector<grade>  DziennikLib::findGradesByStudentIdAndSubject(std::string pesel, int subjectId)
 {
 	std::vector<grade> gradesRecords;
-	std::string sqlCommand = "SELECT * FROM Grades \n WHERE Student_id = '" + pesel + "' \n ORDER BY Subject_id";
+	std::string sqlCommand = "SELECT * FROM Grades \n WHERE Student_id = '" + pesel + "' \n AND Subject_id= " + std::to_string(subjectId) +" ORDER BY Grade_Id";
 	gradesRecords = executeGetGrade(sqlCommand.c_str());
 	return gradesRecords;
 }

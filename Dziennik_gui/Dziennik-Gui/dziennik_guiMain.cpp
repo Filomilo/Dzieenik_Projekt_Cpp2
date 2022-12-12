@@ -486,9 +486,9 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_LISTCTRLTEACHERS,wxEVT_LIST_ITEM_ACTIVATED,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlTeachersBeginDrag);
 
       removeAllPages();
-    dziennik->loadDataBase("exampple.dznk");
-    dziennik->login("STUDENT","STUDENT");
-    setViewAsStudent();
+    //dziennik->loadDataBase("exampple.dznk");
+    //dziennik->login("STUDENT","STUDENT");
+    //setViewAsStudent();
    // //std::cout<<"login: "<<dziennik->getUserStudentProfile()<<std::endl;
     //refreshSubjectSelection();
     //refreshTeacherSelection();
@@ -602,12 +602,15 @@ void dziennik_guiFrame::setViewAsTeacher()
 {
     removeAllPages();
     NotebookMain->AddPage(PanelYourStudentes, _("My Students"), true);
+     NotebookMain->AddPage(PanelStudentAttandnace, _("Attendance manger"), true);
+     refreshAttendanceManager();
+     refreshYourStudentGrid();
 }
 void dziennik_guiFrame::setViewAsStudent()
 {
     removeAllPages();
     NotebookMain->AddPage(PanelMyGrades, _("My Grades"), true);
-    NotebookMain->AddPage(PanelAttandance, _("My Grades"), true);
+    NotebookMain->AddPage(PanelAttandance, _("My Attendance"), true);
     refreshMyAttendance();
     refreshMyGradeList();
 }
