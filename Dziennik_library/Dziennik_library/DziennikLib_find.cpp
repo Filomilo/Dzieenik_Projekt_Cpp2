@@ -149,3 +149,10 @@ std::vector<user>  DziennikLib::findUsersById(int UserId)
 	subjectsRecords = this->executeGetSubject(sqlCommand.c_str());
 	return subjectsRecords;
 	}
+
+	int DziennikLib::findamountOfUserByNikc(std::string nick)
+	{
+	std::string sqlCommand = "SELECT * FROM Users WHERE Nick = '" + nick + "';";
+	int amount = this->executeSqlAmount(sqlCommand.c_str());
+	return amount;
+	}

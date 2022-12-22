@@ -55,3 +55,13 @@ void DziennikLib::updateTeacher(std::string Pesel, std::string Name, std::string
 	std::cout << sqlCommand << std::endl;
 	executeSqlInsert(sqlCommand);
 	}
+
+	void DziennikLib::updateUser(int id, std::string nick, std::string pass)
+	{
+	    		std::string sqlCommand = "UPDATE Users\n SET ";
+		sqlCommand+="Nick = \'"+ nick+ "\', \n";
+		sqlCommand+="Password = \'"+ pass+ "\' \n";
+		sqlCommand+="WHERE  User_Id=\'" + std::to_string(id)+ "\'\;";
+	std::cout << sqlCommand << std::endl;
+	executeSqlInsert(sqlCommand);
+	}

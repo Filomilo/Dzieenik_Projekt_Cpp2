@@ -1388,5 +1388,31 @@ void dziennik_guiFrame::OnAccountManage(wxCommandEvent& event)
     {
            PasswordConfirmFrame* passwordConfirmation= new PasswordConfirmFrame(0);
     passwordConfirmation->ShowModal();
+    if(passwordConfirmation->isFilled)
+    {
+        if(this->dziennik->validateLogin(this->dziennik->getUserNick(), std::string(passwordConfirmation->TextCtrlPassowrd->GetValue().mb_str())))
+        {
+            std::string newnick= std::string(manageAccount->TextCtrlNickChange->GetValue().mb_str());
+            std::string newpass= std::string(manageAccount->TextCtrlPasswordChange->GetValue().mb_str());
+            if(this->dziennik->validateNick(newnick) || newnick== this->dziennik->getUserNick() )
+            {
+
+            }
+            else
+            {
+                wxMessageDialog * warringnick= new wxMessageDialog(0,"nick alraedy used","warrning");
+    warringnick->ShowModal();
+    delete(warringnick);
+            }
+        }
+        else
+        {
+            wxMessageDialog * warring= new wxMessageDialog(0,"Incorrect pasword","warrning");
+    warring->ShowModal();
+    delete(warring);
+
+        }
     }
+    }
+
 }

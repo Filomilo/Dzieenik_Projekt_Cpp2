@@ -90,7 +90,7 @@ private:
 
 
 	//*********************************************************    validators
-	bool validateLogin(std::string nick, std::string password);
+
 
 	//*********************************************************    account
 	int getAmountOfLogin(std::string nick, std::string password);
@@ -130,6 +130,7 @@ public:
 	std::vector<teacher>  findTeachersByPesel(std::string pesel);
 	std::vector<user>  findUsersAll();
 	std::vector<user>  findUsersById(int id);
+	int findamountOfUserByNikc(std::string nick);
 	std::vector<grade>findGradesByStudentId(std::string pesel);
 	int findMaxGradesFromSubjectByStudentId(std::string pesel);
 	int findMaxGradesFromSubjectBySubject(int subjectId);
@@ -181,10 +182,12 @@ public:
 	void updateAttandance(std::string attandanceId, std::string newStatus);
 	void updateAttandanceIterate(std::string attandanceId);
 	void updateAttandanceIterate(int id);
+	void updateUser(int id, std::string nick, std::string pass);
 
 
 	//*********************************************************    validators
-
+    	bool validateLogin(std::string nick, std::string password);
+    	bool validateNick(std::string nick);
 	//*********************************************************    adders
 	void addStudent(std::string Pesel, std::string Name, std::string Surname, std::string Birthday);
 	void addAttendacne(std::string Date, int Lesson_num, std::string Teacher_pesel, std::string Sudent_pesel, int Status );
@@ -209,5 +212,6 @@ public:
 	student getUserStudentProfile();
 	teacher getUserTeacherProfile();
 	void logout();
+	void ChangeAccuntData(int id, std::string nick, std::string pass);
 };
 

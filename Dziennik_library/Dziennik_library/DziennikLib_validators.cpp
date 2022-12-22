@@ -8,3 +8,10 @@ bool DziennikLib::validateLogin(std::string nick, std::string password)
 	}
 	return false;
 }
+
+bool DziennikLib::validateNick(std::string nick)
+{
+    if(this->findamountOfUserByNikc(nick)>0)
+        return false;
+    return true;
+}
