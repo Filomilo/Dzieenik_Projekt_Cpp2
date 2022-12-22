@@ -126,3 +126,8 @@ void DziennikLib::ChangeAccuntData(int id, std::string nick, std::string pass)
     std::string encrypted=this->encrypt(pass);
     this->updateUser(id, nick, pass);
 }
+int DziennikLib::getLoginId()
+{
+    return this->LoginId;
+
+}

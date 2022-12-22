@@ -1396,7 +1396,7 @@ void dziennik_guiFrame::OnAccountManage(wxCommandEvent& event)
             std::string newpass= std::string(manageAccount->TextCtrlPasswordChange->GetValue().mb_str());
             if(this->dziennik->validateNick(newnick) || newnick== this->dziennik->getUserNick() )
             {
-
+                this->dziennik->updateUser(this->dziennik->getLoginId(), newnick, newpass);
             }
             else
             {

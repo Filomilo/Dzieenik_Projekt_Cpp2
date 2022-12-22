@@ -213,5 +213,6 @@ public:
 	teacher getUserTeacherProfile();
 	void logout();
 	void ChangeAccuntData(int id, std::string nick, std::string pass);
+	int getLoginId();
 };
 
