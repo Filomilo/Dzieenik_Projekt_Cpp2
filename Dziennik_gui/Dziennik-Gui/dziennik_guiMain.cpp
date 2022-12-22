@@ -13,7 +13,7 @@
 #include <DziennikLib.h>
 #include <subject.h>
 #include<vector>
-
+#include "AccountDataChangeFrame.h"
 
 //(*InternalHeaders(dziennik_guiFrame)
 #include <wx/intl.h>
@@ -479,6 +479,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_NOTEBOOKMAIN,wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGED,(wxObjectEventFunction)&dziennik_guiFrame::OnNotebookMainPageChanged);
     Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnQuit);
     Connect(LogoutButtonID,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnLogout);
+    Connect(ManageButtonID,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnAccountManage);
     Connect(wxID_ANY,wxEVT_CLOSE_WINDOW,(wxObjectEventFunction)&dziennik_guiFrame::OnClose);
     //*)
     Connect(idMenuNewFIle,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnNewFile);
@@ -1355,4 +1356,10 @@ void dziennik_guiFrame::OnLogout(wxCommandEvent& event)
 {
     this->dziennik->logout();
     this->setViewAsNoLogged();
+}
+
+void dziennik_guiFrame::OnAccountManage(wxCommandEvent& event)
+{
+    AccountDataChangeFrame* manageAccount= new AccountDataChangeFrame(0);
+    manageAccount->ShowModal();
 }

@@ -89,6 +89,7 @@ class dziennik_guiFrame: public wxFrame
         void OnButtonDateAttandadnceControlClick1(wxCommandEvent& event);
         void OnButtonRemoveStudenyAttendanceDateClick(wxCommandEvent& event);
         void OnLogout(wxCommandEvent& event);
+        void OnAccountManage(wxCommandEvent& event);
         //*)
         bool isLoaded=false;
 

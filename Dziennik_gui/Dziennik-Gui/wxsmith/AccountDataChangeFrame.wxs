@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxDialog" name="AccountDataChangeFrame">
+		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
+			<pos>240,368</pos>
+			<object class="wxBoxSizer" variable="BoxSizer1" member="no">
+				<orient>wxVERTICAL</orient>
+				<object class="sizeritem">
+					<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextCtrl1" member="yes" />
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<option>1</option>
+				</object>
+				<object class="sizeritem">
+					<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
+						<label>Nick</label>
+					</object>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<option>1</option>
+				</object>
+				<object class="sizeritem">
+					<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextCtrl2" member="yes">
+						<style>wxTE_PASSWORD</style>
+					</object>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<option>1</option>
+				</object>
+				<object class="sizeritem">
+					<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
+						<label>Password</label>
+					</object>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<option>1</option>
+				</object>
+				<object class="sizeritem">
+					<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="TextCtrl3" member="yes">
+						<style>wxTE_PASSWORD</style>
+					</object>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<option>1</option>
+				</object>
+				<object class="sizeritem">
+					<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
+						<label>repeat Password</label>
+					</object>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<option>1</option>
+				</object>
+				<object class="sizeritem">
+					<object class="wxButton" name="ID_BUTTONSAAVEACCOUNTDATA" variable="ButtonSaveAccountData" member="yes">
+						<label>Save changes</label>
+					</object>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<option>1</option>
+				</object>
+			</object>
+		</object>
+	</object>
+</wxsmith>

@@ -14862,7 +14862,7 @@
 1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dziennklib_remove.cpp
 	"DziennikLib.h"
 
-1671740802 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
+1671741293 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
 	<wx/button.h>
 	<wx/choice.h>
 	<wx/datectrl.h>
@@ -15559,7 +15559,7 @@
 	"wx/defs.h"
 	"wx/validate.h"
 
-1671739554 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
+1671740840 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
 	"dziennik_guiMain.h"
 	<wx/msgdlg.h>
 	<iostream>
@@ -15607,4 +15607,17 @@
 	"wx/msw/rcdefs.h"
 
 1662399371 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\rcdefs.h
+
+1671741211 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\accountdatachangeframe.cpp
+	"AccountDataChangeFrame.h"
+	<wx/intl.h>
+	<wx/string.h>
+
+1671741171 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\accountdatachangeframe.h
+	<wx/button.h>
+	<wx/dialog.h>
+	<wx/panel.h>
+	<wx/sizer.h>
+	<wx/stattext.h>
+	<wx/textctrl.h>
 
