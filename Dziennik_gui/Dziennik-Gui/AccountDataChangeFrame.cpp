@@ -1,5 +1,5 @@
 #include "AccountDataChangeFrame.h"
-
+#include <wx/msgdlg.h>
 //(*InternalHeaders(AccountDataChangeFrame)
 #include <wx/intl.h>
 #include <wx/string.h>
@@ -60,6 +60,21 @@ AccountDataChangeFrame::~AccountDataChangeFrame()
 
 void AccountDataChangeFrame::OnButtonSaveAccountDataClick(wxCommandEvent& event)
 {
+
+     wxString firstpass=this->TextCtrlPasswordChange->GetValue();
+    wxString secpass=this->TextCtrlPasswordReapeat->GetValue();
+    if(firstpass!=secpass)
+    {
+wxMessageDialog * warring= new wxMessageDialog(0,"password dont match","warrning");
+    warring->ShowModal();
+    delete(warring);
+
+    }
+    else
+    {
+
+
     this->isChanging=true;
     this->Show(false);
+    }
 }

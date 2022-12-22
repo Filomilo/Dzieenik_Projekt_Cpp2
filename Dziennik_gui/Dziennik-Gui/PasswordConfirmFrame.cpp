@@ -64,4 +64,10 @@ wxMessageDialog * warring= new wxMessageDialog(0,"password dont match","warrning
     delete(warring);
 
     }
+    else
+    {
+        isFilled=true;
+          this->Show(false);
+    }
+
 }

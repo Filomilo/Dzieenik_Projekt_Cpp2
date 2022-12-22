@@ -16,7 +16,7 @@ class PasswordConfirmFrame: public wxDialog
 
 		PasswordConfirmFrame(wxWindow* parent,wxWindowID id=wxID_ANY,const wxPoint& pos=wxDefaultPosition,const wxSize& size=wxDefaultSize);
 		virtual ~PasswordConfirmFrame();
-
+        bool isFilled=false;
 		//(*Declarations(PasswordConfirmFrame)
 		wxButton* ButtonConfirmPass;
 		wxPanel* Panel1;

@@ -15610,8 +15610,9 @@
 
 1662399371 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\rcdefs.h
 
-1671742795 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\accountdatachangeframe.cpp
+1671746227 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\accountdatachangeframe.cpp
 	"AccountDataChangeFrame.h"
+	<wx/msgdlg.h>
 	<wx/intl.h>
 	<wx/string.h>
 
@@ -15641,7 +15642,7 @@
 	<wx/intl.h>
 	<wx/string.h>
 
-1671745013 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\passwordconfirmframe.h
+1671745782 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\passwordconfirmframe.h
 	<wx/button.h>
 	<wx/dialog.h>
 	<wx/panel.h>
