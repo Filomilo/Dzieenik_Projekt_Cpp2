@@ -88,6 +88,7 @@ class dziennik_guiFrame: public wxFrame
         void OnButtonDateAttandadnceControlClick(wxCommandEvent& event);
         void OnButtonDateAttandadnceControlClick1(wxCommandEvent& event);
         void OnButtonRemoveStudenyAttendanceDateClick(wxCommandEvent& event);
+        void OnLogout(wxCommandEvent& event);
         //*)
         bool isLoaded=false;
 
@@ -201,7 +202,8 @@ class dziennik_guiFrame: public wxFrame
         static const long idMenuNewFIle;
         static const long idMenuOpenFile;
         static const long ID_MENUITEM1;
-        static const long idMenuAbout;
+        static const long LogoutButtonID;
+        static const long ManageButtonID;
         static const long ID_STATUSBAR1;
         static const long ID_PASSWORDENTRYDIALOG1;
         //*)
@@ -234,6 +236,9 @@ class dziennik_guiFrame: public wxFrame
         wxListCtrl* ListCtrlSubjectList;
         wxListCtrl* ListCtrlTeachers;
         wxMenu Menu3;
+        wxMenu* Menu2;
+        wxMenuItem* Menu4;
+        wxMenuItem* MenuItem2;
         wxMenuItem* MenuItem3;
         wxMenuItem* MenuItem4;
         wxNotebook* NotebookMain;

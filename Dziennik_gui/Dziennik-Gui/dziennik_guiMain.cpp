@@ -114,7 +114,8 @@ const long dziennik_guiFrame::ID_NOTEBOOKMAIN = wxNewId();
 const long dziennik_guiFrame::idMenuNewFIle = wxNewId();
 const long dziennik_guiFrame::idMenuOpenFile = wxNewId();
 const long dziennik_guiFrame::ID_MENUITEM1 = wxNewId();
-const long dziennik_guiFrame::idMenuAbout = wxNewId();
+const long dziennik_guiFrame::LogoutButtonID = wxNewId();
+const long dziennik_guiFrame::ManageButtonID = wxNewId();
 const long dziennik_guiFrame::ID_STATUSBAR1 = wxNewId();
 const long dziennik_guiFrame::ID_PASSWORDENTRYDIALOG1 = wxNewId();
 //*)
@@ -160,10 +161,8 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     wxBoxSizer* BoxSizer8;
     wxBoxSizer* BoxSizer9;
     wxMenu* Menu1;
-    wxMenu* Menu2;
     wxMenuBar* MenuBar1;
     wxMenuItem* MenuItem1;
-    wxMenuItem* MenuItem2;
 
     Create(parent, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxDEFAULT_FRAME_STYLE, _T("wxID_ANY"));
     SetClientSize(wxSize(1360,763));
@@ -428,9 +427,11 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Menu1->Append(MenuItem1);
     MenuBar1->Append(Menu1, _("&File"));
     Menu2 = new wxMenu();
-    MenuItem2 = new wxMenuItem(Menu2, idMenuAbout, _("About\tF1"), _("Show info about this application"), wxITEM_NORMAL);
+    Menu4 = new wxMenuItem(Menu2, LogoutButtonID, _("Logout"), wxEmptyString, wxITEM_NORMAL);
+    Menu2->Append(Menu4);
+    MenuItem2 = new wxMenuItem(Menu2, ManageButtonID, _("Manage"), wxEmptyString, wxITEM_NORMAL);
     Menu2->Append(MenuItem2);
-    MenuBar1->Append(Menu2, _("Help"));
+    MenuBar1->Append(Menu2, _("Account"));
     SetMenuBar(MenuBar1);
     StatusBar1 = new wxStatusBar(this, ID_STATUSBAR1, 0, _T("ID_STATUSBAR1"));
     int __wxStatusBarWidths_1[1] = { -1 };
@@ -477,7 +478,7 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_BUTTONREMOVEDATEATTANDANCECONTROL,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&dziennik_guiFrame::OnButtonRemoveStudenyAttendanceDateClick);
     Connect(ID_NOTEBOOKMAIN,wxEVT_COMMAND_NOTEBOOK_PAGE_CHANGED,(wxObjectEventFunction)&dziennik_guiFrame::OnNotebookMainPageChanged);
     Connect(ID_MENUITEM1,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnQuit);
-    Connect(idMenuAbout,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnAbout);
+    Connect(LogoutButtonID,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnLogout);
     Connect(wxID_ANY,wxEVT_CLOSE_WINDOW,(wxObjectEventFunction)&dziennik_guiFrame::OnClose);
     //*)
     Connect(idMenuNewFIle,wxEVT_COMMAND_MENU_SELECTED,(wxObjectEventFunction)&dziennik_guiFrame::OnNewFile);
@@ -1349,3 +1350,9 @@ void dziennik_guiFrame::fillMyAttendanceGrid()
 
 
 
+
+void dziennik_guiFrame::OnLogout(wxCommandEvent& event)
+{
+    this->dziennik->logout();
+    this->setViewAsNoLogged();
+}

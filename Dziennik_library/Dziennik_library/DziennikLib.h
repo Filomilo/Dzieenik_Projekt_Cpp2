@@ -208,5 +208,6 @@ public:
 	std::string getUserIdInDb();
 	student getUserStudentProfile();
 	teacher getUserTeacherProfile();
+	void logout();
 };
 

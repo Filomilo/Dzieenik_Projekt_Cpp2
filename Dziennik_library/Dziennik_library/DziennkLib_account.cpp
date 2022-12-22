@@ -116,3 +116,7 @@ teacher  DziennikLib::getUserTeacherProfile()
 	}
 	return teacher();
 }
+void DziennikLib::logout()
+{
+    this->LoginId=-1;
+}
