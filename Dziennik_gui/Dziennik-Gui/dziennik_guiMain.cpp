@@ -489,9 +489,9 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
 
       removeAllPages();
       this->disableMangeAccount();
-    dziennik->loadDataBase("exampple.dznk");
-    dziennik->login("STUDENT","STUDENT");
-    setViewAsStudent();
+    //dziennik->loadDataBase("exampple.dznk");
+    //dziennik->login("STUDENT","STUDENT");
+    //setViewAsStudent();
    // //std::cout<<"login: "<<dziennik->getUserStudentProfile()<<std::endl;
     //refreshSubjectSelection();
     //refreshTeacherSelection();
@@ -537,7 +537,8 @@ void dziennik_guiFrame::OnNewFile(wxCommandEvent& event)
 {
     //std::cout<<"new File"<<std::endl;
     wxFileDialog saveFileDialog(this, _("Save Dziennik file"), "", "","dziennik files (*.dznk)|*.dznk", wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
-    saveFileDialog.ShowModal();
+    if (saveFileDialog.ShowModal() == wxID_CANCEL)
+        return;
     //std::cout<<saveFileDialog.GetPath()<<std::endl;
     this->dziennik->createNewDataBase(std::string(saveFileDialog.GetPath().mbc_str()));
     setViewAsNewDb();
@@ -548,7 +549,8 @@ void dziennik_guiFrame::OnOpenFile(wxCommandEvent& event)
 {
     //std::cout<<"open File"<<std::endl;
     wxFileDialog openFileDialog(this, _("Open Dziennik file"), "", "","dziennik files (*.dznk)|*.dznk", wxFD_OPEN|wxFD_FILE_MUST_EXIST);
-    openFileDialog.ShowModal();
+    if (openFileDialog.ShowModal() == wxID_CANCEL)
+        return;
     //std::cout<<openFileDialog.GetPath()<<std::endl;
     this->dziennik->loadDataBase(std::string(openFileDialog.GetPath().mbc_str()));
     this->dziennik->printDataBase();
