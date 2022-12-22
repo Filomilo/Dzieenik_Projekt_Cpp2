@@ -137,6 +137,9 @@ class dziennik_guiFrame: public wxFrame
         void fillMyAttendanceGrid();
         void refreshMyAttendance();
         void checkVariables();
+
+        void enableMangeAccount();
+        void disableMangeAccount();
         //(*Identifiers(dziennik_guiFrame)
         static const long ID_TEXTCTRLNICK;
         static const long ID_STATICTEXT1;

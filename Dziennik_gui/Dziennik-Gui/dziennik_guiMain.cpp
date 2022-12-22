@@ -488,9 +488,10 @@ dziennik_guiFrame::dziennik_guiFrame(wxWindow* parent,wxWindowID id)
     Connect(ID_LISTCTRLTEACHERS,wxEVT_LIST_ITEM_ACTIVATED,(wxObjectEventFunction)&dziennik_guiFrame::OnListCtrlTeachersBeginDrag);
 
       removeAllPages();
-    //dziennik->loadDataBase("exampple.dznk");
-    //dziennik->login("STUDENT","STUDENT");
-    //setViewAsStudent();
+      this->disableMangeAccount();
+    dziennik->loadDataBase("exampple.dznk");
+    dziennik->login("STUDENT","STUDENT");
+    setViewAsStudent();
    // //std::cout<<"login: "<<dziennik->getUserStudentProfile()<<std::endl;
     //refreshSubjectSelection();
     //refreshTeacherSelection();
@@ -592,16 +593,32 @@ void dziennik_guiFrame::OnButtonRegisterClick(wxCommandEvent& event)
 }
 void dziennik_guiFrame::setViewAsNewDb()
 {
+    this->disableMangeAccount();
     removeAllPages();
     NotebookMain->AddPage(PanelCreateAdmin, _("Create admin"), true);
 }
 void dziennik_guiFrame::setViewAsNoLogged()
 {
+    this->disableMangeAccount();
     removeAllPages();
     NotebookMain->AddPage(PanelLogin, _("Login"), true);
 }
+
+void dziennik_guiFrame::enableMangeAccount()
+{
+this->Menu2->Enable(LogoutButtonID, true);
+this->Menu2->Enable(ManageButtonID, true);
+}
+
+void dziennik_guiFrame::disableMangeAccount()
+{
+this->Menu2->Enable(LogoutButtonID, false);
+this->Menu2->Enable(ManageButtonID, false);
+}
+
 void dziennik_guiFrame::setViewAsTeacher()
 {
+    this->enableMangeAccount();
     removeAllPages();
     NotebookMain->AddPage(PanelYourStudentes, _("My Students"), true);
      NotebookMain->AddPage(PanelStudentAttandnace, _("Attendance manger"), true);
@@ -610,6 +627,7 @@ void dziennik_guiFrame::setViewAsTeacher()
 }
 void dziennik_guiFrame::setViewAsStudent()
 {
+    this->enableMangeAccount();
     removeAllPages();
     NotebookMain->AddPage(PanelMyGrades, _("My Grades"), true);
     NotebookMain->AddPage(PanelAttandance, _("My Attendance"), true);
@@ -618,6 +636,7 @@ void dziennik_guiFrame::setViewAsStudent()
 }
 void dziennik_guiFrame::setViewAsAdmin()
 {
+    this->enableMangeAccount();
     removeAllPages();
     NotebookMain->AddPage(PanelStudents, _("Students"), true);
     NotebookMain->AddPage(PanelSubjects, _("Subjects"), false);
@@ -625,6 +644,7 @@ void dziennik_guiFrame::setViewAsAdmin()
     refreshStudentSelection();
     refreshSubjectSelection();
     refreshTeacherSelection();
+
 }
 
 void dziennik_guiFrame::OnTextCtrlRegisterReapeatPasswordText(wxCommandEvent& event)
@@ -1361,5 +1381,6 @@ void dziennik_guiFrame::OnLogout(wxCommandEvent& event)
 void dziennik_guiFrame::OnAccountManage(wxCommandEvent& event)
 {
     AccountDataChangeFrame* manageAccount= new AccountDataChangeFrame(0);
+    manageAccount->TextCtrlNickChange->AppendText((wxString)this->dziennik->getUserNick());
     manageAccount->ShowModal();
 }

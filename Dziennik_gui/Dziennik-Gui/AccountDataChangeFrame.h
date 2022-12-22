@@ -23,19 +23,19 @@ class AccountDataChangeFrame: public wxDialog
 		wxStaticText* StaticText1;
 		wxStaticText* StaticText2;
 		wxStaticText* StaticText3;
-		wxTextCtrl* TextCtrl1;
-		wxTextCtrl* TextCtrl2;
-		wxTextCtrl* TextCtrl3;
+		wxTextCtrl* TextCtrlNickChange;
+		wxTextCtrl* TextCtrlPasswordChange;
+		wxTextCtrl* TextCtrlPasswordReapeat;
 		//*)
 
 	protected:
 
 		//(*Identifiers(AccountDataChangeFrame)
-		static const long ID_TEXTCTRL1;
+		static const long ID_TEXTCTRLNICKCHANGE;
 		static const long ID_STATICTEXT3;
-		static const long ID_TEXTCTRL2;
+		static const long ID_TEXTCTRLPASSWORDCHANGE;
 		static const long ID_STATICTEXT2;
-		static const long ID_TEXTCTRL3;
+		static const long ID_TEXTCTRLPASSWRODREPEAD;
 		static const long ID_STATICTEXT1;
 		static const long ID_BUTTONSAAVEACCOUNTDATA;
 		static const long ID_PANEL1;
