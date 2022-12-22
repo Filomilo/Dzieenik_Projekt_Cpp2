@@ -46,6 +46,8 @@ AccountDataChangeFrame::AccountDataChangeFrame(wxWindow* parent,wxWindowID id)
 	Panel1->SetSizer(BoxSizer1);
 	BoxSizer1->Fit(Panel1);
 	BoxSizer1->SetSizeHints(Panel1);
+
+	Connect(ID_BUTTONSAAVEACCOUNTDATA,wxEVT_COMMAND_BUTTON_CLICKED,(wxObjectEventFunction)&AccountDataChangeFrame::OnButtonSaveAccountDataClick);
 	//*)
 }
 
@@ -55,3 +57,9 @@ AccountDataChangeFrame::~AccountDataChangeFrame()
 	//*)
 }
 
+
+void AccountDataChangeFrame::OnButtonSaveAccountDataClick(wxCommandEvent& event)
+{
+    this->isChanging=true;
+    this->Show(false);
+}

@@ -797,6 +797,14 @@
 			</object>
 			<object class="wxMenu" variable="Menu2" member="yes">
 				<label>Account</label>
+				<object class="wxMenuItem" name="LogoutButtonID" variable="Menu4" member="yes">
+					<label>Logout</label>
+					<handler function="OnLogout" entry="EVT_MENU" />
+				</object>
+				<object class="wxMenuItem" name="ManageButtonID" variable="MenuItem2" member="yes">
+					<label>Manage</label>
+					<handler function="OnAccountManage" entry="EVT_MENU" />
+				</object>
 			</object>
 		</object>
 		<object class="wxStatusBar" name="ID_STATUSBAR1" variable="StatusBar1" member="yes">

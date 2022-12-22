@@ -14,7 +14,7 @@
 #include <subject.h>
 #include<vector>
 #include "AccountDataChangeFrame.h"
-
+#include "PasswordConfirmFrame.h"
 //(*InternalHeaders(dziennik_guiFrame)
 #include <wx/intl.h>
 #include <wx/string.h>
@@ -1380,7 +1380,13 @@ void dziennik_guiFrame::OnLogout(wxCommandEvent& event)
 
 void dziennik_guiFrame::OnAccountManage(wxCommandEvent& event)
 {
+
     AccountDataChangeFrame* manageAccount= new AccountDataChangeFrame(0);
     manageAccount->TextCtrlNickChange->AppendText((wxString)this->dziennik->getUserNick());
     manageAccount->ShowModal();
+    if(manageAccount->isChanging)
+    {
+           PasswordConfirmFrame* passwordConfirmation= new PasswordConfirmFrame(0);
+    passwordConfirmation->ShowModal();
+    }
 }

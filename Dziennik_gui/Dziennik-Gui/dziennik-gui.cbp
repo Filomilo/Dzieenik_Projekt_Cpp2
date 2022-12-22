@@ -91,6 +91,12 @@
 		</Unit>
 		<Unit filename="../../Dziennik_library/Dziennik_library/sqlite/sqlite3.h" />
 		<Unit filename="../../Dziennik_library/Dziennik_library/sqlite/sqlite3ext.h" />
+		<Unit filename="AccountDataChangeFrame.cpp" />
+		<Unit filename="AccountDataChangeFrame.h" />
+		<Unit filename="ConfirmPasswordFrame.cpp" />
+		<Unit filename="ConfirmPasswordFrame.h" />
+		<Unit filename="PasswordConfirmFrame.cpp" />
+		<Unit filename="PasswordConfirmFrame.h" />
 		<Unit filename="dziennik_guiApp.cpp" />
 		<Unit filename="dziennik_guiApp.h" />
 		<Unit filename="dziennik_guiMain.cpp" />
@@ -98,6 +104,8 @@
 		<Unit filename="resource.rc">
 			<Option compilerVar="WINDRES" />
 		</Unit>
+		<Unit filename="wxsmith/AccountDataChangeFrame.wxs" />
+		<Unit filename="wxsmith/PasswordConfirmFrame.wxs" />
 		<Unit filename="wxsmith/dziennik_guiframe.wxs" />
 		<Extensions>
 			<code_completion>
@@ -108,6 +116,8 @@
 				<gui name="wxWidgets" src="dziennik_guiApp.cpp" main="dziennik_guiFrame" init_handlers="necessary" language="CPP" />
 				<resources>
 					<wxFrame wxs="wxsmith/dziennik_guiframe.wxs" src="dziennik_guiMain.cpp" hdr="dziennik_guiMain.h" fwddecl="0" i18n="1" name="dziennik_guiFrame" language="CPP" />
+					<wxDialog wxs="wxsmith/AccountDataChangeFrame.wxs" src="AccountDataChangeFrame.cpp" hdr="AccountDataChangeFrame.h" fwddecl="0" i18n="1" name="AccountDataChangeFrame" language="CPP" />
+					<wxDialog wxs="wxsmith/PasswordConfirmFrame.wxs" src="PasswordConfirmFrame.cpp" hdr="PasswordConfirmFrame.h" fwddecl="0" i18n="1" name="PasswordConfirmFrame" language="CPP" />
 				</resources>
 			</wxsmith>
 		</Extensions>

@@ -29,7 +29,7 @@
 				</object>
 				<object class="sizeritem">
 					<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
-						<label>Password</label>
+						<label>new Password</label>
 					</object>
 					<flag>wxALL|wxEXPAND</flag>
 					<border>5</border>
@@ -45,7 +45,7 @@
 				</object>
 				<object class="sizeritem">
 					<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
-						<label>repeat Password</label>
+						<label>repeat new Password</label>
 					</object>
 					<flag>wxALL|wxEXPAND</flag>
 					<border>5</border>
@@ -54,6 +54,7 @@
 				<object class="sizeritem">
 					<object class="wxButton" name="ID_BUTTONSAAVEACCOUNTDATA" variable="ButtonSaveAccountData" member="yes">
 						<label>Save changes</label>
+						<handler function="OnButtonSaveAccountDataClick" entry="EVT_BUTTON" />
 					</object>
 					<flag>wxALL|wxEXPAND</flag>
 					<border>5</border>

@@ -16,7 +16,7 @@ class AccountDataChangeFrame: public wxDialog
 
 		AccountDataChangeFrame(wxWindow* parent,wxWindowID id=wxID_ANY);
 		virtual ~AccountDataChangeFrame();
-
+        bool isChanging=false;
 		//(*Declarations(AccountDataChangeFrame)
 		wxButton* ButtonSaveAccountData;
 		wxPanel* Panel1;
@@ -44,6 +44,7 @@ class AccountDataChangeFrame: public wxDialog
 	private:
 
 		//(*Handlers(AccountDataChangeFrame)
+		void OnButtonSaveAccountDataClick(wxCommandEvent& event);
 		//*)
 
 		DECLARE_EVENT_TABLE()

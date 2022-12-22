@@ -15559,7 +15559,7 @@
 	"wx/defs.h"
 	"wx/validate.h"
 
-1671741473 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
+1671744478 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
 	"dziennik_guiMain.h"
 	<wx/msgdlg.h>
 	<iostream>
@@ -15567,6 +15567,7 @@
 	<subject.h>
 	<vector>
 	"AccountDataChangeFrame.h"
+	"PasswordConfirmFrame.h"
 	<wx/intl.h>
 	<wx/string.h>
 
@@ -15609,12 +15610,38 @@
 
 1662399371 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\rcdefs.h
 
-1671742390 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\accountdatachangeframe.cpp
+1671742795 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\accountdatachangeframe.cpp
 	"AccountDataChangeFrame.h"
 	<wx/intl.h>
 	<wx/string.h>
 
-1671742485 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\accountdatachangeframe.h
+1671742767 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\accountdatachangeframe.h
+	<wx/button.h>
+	<wx/dialog.h>
+	<wx/panel.h>
+	<wx/sizer.h>
+	<wx/stattext.h>
+	<wx/textctrl.h>
+
+1671743152 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\confirmpasswordframe.cpp
+	"ConfirmPasswordFrame.h"
+	<wx/intl.h>
+	<wx/string.h>
+
+1671743093 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\confirmpasswordframe.h
+	<wx/button.h>
+	<wx/frame.h>
+	<wx/panel.h>
+	<wx/sizer.h>
+	<wx/stattext.h>
+	<wx/textctrl.h>
+
+1671743390 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\passwordconfirmframe.cpp
+	"PasswordConfirmFrame.h"
+	<wx/intl.h>
+	<wx/string.h>
+
+1671745013 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\passwordconfirmframe.h
 	<wx/button.h>
 	<wx/dialog.h>
 	<wx/panel.h>
