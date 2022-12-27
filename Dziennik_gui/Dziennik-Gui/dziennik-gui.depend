@@ -14769,7 +14769,7 @@
 1671739579 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\sqlite\sqlite3.h
 	<stdarg.h>
 
-1671749165 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib.h
+1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib.h
 	<sqlite3.h>
 	<iostream>
 	<fstream>
@@ -14812,7 +14812,7 @@
 	<iostream>
 	"DziennikLib.h"
 
-1671739676 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_adders.cpp
+1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_adders.cpp
 	"DziennikLib.h"
 
 1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_callbacks.cpp
@@ -14829,7 +14829,7 @@
 1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_execute.cpp
 	"DziennikLib.h"
 
-1671748453 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_find.cpp
+1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_find.cpp
 	"DziennikLib.h"
 
 1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_insert.cpp
@@ -14850,19 +14850,19 @@
 1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_tools.cpp
 	"DziennikLib.h"
 
-1671748482 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_update.cpp
+1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_update.cpp
 	"DziennikLib.h"
 
-1671748083 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_validators.cpp
+1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_validators.cpp
 	"DziennikLib.h"
 
-1671749171 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dziennklib_account.cpp
+1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dziennklib_account.cpp
 	"DziennikLib.h"
 
 1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dziennklib_remove.cpp
 	"DziennikLib.h"
 
-1671742102 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
+1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
 	<wx/button.h>
 	<wx/choice.h>
 	<wx/datectrl.h>
@@ -15610,13 +15610,13 @@
 
 1662399371 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\wx\include\wx\msw\rcdefs.h
 
-1671746227 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\accountdatachangeframe.cpp
+1672123983 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\accountdatachangeframe.cpp
 	"AccountDataChangeFrame.h"
 	<wx/msgdlg.h>
 	<wx/intl.h>
 	<wx/string.h>
 
-1671742767 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\accountdatachangeframe.h
+1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\accountdatachangeframe.h
 	<wx/button.h>
 	<wx/dialog.h>
 	<wx/panel.h>
@@ -15624,12 +15624,12 @@
 	<wx/stattext.h>
 	<wx/textctrl.h>
 
-1671743152 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\confirmpasswordframe.cpp
+1672123983 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\confirmpasswordframe.cpp
 	"ConfirmPasswordFrame.h"
 	<wx/intl.h>
 	<wx/string.h>
 
-1671743093 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\confirmpasswordframe.h
+1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\confirmpasswordframe.h
 	<wx/button.h>
 	<wx/frame.h>
 	<wx/panel.h>
@@ -15637,13 +15637,13 @@
 	<wx/stattext.h>
 	<wx/textctrl.h>
 
-1671746305 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\passwordconfirmframe.cpp
+1672123983 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\passwordconfirmframe.cpp
 	"PasswordConfirmFrame.h"
 	<wx/intl.h>
 	<wx/string.h>
 	<wx/msgdlg.h>
 
-1671745782 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\passwordconfirmframe.h
+1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\passwordconfirmframe.h
 	<wx/button.h>
 	<wx/dialog.h>
 	<wx/panel.h>

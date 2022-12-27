@@ -18,7 +18,6 @@ IMPLEMENT_APP(dziennik_guiApp);
 
 bool dziennik_guiApp::OnInit()
 {
-    std::cout<<"initilizaed console for test, needs to be delted late"<<std::endl;
     //(*AppInitialize
     bool wxsOK = true;
     wxInitAllImageHandlers();
