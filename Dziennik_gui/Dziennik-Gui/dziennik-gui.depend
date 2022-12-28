@@ -13237,7 +13237,7 @@
 	<unicode/utf16.h>
 	<math.h>
 
-1671739554 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guiapp.cpp
+1672124648 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guiapp.cpp
 	"dziennik_guiApp.h"
 	<iostream>
 	"dziennik_guiMain.h"
@@ -14812,15 +14812,15 @@
 	<iostream>
 	"DziennikLib.h"
 
-1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_adders.cpp
+1672124626 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_adders.cpp
 	"DziennikLib.h"
 
-1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_callbacks.cpp
+1672124628 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_callbacks.cpp
 	"DziennikLib.h"
 	"user.h"
 	<iostream>
 
-1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_communication.cpp
+1672124420 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_communication.cpp
 	"DziennikLib.h"
 
 1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_constants.cpp
@@ -14829,17 +14829,17 @@
 1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_execute.cpp
 	"DziennikLib.h"
 
-1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_find.cpp
+1672217930 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_find.cpp
 	"DziennikLib.h"
 
-1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_insert.cpp
+1672124501 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_insert.cpp
 	"DziennikLib.h"
 
 1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_manager.cpp
 	"DziennikLib.h"
 	<sqlite3.h>
 
-1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_print.cpp
+1672124561 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_print.cpp
 	"DziennikLib.h"
 	<vector>
 	"student.h"
@@ -14850,7 +14850,7 @@
 1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_tools.cpp
 	"DziennikLib.h"
 
-1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_update.cpp
+1672124590 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_update.cpp
 	"DziennikLib.h"
 
 1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dzienniklib_validators.cpp
@@ -14859,7 +14859,7 @@
 1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dziennklib_account.cpp
 	"DziennikLib.h"
 
-1671739569 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dziennklib_remove.cpp
+1672124623 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_library\dziennik_library\dziennklib_remove.cpp
 	"DziennikLib.h"
 
 1672123983 d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.h
@@ -15559,7 +15559,7 @@
 	"wx/defs.h"
 	"wx/validate.h"
 
-1671749192 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
+1672124302 source:d:\proejcts\dzienk\dzieenik_projekt_cpp2\dziennik_gui\dziennik-gui\dziennik_guimain.cpp
 	"dziennik_guiMain.h"
 	<wx/msgdlg.h>
 	<iostream>

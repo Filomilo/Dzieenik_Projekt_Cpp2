@@ -1104,7 +1104,7 @@ void dziennik_guiFrame::refreshMyGradeList()
             prevSubject=subjectid;
         }
 
-
+        std::cout<<it->getGrade()<<std::endl;
         ListCtrlMyGrades->SetItem(counter++, subjectid, wxString::Format(wxT("%i"),it->getGrade()));
 
     }
@@ -1293,7 +1293,7 @@ void dziennik_guiFrame::fillMyAttendanceGrid()
 
 
         }
-        GridAttendance->SetCellValue(row-1,iter->getLessonNum(),_(iter->getStatusText()));
+        GridAttendance->SetCellValue(row-1,iter->getLessonNum()-1,_(iter->getStatusText()));
 
 
         }}
