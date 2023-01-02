@@ -1073,7 +1073,7 @@ void dziennik_guiFrame::OnDatePickerCtrlStudentBirthdayChanged(wxDateEvent& even
 void dziennik_guiFrame::refreshMyGradeList()
 {
     int maxValue=dziennik->findMaxGradesFromSubjectByStudentId(dziennik->getUserIdInDb());
-    ListCtrlStudents->ClearAll();
+    ListCtrlMyGrades->ClearAll();
     std::vector<subject> subjectList=this->dziennik->findSubjectsAll();
     for(auto it=subjectList.begin(); it!=subjectList.end(); it++)
     {
